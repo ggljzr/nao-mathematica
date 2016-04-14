@@ -1,10 +1,4 @@
-tesseract - OCR
-neni moc na rucne psany pismo,
-daj se rozeznat spis jednodussi vyrazy
-wrapper pro python
-
-ICR -- intelligent character recognition -- spis pro rucne psany pismo
-http://windows.microsoft.com/en-us/windows7/use-math-input-panel-to-write-and-correct-math-equations -- neco takovyhleho by to chtelo na linux s nakym api, primo tohle se da propojit s mathematicou
+#MI-IVS - rozpoznavani textu
 
 asi pouzit ten seshat
 obrazek nak sezvejkat opencv a dostat z nej ty souradnice
@@ -13,11 +7,10 @@ v opencv funkce findContours a pak naky bounding boxes
 http://opencvpython.blogspot.com/2012/06/hi-this-article-is-tutorial-which-try.html
 https://github.com/falvaro/seshat
 
-1. rozpoznat tabuli
-   vyrovnat obraz aby byl kolmo (proste rovne) -- perspective transformation
-   contour tutorial
-   detekce tabule - mozna funkce pro detekci rohu
-   taky funkce pro prevod kontur na polygony
+##rozpoznat tabuli
+vyrovnat obraz aby byl kolmo (proste rovne) -- perspective transformation
+detekce tabule - mozna funkce pro detekci rohu
+taky funkce pro prevod kontur na polygony
 
 pak jednotlivy tahy pak prevyst kontury na polygony
 
