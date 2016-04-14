@@ -1,11 +1,6 @@
 #MI-IVS - rozpoznavani textu
-
-asi pouzit ten seshat
-obrazek nak sezvejkat opencv a dostat z nej ty souradnice
-pak udelat ten inkml soubor
-v opencv funkce findContours a pak naky bounding boxes
-http://opencvpython.blogspot.com/2012/06/hi-this-article-is-tutorial-which-try.html
-https://github.com/falvaro/seshat
+parsovani matematickejch vyrazu z vobrazku
+ve finale urceny pro robota https://www.aldebaran.com/en/cool-robots/nao
 
 ##rozpoznat tabuli
 vyrovnat obraz aby byl kolmo (proste rovne) -- perspective transformation
@@ -19,3 +14,8 @@ tak by se ten vobrazek pak moh nak voriznout podle toho jak je daleko vod steny
 
 este teda to chce ten seshat presunout nekam jinam a tohle dat na github
 at na tom muzu delat ve skole a nekopirovat to vsechno
+
+##sehat
+https://github.com/falvaro/seshat pro rozpoznavani matematickejch vyrazu
+zatim sem zkousel udelat z tech kontur .scgink soubor a ten dat tomu
+seshatu, ten z nej spravne vyrenderuje vobrazek, ale ofc v nem nic nepozna
