@@ -12,9 +12,6 @@ pak jednotlivy tahy pak prevyst kontury na polygony
 este me napadlo ze kdyby mel ten robot nak cidlo vzdalenosti
 tak by se ten vobrazek pak moh nak voriznout podle toho jak je daleko vod steny
 
-este teda to chce ten seshat presunout nekam jinam a tohle dat na github
-at na tom muzu delat ve skole a nekopirovat to vsechno
-
 ##sehat
 https://github.com/falvaro/seshat pro rozpoznavani matematickejch vyrazu
 zatim sem zkousel udelat z tech kontur .scgink soubor a ten dat tomu
