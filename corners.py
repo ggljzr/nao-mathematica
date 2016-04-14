@@ -1,8 +1,17 @@
 
 import cv2
 import numpy as np
+import sys
 
-img = cv2.imread('images/priklad11.png')
+
+image_path = "images/image2.png"
+
+argc = len(sys.argv)
+
+if argc > 1:
+	image_path = str(sys.argv[1])
+
+img = cv2.imread(image_path)
 
 #nejdriv prevedu na grayscale a vykreslim
 #kontury podel hran (canny)
@@ -32,7 +41,7 @@ for rho,theta in lines[0]:
 	cv2.line(gray,(x1,y1),(x2,y2),(255,255,255),2)
 	#ty cary ani rohy pak do toho img nevykreslovat
 	#by zbytecne kazily ten priklad
-	cv2.line(img, (x1, y1), (x2, y2), (0,0,255),2)
+	#cv2.line(img, (x1, y1), (x2, y2), (0,0,255),2)
 
 #v cernobilym vobrazku udelam detekci rohu
 #hledat rohy rovnou v tim edges (udelat akorat canny)
@@ -53,12 +62,6 @@ print top_right
 
 bottom_left = min(corners, key = lambda p: p[0][0] - p[0][1])
 print bottom_left
-
-#zakreselni bodu jen pro nazornost
-for i in top_left, top_right, bottom_left, bottom_right:
-	x,y = i.ravel()
-	cv2.circle(img,(x,y),4,255,-1)
-
 
 #vyrovnam vobrazek ze ctyri body kde byly detekovany rohy
 #budou v rozich vobrazku
@@ -87,13 +90,26 @@ cv2.drawContours(dst,contours,-1,(255,255,255),1)
 #jinak ale to vyhodi nesmysly, jednak protoze tam
 #sou ty = bez druhy strany a jednak sou to proste kontury
 #a ne ty tahy jakoby
-with open('priklad.scgink', 'w') as ink_file:
+img_name = image_path.split('/')[-1:][0].split('.')[0]
+path_scgink = "seshat/SampleMathExps/{}.scgink".format(img_name)
+with open(path_scgink, 'w') as ink_file:
 	ink_file.write("SCG_INK\n")
 	ink_file.write("{}\n".format(len(contours)))
 	for contour in contours:
 		ink_file.write("{}\n".format(len(contour)))
 		for coord in contour:
 			ink_file.write("{} {}\n".format(coord[0][0], coord[0][1]))
+
+#zakreselni bodu jen pro nazornost
+for i in corners:
+	x,y = i.ravel()
+	cv2.circle(img,(x,y),4,80,-1)
+
+for i in top_left, top_right, bottom_left, bottom_right:
+	x,y = i.ravel()
+	cv2.circle(img,(x,y),4,255,-1)
+
+
 
 #jo a taky se mu nelibi kdyz to nevolam z ty slozky seshat ale z ty vo jednu vejs
 #asi kvuli nakejm cestam nebo neco takovyho

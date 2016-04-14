@@ -1,6 +1,7 @@
 import cv2
 import numpy as np
 
+image_path = "images/orig.png"
 
 #picc = (numpy.reshape(numpy.frombuffer(pic[6], dtype = '%iuint8' % pic[2]), (pic[1], pic[0], pic[2])))
 img = cv2.imread("images/orig.png")
@@ -21,7 +22,9 @@ canny_output = cv2.Canny(dst, 40,200)
 contours, hierarchy = cv2.findContours(canny_output,cv2.RETR_TREE,cv2.CHAIN_APPROX_SIMPLE)
 cv2.drawContours(dst,contours,-1,(255,255,255),1)
 
-with open('priklad.scgink', 'w') as ink_file:
+img_name = image_path.split('/')[-1:][0].split('.')[0]
+path_scgink = "seshat/SampleMathExps/{}.scgink".format(img_name)
+with open(path_scgink, 'w') as ink_file:
 	ink_file.write("SCG_INK\n")
 	ink_file.write("{}\n".format(len(contours)))
 	for contour in contours:
