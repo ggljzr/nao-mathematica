@@ -1,3 +1,6 @@
+#https://stackoverflow.com/questions/23506105/extracting-text-opencv
+#modified answer 3
+
 import utils
 import cv2
 import sys
