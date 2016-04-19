@@ -1,0 +1,1577 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+A	seshat/production.h	/^  int A, B;$/;"	m	class:ProductionB
+ALProxy	pokusy_py/countour_pokus.py	/^from naoqi import ALProxy$/;"	i
+ALProxy	pokusy_py/nao_pokus.py	/^from naoqi import ALProxy$/;"	i
+B	seshat/production.h	/^  int A, B;$/;"	m	class:ProductionB
+BLSTMclassification	seshat/symrec.cc	/^void SymRec::BLSTMclassification( Mdrnn *net, DataSequence *seq, pair<float,int> *claspr, const int NB ) {$/;"	f	class:SymRec
+BMISLCI	seshat/rnnlib4seshat/Helpers.hpp	/^typedef bimap<int, string>::left_const_iterator BMISLCI;$/;"	t
+BMISR	seshat/rnnlib4seshat/Helpers.hpp	/^typedef bimap<int, string>::relation BMISR;$/;"	t
+BMISRCI	seshat/rnnlib4seshat/Helpers.hpp	/^typedef bimap<int, string>::right_const_iterator BMISRCI;$/;"	t
+BaseGenType	seshat/rnnlib4seshat/Random.cpp	/^typedef mt19937 BaseGenType;$/;"	t	file:
+BiasLayer	seshat/rnnlib4seshat/BiasLayer.hpp	/^  BiasLayer(WeightContainer *wc, DataExportHandler *deh) :$/;"	f	struct:BiasLayer
+BiasLayer	seshat/rnnlib4seshat/BiasLayer.hpp	/^struct BiasLayer: public Layer {$/;"	s
+BinaryClassificationLayer	seshat/rnnlib4seshat/ClassificationLayer.hpp	/^  BinaryClassificationLayer(ostream& out, const string& name, size_t numSeqDims, const vector<string>& labels, WeightContainer *weight, DataExportHandler *deh):$/;"	f	struct:BinaryClassificationLayer
+BinaryClassificationLayer	seshat/rnnlib4seshat/ClassificationLayer.hpp	/^struct BinaryClassificationLayer: public ClassificationLayer, public NeuronLayer<Logistic>$/;"	s
+BlockLayer	seshat/rnnlib4seshat/BlockLayer.hpp	/^  BlockLayer(Layer* src, const vector<size_t>& blockshape, WeightContainer *weight, DataExportHandler *deh):$/;"	f	struct:BlockLayer
+BlockLayer	seshat/rnnlib4seshat/BlockLayer.hpp	/^struct BlockLayer: public Layer {$/;"	s
+C	seshat/gmm.h	/^  int C, D, G;$/;"	m	class:GMM
+C	seshat/symrec.h	/^  int C; \/\/Number of classes$/;"	m	class:SymRec
+CC	seshat/Makefile	/^CC=g++$/;"	m
+CHECK_STRICT	seshat/rnnlib4seshat/Helpers.hpp	192;"	d
+COD	seshat/rnnlib4seshat/Helpers.hpp	85;"	d
+CONN_IT	seshat/rnnlib4seshat/Mdrnn.hpp	/^typedef multimap<const Layer*, Connection*>::iterator CONN_IT;$/;"	t
+CONST_CONN_IT	seshat/rnnlib4seshat/Mdrnn.hpp	/^typedef multimap<const Layer*, Connection*>::const_iterator CONST_CONN_IT;$/;"	t
+CONST_EXPORT_IT	seshat/rnnlib4seshat/DataExporter.hpp	/^typedef map<string, DataExporter*>::const_iterator CONST_EXPORT_IT;$/;"	t
+CONST_LAYER_IT	seshat/rnnlib4seshat/Mdrnn.hpp	/^typedef vector<Layer*>::const_iterator CONST_LAYER_IT;$/;"	t
+CONST_SEQ_IT	seshat/rnnlib4seshat/NetcdfDataset.hpp	54;"	d
+CONST_VAL_IT	seshat/rnnlib4seshat/DataExporter.hpp	/^typedef map<string, Val*>::const_iterator CONST_VAL_IT;$/;"	t
+COUT	seshat/rnnlib4seshat/Helpers.hpp	/^static ostream& COUT = cout;$/;"	v
+CVI	seshat/rnnlib4seshat/SeqBuffer.hpp	91;"	d
+CellCYK	seshat/cellcyk.cc	/^CellCYK::CellCYK(int n, int ncc) {$/;"	f	class:CellCYK
+CellCYK	seshat/cellcyk.h	/^struct CellCYK{$/;"	s
+ClassificationLayer	seshat/rnnlib4seshat/ClassificationLayer.hpp	/^	ClassificationLayer(ostream& o, const vector<string>& labs):$/;"	f	struct:ClassificationLayer
+ClassificationLayer	seshat/rnnlib4seshat/ClassificationLayer.hpp	/^struct ClassificationLayer: public NetworkOutput$/;"	s
+CollapseLayer	seshat/rnnlib4seshat/CollapseLayer.hpp	/^  CollapseLayer(Layer* src, Layer* des, WeightContainer *weight, DataExportHandler *deh, const vector<bool>& activDims = empty_list_of<bool>()):$/;"	f	struct:CollapseLayer
+CollapseLayer	seshat/rnnlib4seshat/CollapseLayer.hpp	/^struct CollapseLayer: public Layer$/;"	s
+ConfigFile	seshat/rnnlib4seshat/ConfigFile.hpp	/^  ConfigFile(const string& fname, char readLineChar = '_'): filename(fname) {$/;"	f	struct:ConfigFile
+ConfigFile	seshat/rnnlib4seshat/ConfigFile.hpp	/^struct ConfigFile {$/;"	s
+Connection	seshat/rnnlib4seshat/Connection.hpp	/^	Connection(const string& name, Layer* f, Layer* t):$/;"	f	struct:Connection
+Connection	seshat/rnnlib4seshat/Connection.hpp	/^struct Connection: public Named$/;"	s
+CoordIterator	seshat/rnnlib4seshat/SeqBuffer.hpp	/^  CoordIterator($/;"	f	struct:CoordIterator
+CoordIterator	seshat/rnnlib4seshat/SeqBuffer.hpp	/^template <class R> struct CoordIterator {$/;"	s
+CopyConnection	seshat/rnnlib4seshat/CopyConnection.hpp	/^  CopyConnection(Layer* f, Layer* t, WeightContainer *weight):$/;"	f	struct:CopyConnection
+CopyConnection	seshat/rnnlib4seshat/CopyConnection.hpp	/^struct CopyConnection: public Connection$/;"	s
+D	seshat/gmm.h	/^  int C, D, G;$/;"	m	class:GMM
+DEH	seshat/rnnlib4seshat/Mdrnn.hpp	/^  DataExportHandler *DEH;$/;"	m	struct:Mdrnn
+DISPLAY	seshat/rnnlib4seshat/DataExporter.hpp	57;"	d
+DO	seshat/rnnlib4seshat/Helpers.hpp	82;"	d
+DOC	seshat/rnnlib4seshat/Helpers.hpp	83;"	d
+DataExportHandler	seshat/rnnlib4seshat/DataExporter.hpp	/^struct DataExportHandler {$/;"	s
+DataExporter	seshat/rnnlib4seshat/DataExporter.hpp	/^  explicit DataExporter(const string& name, DataExportHandler *DEH): Named(name) {$/;"	f	struct:DataExporter
+DataExporter	seshat/rnnlib4seshat/DataExporter.hpp	/^struct DataExporter: public Named {$/;"	s
+DataHeader	seshat/rnnlib4seshat/NetcdfDataset.hpp	/^  DataHeader(): outputSize(0),$/;"	f	struct:DataHeader
+DataHeader	seshat/rnnlib4seshat/NetcdfDataset.hpp	/^struct DataHeader$/;"	s
+DataSequence	seshat/rnnlib4seshat/DataSequence.hpp	/^	DataSequence(const DataSequence& ds):$/;"	f	struct:DataSequence
+DataSequence	seshat/rnnlib4seshat/DataSequence.hpp	/^	DataSequence(size_t inputDepth = 0, size_t targetPattDepth = 0):$/;"	f	struct:DataSequence
+DataSequence	seshat/rnnlib4seshat/DataSequence.hpp	/^struct DataSequence$/;"	s
+DurationModel	seshat/duration.cc	/^DurationModel::DurationModel(char *str, int mxs, SymRec *sr) {$/;"	f	class:DurationModel
+DurationModel	seshat/duration.h	/^class DurationModel{$/;"	c
+ERR	seshat/rnnlib4seshat/NetworkOutput.hpp	24;"	d
+EXPORT_IT	seshat/rnnlib4seshat/DataExporter.hpp	/^typedef map<string, DataExporter*>::iterator EXPORT_IT;$/;"	t
+FEAS	seshat/symrec.h	/^  SymFeatures *FEAS;$/;"	m	class:SymRec
+FEATURES_H	seshat/featureson.h	39;"	d
+FLAGS	seshat/Makefile	/^FLAGS = -O3 -Wno-unused-result #-I\/usr\/lib64$/;"	m
+FOR	seshat/rnnlib4seshat/Helpers.hpp	90;"	d
+FROM	seshat/rnnlib4seshat/Helpers.hpp	88;"	d
+F_XMAX	seshat/online.cc	/^int stroke::F_XMAX() {$/;"	f	class:stroke
+F_XMED	seshat/online.cc	/^int stroke::F_XMED() {$/;"	f	class:stroke
+F_XMIN	seshat/online.cc	/^int stroke::F_XMIN() {$/;"	f	class:stroke
+FlatLayer	seshat/rnnlib4seshat/Layer.hpp	/^  FlatLayer($/;"	f	struct:FlatLayer
+FlatLayer	seshat/rnnlib4seshat/Layer.hpp	/^  FlatLayer(const string& name, size_t numSeqDims, size_t size, WeightContainer *weight, DataExportHandler *deh, Layer* src = 0):$/;"	f	struct:FlatLayer
+FlatLayer	seshat/rnnlib4seshat/Layer.hpp	/^struct FlatLayer: public Layer {$/;"	s
+FullConnection	seshat/rnnlib4seshat/FullConnection.hpp	/^  FullConnection(Layer* f, Layer* t, WeightContainer *weight, const vector<int>& d = empty_list_of<int>(), FullConnection* s = 0):$/;"	f	struct:FullConnection
+FullConnection	seshat/rnnlib4seshat/FullConnection.hpp	/^struct FullConnection: public Connection$/;"	s
+G	seshat/gmm.h	/^  int C, D, G;$/;"	m	class:GMM
+G	seshat/meparser.h	/^  Grammar *G;$/;"	m	class:meParser
+GMM	seshat/gmm.cc	/^GMM::GMM( char *model ) {$/;"	f	class:GMM
+GMM	seshat/gmm.h	/^class GMM{$/;"	c
+GatherLayer	seshat/rnnlib4seshat/GatherLayer.hpp	/^  GatherLayer(const string& name, vector<Layer*>& srcs, WeightContainer *weight, DataExportHandler *deh):$/;"	f	struct:GatherLayer
+GatherLayer	seshat/rnnlib4seshat/GatherLayer.hpp	/^struct GatherLayer: public Layer$/;"	s
+Grammar	seshat/grammar.cc	/^Grammar::Grammar(char *path, SymRec *sr) {$/;"	f	class:Grammar
+Grammar	seshat/grammar.h	/^struct Grammar{$/;"	s
+Hypothesis	seshat/hypothesis.cc	/^Hypothesis::Hypothesis(int c, double p, CellCYK *cd, int nt) {$/;"	f	class:Hypothesis
+Hypothesis	seshat/hypothesis.h	/^struct Hypothesis{$/;"	s
+IMGxMAX	seshat/sample.h	/^  int IMGxMIN, IMGyMIN, IMGxMAX, IMGyMAX;$/;"	m	class:Sample
+IMGxMIN	seshat/sample.h	/^  int IMGxMIN, IMGyMIN, IMGxMAX, IMGyMAX;$/;"	m	class:Sample
+IMGyMAX	seshat/sample.h	/^  int IMGxMIN, IMGyMIN, IMGxMAX, IMGyMAX;$/;"	m	class:Sample
+IMGyMIN	seshat/sample.h	/^  int IMGxMIN, IMGyMIN, IMGxMAX, IMGyMAX;$/;"	m	class:Sample
+INF_DIST	seshat/sample.h	/^  float INF_DIST;  \/\/Infinite distance value (visibility)$/;"	m	class:Sample
+Identity	seshat/rnnlib4seshat/ActivationFunctions.hpp	/^struct Identity {$/;"	s
+IdentityLayer	seshat/rnnlib4seshat/IdentityLayer.hpp	/^  IdentityLayer(const string& name, const vector<int>& directions, size_t size, WeightContainer *weight, DataExportHandler *deh):$/;"	f	struct:IdentityLayer
+IdentityLayer	seshat/rnnlib4seshat/IdentityLayer.hpp	/^  IdentityLayer(const string& name, size_t numSeqDims, size_t size, WeightContainer *weight, DataExportHandler *deh):$/;"	f	struct:IdentityLayer
+IdentityLayer	seshat/rnnlib4seshat/IdentityLayer.hpp	/^struct IdentityLayer: public FlatLayer$/;"	s
+InputLayer	seshat/rnnlib4seshat/InputLayer.hpp	/^  InputLayer(const string& name, size_t numSeqDims, size_t size, const vector<string>& inputLabels, WeightContainer *weight, DataExportHandler *deh):$/;"	f	struct:InputLayer
+InputLayer	seshat/rnnlib4seshat/InputLayer.hpp	/^struct InputLayer: public Layer$/;"	s
+InsPen	seshat/meparser.h	/^  float qfactor, dfactor, gfactor, InsPen;$/;"	m	class:meParser
+K	seshat/tablecyk.h	/^  int N, K;$/;"	m	class:TableCYK
+KL_normal	seshat/rnnlib4seshat/Helpers.hpp	/^static real_t KL_normal(real_t pMean, real_t pVar, real_t qMean, real_t qVar) {$/;"	f
+LAYER_IT	seshat/rnnlib4seshat/Mdrnn.hpp	/^typedef vector<Layer*>::iterator LAYER_IT;$/;"	t
+LEVEL_IT	seshat/rnnlib4seshat/Mdrnn.hpp	/^typedef vector<vector<Layer*> >::iterator LEVEL_IT;$/;"	t
+LINK	seshat/Makefile	/^LINK=-lxerces-c -lm$/;"	m
+LOOP	seshat/rnnlib4seshat/Helpers.hpp	80;"	d
+LOOP_BACK	seshat/rnnlib4seshat/Helpers.hpp	81;"	d
+Layer	seshat/rnnlib4seshat/Layer.hpp	/^  Layer($/;"	f	struct:Layer
+Layer	seshat/rnnlib4seshat/Layer.hpp	/^struct Layer: public DataExporter {$/;"	s
+Log	seshat/rnnlib4seshat/Log.hpp	/^  Log(T v = 0, bool logScale = false):$/;"	f	class:Log
+Log	seshat/rnnlib4seshat/Log.hpp	/^template<class T> class Log$/;"	c
+LogSpace	seshat/logspace.cc	/^LogSpace::LogSpace(CellCYK *c, int nr, int dx, int dy) {$/;"	f	class:LogSpace
+LogSpace	seshat/logspace.h	/^class LogSpace{$/;"	c
+Logistic	seshat/rnnlib4seshat/ActivationFunctions.hpp	/^struct Logistic {$/;"	s
+LstmLayer	seshat/rnnlib4seshat/LstmLayer.hpp	/^  LstmLayer($/;"	f	struct:LstmLayer
+LstmLayer	seshat/rnnlib4seshat/LstmLayer.hpp	/^template <class CI, class CO, class G> struct LstmLayer: public Layer {$/;"	s
+M	corners.py	/^M = cv2.getPerspectiveTransform(pts1,pts2)$/;"	v
+M	hardcoded.py	/^M = cv2.getPerspectiveTransform(pts1,pts2)$/;"	v
+M	sudoku.py	/^    M = cv2.getPerspectiveTransform(pts1, pts2)$/;"	v
+MAX	seshat/online.cc	/^inline int MAX(int a, int b) {$/;"	f
+MAXNUMHATS	seshat/featureson.h	48;"	d
+MAXS	seshat/seshat.cc	26;"	d	file:
+MCSPDICI	seshat/rnnlib4seshat/Helpers.hpp	/^typedef map <string, pair<real_t, int> >::const_iterator MCSPDICI;$/;"	t
+MCSPDII	seshat/rnnlib4seshat/Helpers.hpp	/^typedef map <string, pair<real_t, int> >::iterator MCSPDII;$/;"	t
+MIICI	seshat/rnnlib4seshat/Helpers.hpp	/^typedef map<int, int>::const_iterator MIICI;$/;"	t
+MIII	seshat/rnnlib4seshat/Helpers.hpp	/^typedef map<int, int>::iterator MIII;$/;"	t
+MIN	seshat/online.cc	/^inline int MIN(int a, int b) {$/;"	f
+MIN_SPR_PR	seshat/grammar.cc	35;"	d	file:
+MORF	seshat/rnnlib4seshat/Helpers.hpp	89;"	d
+MSDCI	seshat/rnnlib4seshat/Helpers.hpp	/^typedef map<string, real_t>::const_iterator MSDCI;$/;"	t
+MSDI	seshat/rnnlib4seshat/Helpers.hpp	/^typedef map<string, real_t>::iterator MSDI;$/;"	t
+MSICI	seshat/rnnlib4seshat/Helpers.hpp	/^typedef map<string, int>::const_iterator MSICI;$/;"	t
+MSII	seshat/rnnlib4seshat/Helpers.hpp	/^typedef map<string, int>::iterator MSII;$/;"	t
+MSPIDCI	seshat/rnnlib4seshat/Helpers.hpp	/^typedef map<string, pair<int,real_t> >::const_iterator MSPIDCI;$/;"	t
+MSPIDI	seshat/rnnlib4seshat/Helpers.hpp	/^typedef map<string, pair<int,real_t> >::iterator MSPIDI;$/;"	t
+MSSCI	seshat/rnnlib4seshat/Helpers.hpp	/^typedef map<string, string>::const_iterator MSSCI;$/;"	t
+MSSI	seshat/rnnlib4seshat/Helpers.hpp	/^typedef map<string, string>::iterator MSSI;$/;"	t
+Max2min0	seshat/rnnlib4seshat/ActivationFunctions.hpp	/^struct Max2min0 {$/;"	s
+Maxmin1	seshat/rnnlib4seshat/ActivationFunctions.hpp	/^struct Maxmin1 {$/;"	s
+Maxmin2	seshat/rnnlib4seshat/ActivationFunctions.hpp	/^struct Maxmin2 {$/;"	s
+Mdrnn	seshat/rnnlib4seshat/Mdrnn.hpp	/^  Mdrnn(ostream& o, ConfigFile& conf, const DataHeader& data, WeightContainer *weight, DataExportHandler *deh):$/;"	f	struct:Mdrnn
+Mdrnn	seshat/rnnlib4seshat/Mdrnn.hpp	/^struct Mdrnn {$/;"	s
+MultiArray	seshat/rnnlib4seshat/MultiArray.hpp	/^  MultiArray() { }$/;"	f	struct:MultiArray
+MultiArray	seshat/rnnlib4seshat/MultiArray.hpp	/^  MultiArray(const vector<size_t>& s) {$/;"	f	struct:MultiArray
+MultiArray	seshat/rnnlib4seshat/MultiArray.hpp	/^  MultiArray(const vector<size_t>& s, const T& fillval) {$/;"	f	struct:MultiArray
+MultiArray	seshat/rnnlib4seshat/MultiArray.hpp	/^template <class T> struct MultiArray {$/;"	s
+MulticlassClassificationLayer	seshat/rnnlib4seshat/ClassificationLayer.hpp	/^  MulticlassClassificationLayer(ostream& out, const string& name, size_t numSeqDims, const vector<string>& labels, WeightContainer *wc, DataExportHandler *deh):$/;"	f	struct:MulticlassClassificationLayer
+MulticlassClassificationLayer	seshat/rnnlib4seshat/ClassificationLayer.hpp	/^struct MulticlassClassificationLayer: public ClassificationLayer, public SoftmaxLayer$/;"	s
+MultilayerNet	seshat/rnnlib4seshat/MultilayerNet.hpp	/^  MultilayerNet(ostream& out, ConfigFile& conf, const DataHeader& data, WeightContainer *weight, DataExportHandler *deh):$/;"	f	struct:MultilayerNet
+MultilayerNet	seshat/rnnlib4seshat/MultilayerNet.hpp	/^struct MultilayerNet: public Mdrnn {$/;"	s
+N	seshat/logspace.h	/^  int N;$/;"	m	class:LogSpace
+N	seshat/production.h	/^  int N;$/;"	m	class:ProductionT
+N	seshat/tablecyk.h	/^  int N, K;$/;"	m	class:TableCYK
+NB	seshat/meparser.cc	21;"	d	file:
+NFEAT	seshat/sparel.h	/^  static const int NFEAT = 9;$/;"	m	class:SpaRel
+NORMF	seshat/sample.h	/^  float NORMF;     \/\/Normalization factor for distances$/;"	m	class:Sample
+NP	seshat/stroke.h	/^  int NP;$/;"	m	class:Stroke
+NRELS	seshat/sparel.h	/^  static const int NRELS = 6;$/;"	m	class:SpaRel
+Named	seshat/rnnlib4seshat/Named.hpp	/^  Named(const string & n): name(n) {}$/;"	f	struct:Named
+Named	seshat/rnnlib4seshat/Named.hpp	/^struct Named {$/;"	s
+NetworkOutput	seshat/rnnlib4seshat/NetworkOutput.hpp	/^	NetworkOutput(){}$/;"	f	struct:NetworkOutput
+NetworkOutput	seshat/rnnlib4seshat/NetworkOutput.hpp	/^struct NetworkOutput$/;"	s
+NeuronLayer	seshat/rnnlib4seshat/NeuronLayer.hpp	/^  NeuronLayer(const string& name, const vector<int>& directions, size_t size, WeightContainer *weight, DataExportHandler *deh):$/;"	f	struct:NeuronLayer
+NeuronLayer	seshat/rnnlib4seshat/NeuronLayer.hpp	/^  NeuronLayer(const string& name, size_t numDims, size_t size, WeightContainer *weight, DataExportHandler *deh):$/;"	f	struct:NeuronLayer
+NeuronLayer	seshat/rnnlib4seshat/NeuronLayer.hpp	/^template <class F> struct NeuronLayer: public FlatLayer$/;"	s
+Nsyms	seshat/duration.h	/^  int Nsyms;$/;"	m	class:DurationModel
+OBJFEAS	seshat/Makefile	/^OBJFEAS=symfeatures.o featureson.o online.o$/;"	m
+OBJMUESTRA	seshat/Makefile	/^OBJMUESTRA=sample.o stroke.o$/;"	m
+OBJPARSE	seshat/Makefile	/^OBJPARSE=seshat.o meparser.o gparser.o grammar.o production.o symrec.o duration.o segmentation.o sparel.o gmm.o$/;"	m
+OBJRNNLIB	seshat/Makefile	/^OBJRNNLIB=Random.o DataExporter.o WeightContainer.o ClassificationLayer.o Layer.o Mdrnn.o Optimiser.o$/;"	m
+OBJS	seshat/Makefile	/^OBJS=$(OBJFEAS) $(OBJMUESTRA) $(OBJPARSE) $(OBJTABLA) $(OBJRNNLIB)$/;"	m
+OBJTABLA	seshat/Makefile	/^OBJTABLA=tablecyk.o cellcyk.o hypothesis.o logspace.o$/;"	m
+OD	seshat/rnnlib4seshat/Helpers.hpp	84;"	d
+OFFSET_INS	seshat/featureson.h	49;"	d
+OFF_FEAT	seshat/symfeatures.h	/^  static const int OFF_FEAT = 9;$/;"	m	class:SymFeatures
+ONLINE_H	seshat/online.h	39;"	d
+ON_FEAT	seshat/symfeatures.h	/^  static const int  ON_FEAT = 7;$/;"	m	class:SymFeatures
+OP_TRACKING	seshat/rnnlib4seshat/Matrix.hpp	21;"	d
+Optimiser	seshat/rnnlib4seshat/Optimiser.hpp	/^  Optimiser(vector<real_t>& weights, vector<real_t>& derivatives):$/;"	f	struct:Optimiser
+Optimiser	seshat/rnnlib4seshat/Optimiser.hpp	/^struct Optimiser {$/;"	s
+PCSD	seshat/rnnlib4seshat/Helpers.hpp	/^typedef pair<const string, real_t> PCSD;$/;"	t
+PEEPS	seshat/rnnlib4seshat/LstmLayer.hpp	46;"	d
+PENALTY	seshat/production.cc	27;"	d	file:
+PI	seshat/gmm.cc	24;"	d	file:
+PI	seshat/sample.cc	44;"	d	file:
+PII	seshat/rnnlib4seshat/Helpers.hpp	/^typedef pair<int, int> PII;$/;"	t
+PIS	seshat/rnnlib4seshat/Helpers.hpp	/^typedef pair<int, string> PIS;$/;"	t
+PLC	seshat/rnnlib4seshat/Mdrnn.hpp	/^typedef pair<const Layer*, Connection*> PLC;$/;"	t
+PRINT	seshat/rnnlib4seshat/Helpers.hpp	178;"	d
+PRINTN	seshat/rnnlib4seshat/Helpers.hpp	179;"	d
+PRINTR	seshat/rnnlib4seshat/Helpers.hpp	184;"	d
+PRT	seshat/rnnlib4seshat/Helpers.hpp	182;"	d
+PRTN	seshat/rnnlib4seshat/Helpers.hpp	183;"	d
+PRTR	seshat/rnnlib4seshat/Helpers.hpp	186;"	d
+PSD	seshat/rnnlib4seshat/Helpers.hpp	/^typedef pair<string, real_t> PSD;$/;"	t
+PSI	seshat/rnnlib4seshat/Helpers.hpp	/^typedef pair<string, int> PSI;$/;"	t
+PSOLAP	seshat/production.cc	26;"	d	file:
+PSPDE	seshat/rnnlib4seshat/DataExporter.hpp	/^typedef pair<const string, DataExporter*> PSPDE;$/;"	t
+PSPV	seshat/rnnlib4seshat/DataExporter.hpp	/^typedef pair<const string, Val*> PSPV;$/;"	t
+PSS	seshat/rnnlib4seshat/Helpers.hpp	/^typedef pair<string, string> PSS;$/;"	t
+ParamVal	seshat/rnnlib4seshat/DataExporter.hpp	/^  explicit ParamVal(T& p): param(p) {}$/;"	f	struct:ParamVal
+ParamVal	seshat/rnnlib4seshat/DataExporter.hpp	/^template <typename T> struct ParamVal: public Val {$/;"	s
+Point	seshat/online.h	/^ Point(int _x, int _y): x(_x), y(_y), point_pu(false) {}$/;"	f	class:Point
+Point	seshat/online.h	/^class Point {$/;"	c
+PointR	seshat/online.h	/^ PointR(float _x, float _y): x(_x), y(_y), point_pu(false) {}$/;"	f	class:PointR
+PointR	seshat/online.h	/^class PointR {$/;"	c
+ProductionB	seshat/production.cc	/^ProductionB::ProductionB(int s, int a, int b) {$/;"	f	class:ProductionB
+ProductionB	seshat/production.cc	/^ProductionB::ProductionB(int s, int a, int b, float pr, char *out) {$/;"	f	class:ProductionB
+ProductionB	seshat/production.h	/^class ProductionB{$/;"	c
+ProductionH	seshat/production.cc	/^ProductionH::ProductionH(int s, int a, int b)$/;"	f	class:ProductionH
+ProductionH	seshat/production.cc	/^ProductionH::ProductionH(int s, int a, int b, float pr, char *out)$/;"	f	class:ProductionH
+ProductionH	seshat/production.h	/^class ProductionH : public ProductionB{$/;"	c
+ProductionIns	seshat/production.cc	/^ProductionIns::ProductionIns(int s, int a, int b)$/;"	f	class:ProductionIns
+ProductionIns	seshat/production.cc	/^ProductionIns::ProductionIns(int s, int a, int b, float pr, char *out)$/;"	f	class:ProductionIns
+ProductionIns	seshat/production.h	/^class ProductionIns : public ProductionB{$/;"	c
+ProductionMrt	seshat/production.cc	/^ProductionMrt::ProductionMrt(int s, int a, int b)$/;"	f	class:ProductionMrt
+ProductionMrt	seshat/production.cc	/^ProductionMrt::ProductionMrt(int s, int a, int b, float pr, char *out)$/;"	f	class:ProductionMrt
+ProductionMrt	seshat/production.h	/^class ProductionMrt : public ProductionB{$/;"	c
+ProductionSSE	seshat/production.cc	/^ProductionSSE::ProductionSSE(int s, int a, int b)$/;"	f	class:ProductionSSE
+ProductionSSE	seshat/production.cc	/^ProductionSSE::ProductionSSE(int s, int a, int b, float pr, char *out)$/;"	f	class:ProductionSSE
+ProductionSSE	seshat/production.h	/^class ProductionSSE : public ProductionB{$/;"	c
+ProductionSub	seshat/production.cc	/^ProductionSub::ProductionSub(int s, int a, int b)$/;"	f	class:ProductionSub
+ProductionSub	seshat/production.cc	/^ProductionSub::ProductionSub(int s, int a, int b, float pr, char *out)$/;"	f	class:ProductionSub
+ProductionSub	seshat/production.h	/^class ProductionSub : public ProductionB{$/;"	c
+ProductionSup	seshat/production.cc	/^ProductionSup::ProductionSup(int s, int a, int b)$/;"	f	class:ProductionSup
+ProductionSup	seshat/production.cc	/^ProductionSup::ProductionSup(int s, int a, int b, float pr, char *out)$/;"	f	class:ProductionSup
+ProductionSup	seshat/production.h	/^class ProductionSup : public ProductionB{$/;"	c
+ProductionT	seshat/production.cc	/^ProductionT::ProductionT(int s, int nclases) {$/;"	f	class:ProductionT
+ProductionT	seshat/production.h	/^class ProductionT{$/;"	c
+ProductionU	seshat/production.h	/^class ProductionU : public ProductionB{$/;"	c
+ProductionV	seshat/production.cc	/^ProductionV::ProductionV(int s, int a, int b)$/;"	f	class:ProductionV
+ProductionV	seshat/production.cc	/^ProductionV::ProductionV(int s, int a, int b, float pr, char *out)$/;"	f	class:ProductionV
+ProductionV	seshat/production.h	/^class ProductionV : public ProductionB{$/;"	c
+ProductionVe	seshat/production.cc	/^ProductionVe::ProductionVe(int s, int a, int b)$/;"	f	class:ProductionVe
+ProductionVe	seshat/production.cc	/^ProductionVe::ProductionVe(int s, int a, int b, float pr, char *out)$/;"	f	class:ProductionVe
+ProductionVe	seshat/production.h	/^class ProductionVe : public ProductionB{$/;"	c
+Punto	seshat/stroke.h	/^  Punto() {}$/;"	f	struct:Punto
+Punto	seshat/stroke.h	/^  Punto(float vx, float vy) {$/;"	f	struct:Punto
+Punto	seshat/stroke.h	/^struct Punto{$/;"	s
+REPEAT	seshat/rnnlib4seshat/Helpers.hpp	87;"	d
+REVERSE_LAYER_IT	seshat/rnnlib4seshat/Mdrnn.hpp	/^typedef vector<Layer*>::reverse_iterator REVERSE_LAYER_IT;$/;"	t
+RNNLIBHEADERS	seshat/Makefile	/^RNNLIBHEADERS=rnnlib4seshat\/DataSequence.hpp rnnlib4seshat\/NetcdfDataset.hpp rnnlib4seshat\/Mdrnn.hpp rnnlib4seshat\/MultilayerNet.hpp rnnlib4seshat\/Rprop.hpp rnnlib4seshat\/SteepestDescent.hpp rnnlib4seshat\/Trainer.hpp rnnlib4seshat\/WeightContainer.hpp$/;"	m
+RNNalpha	seshat/symrec.h	/^  float RNNalpha;$/;"	m	class:SymRec
+ROF	seshat/rnnlib4seshat/Helpers.hpp	91;"	d
+RX	seshat/logspace.h	/^  int RX, RY;$/;"	m	class:LogSpace
+RX	seshat/sample.h	/^  int RX, RY;$/;"	m	class:Sample
+RY	seshat/logspace.h	/^  int RX, RY;$/;"	m	class:LogSpace
+RY	seshat/sample.h	/^  int RX, RY;$/;"	m	class:Sample
+Random	seshat/rnnlib4seshat/Random.hpp	/^namespace Random$/;"	n
+RangeVal	seshat/rnnlib4seshat/DataExporter.hpp	/^  explicit RangeVal(const R& r) : range(r) {}$/;"	f	struct:RangeVal
+RangeVal	seshat/rnnlib4seshat/DataExporter.hpp	/^template <typename R> struct RangeVal: public Val {$/;"	s
+Rprop	seshat/rnnlib4seshat/Rprop.hpp	/^  Rprop($/;"	f	struct:Rprop
+Rprop	seshat/rnnlib4seshat/Rprop.hpp	/^struct Rprop: public DataExporter, public Optimiser {$/;"	s
+S	seshat/production.h	/^  int S;$/;"	m	class:ProductionB
+S	seshat/production.h	/^  int S;$/;"	m	class:ProductionT
+SAVE	seshat/rnnlib4seshat/DataExporter.hpp	56;"	d
+SCI	seshat/rnnlib4seshat/Helpers.hpp	/^typedef string::const_iterator SCI;$/;"	t
+SEQ_IT	seshat/rnnlib4seshat/NetcdfDataset.hpp	53;"	d
+SI	seshat/rnnlib4seshat/Helpers.hpp	/^typedef string::iterator SI;$/;"	t
+SIZE	seshat/gparser.cc	22;"	d	file:
+SR	seshat/sample.h	/^  SymRec *SR;$/;"	m	class:Sample
+Sample	seshat/sample.cc	/^Sample::Sample(char *in) {$/;"	f	class:Sample
+Sample	seshat/sample.h	/^class Sample{$/;"	c
+SegmentHyp	seshat/sample.h	/^struct SegmentHyp{$/;"	s
+SegmentationModelGMM	seshat/segmentation.cc	/^SegmentationModelGMM::SegmentationModelGMM(char *mod) {$/;"	f	class:SegmentationModelGMM
+SegmentationModelGMM	seshat/segmentation.h	/^class SegmentationModelGMM{$/;"	c
+SeqBuffer	seshat/rnnlib4seshat/SeqBuffer.hpp	/^  SeqBuffer(const SeqBuffer& sb) {$/;"	f	struct:SeqBuffer
+SeqBuffer	seshat/rnnlib4seshat/SeqBuffer.hpp	/^  SeqBuffer(const vector<size_t>& shape, size_t dep): depth(dep) {$/;"	f	struct:SeqBuffer
+SeqBuffer	seshat/rnnlib4seshat/SeqBuffer.hpp	/^  explicit SeqBuffer(size_t dep = 0): depth(dep) {$/;"	f	struct:SeqBuffer
+SeqBuffer	seshat/rnnlib4seshat/SeqBuffer.hpp	/^template <class T> struct SeqBuffer: public MultiArray<T> {$/;"	s
+SeqBufferVal	seshat/rnnlib4seshat/DataExporter.hpp	/^  SeqBufferVal(const SeqBuffer<T>& a, const vector<string>* labs = 0):$/;"	f	struct:SeqBufferVal
+SeqBufferVal	seshat/rnnlib4seshat/DataExporter.hpp	/^template <typename T> struct SeqBufferVal: public Val {$/;"	s
+SeqIterator	seshat/rnnlib4seshat/SeqBuffer.hpp	92;"	d
+Set	seshat/rnnlib4seshat/Container.hpp	/^  Set() {}$/;"	f	struct:Set
+Set	seshat/rnnlib4seshat/Container.hpp	/^  Set(const View<T>& v) {$/;"	f	struct:Set
+Set	seshat/rnnlib4seshat/Container.hpp	/^  Set(const vector<T>& v) {$/;"	f	struct:Set
+Set	seshat/rnnlib4seshat/Container.hpp	/^template<class T> struct Set: public set<T> {$/;"	s
+SoftmaxLayer	seshat/rnnlib4seshat/SoftmaxLayer.hpp	/^  SoftmaxLayer(const string& name, size_t numSeqDims, const vector<string>& labs, WeightContainer *wc, DataExportHandler *deh):$/;"	f	struct:SoftmaxLayer
+SoftmaxLayer	seshat/rnnlib4seshat/SoftmaxLayer.hpp	/^struct SoftmaxLayer: public FlatLayer{$/;"	s
+Softsign	seshat/rnnlib4seshat/ActivationFunctions.hpp	/^struct Softsign {$/;"	s
+SpaRel	seshat/sparel.cc	/^SpaRel::SpaRel(GMM *gmm, Sample *m) {$/;"	f	class:SpaRel
+SpaRel	seshat/sparel.h	/^class SpaRel{$/;"	c
+SteepestDescent	seshat/rnnlib4seshat/SteepestDescent.hpp	/^  SteepestDescent($/;"	f	struct:SteepestDescent
+SteepestDescent	seshat/rnnlib4seshat/SteepestDescent.hpp	/^struct SteepestDescent: public DataExporter, public Optimiser {$/;"	s
+StringAlignment	seshat/rnnlib4seshat/StringAlignment.hpp	/^	StringAlignment (const R1& reference_sequence, const R2& test_sequence, $/;"	f	struct:StringAlignment
+StringAlignment	seshat/rnnlib4seshat/StringAlignment.hpp	/^template<class R1, class R2> struct StringAlignment$/;"	s
+Stroke	seshat/stroke.cc	/^Stroke::Stroke(char *str, int inkml_id) {$/;"	f	class:Stroke
+Stroke	seshat/stroke.cc	/^Stroke::Stroke(int np) {$/;"	f	class:Stroke
+Stroke	seshat/stroke.cc	/^Stroke::Stroke(int np, FILE *fd) {$/;"	f	class:Stroke
+Stroke	seshat/stroke.h	/^class Stroke{$/;"	c
+SymFeatures	seshat/symfeatures.cc	/^SymFeatures::SymFeatures(char *mav_on, char *mav_off) {$/;"	f	class:SymFeatures
+SymFeatures	seshat/symfeatures.h	/^class SymFeatures{$/;"	c
+SymRec	seshat/symrec.cc	/^SymRec::SymRec(char *config) {$/;"	f	class:SymRec
+SymRec	seshat/symrec.h	/^class SymRec{$/;"	c
+T	seshat/tablecyk.h	/^  CellCYK **T;$/;"	m	class:TableCYK
+TDD	seshat/rnnlib4seshat/Helpers.hpp	/^typedef const tuple<real_t&, real_t&>& TDD;$/;"	t
+TDDCF	seshat/rnnlib4seshat/Helpers.hpp	/^typedef const tuple<real_t&, real_t&, real_t>& TDDCF;$/;"	t
+TDDD	seshat/rnnlib4seshat/Helpers.hpp	/^typedef const tuple<real_t&, real_t&, real_t&>& TDDD;$/;"	t
+TDDDD	seshat/rnnlib4seshat/Helpers.hpp	/^typedef const tuple<real_t&, real_t&, real_t&, real_t&>& TDDDD;$/;"	t
+TDDDDD	seshat/rnnlib4seshat/Helpers.hpp	/^typedef const tuple<real_t&, real_t&, real_t&, real_t&, real_t&>& TDDDDD;$/;"	t
+TDDF	seshat/rnnlib4seshat/Helpers.hpp	/^typedef const tuple<real_t&, real_t&, real_t&>& TDDF;$/;"	t
+TDDI	seshat/rnnlib4seshat/Helpers.hpp	/^typedef const tuple<real_t&, real_t&, int&>& TDDI;$/;"	t
+TDL	seshat/rnnlib4seshat/Helpers.hpp	/^typedef const tuple<real_t, Log<real_t>& >& TDL;$/;"	t
+TDLL	seshat/rnnlib4seshat/Helpers.hpp	/^typedef const tuple<real_t&, Log<real_t>, Log<real_t> >& TDLL;$/;"	t
+TIBI	seshat/rnnlib4seshat/Helpers.hpp	/^typedef const tuple<int&, bool, int>& TIBI;$/;"	t
+TID	seshat/rnnlib4seshat/Helpers.hpp	/^typedef const tuple<int, real_t>& TID;$/;"	t
+TII	seshat/rnnlib4seshat/Helpers.hpp	/^typedef const tuple<int, int>& TII;$/;"	t
+TIS	seshat/rnnlib4seshat/Helpers.hpp	/^typedef const tuple<int, string>& TIS;$/;"	t
+TISETI	seshat/rnnlib4seshat/Helpers.hpp	/^typedef const tuple<int, set<int>&>& TISETI;$/;"	t
+TS	seshat/tablecyk.h	/^  map<coo,CellCYK*> *TS;$/;"	m	class:TableCYK
+TSIZE	seshat/symrec.cc	27;"	d	file:
+TableCYK	seshat/tablecyk.cc	/^TableCYK::TableCYK(int n, int k) {$/;"	f	class:TableCYK
+TableCYK	seshat/tablecyk.h	/^class TableCYK{$/;"	c
+Tanh	seshat/rnnlib4seshat/ActivationFunctions.hpp	/^struct Tanh {$/;"	s
+Target	seshat/tablecyk.h	/^  Hypothesis *Target;$/;"	m	class:TableCYK
+Trainer	seshat/rnnlib4seshat/Trainer.hpp	/^  Trainer($/;"	f	struct:Trainer
+Trainer	seshat/rnnlib4seshat/Trainer.hpp	/^struct Trainer: public DataExporter {$/;"	s
+TranscriptionLayer	seshat/rnnlib4seshat/TranscriptionLayer.hpp	/^  TranscriptionLayer(ostream& o, const string& name, const vector<string>& labs, WeightContainer *wc, DataExportHandler *deh, bool cm = false):$/;"	f	struct:TranscriptionLayer
+TranscriptionLayer	seshat/rnnlib4seshat/TranscriptionLayer.hpp	/^struct TranscriptionLayer: public SoftmaxLayer, public NetworkOutput$/;"	s
+UItag	seshat/sample.h	/^  string UItag;$/;"	m	class:Sample
+VAL_IT	seshat/rnnlib4seshat/DataExporter.hpp	/^typedef map<string, Val*>::iterator VAL_IT;$/;"	t
+VBCI	seshat/rnnlib4seshat/Helpers.hpp	/^typedef vector<bool>::const_iterator VBCI;$/;"	t
+VBI	seshat/rnnlib4seshat/Helpers.hpp	/^typedef vector<bool>::iterator VBI;$/;"	t
+VDCI	seshat/rnnlib4seshat/Helpers.hpp	/^typedef vector<real_t>::const_iterator VDCI;$/;"	t
+VDI	seshat/rnnlib4seshat/Helpers.hpp	/^typedef vector<real_t>::iterator VDI;$/;"	t
+VDRI	seshat/rnnlib4seshat/Helpers.hpp	/^typedef vector<real_t>::reverse_iterator VDRI;$/;"	t
+VFCI	seshat/rnnlib4seshat/Helpers.hpp	/^typedef vector<real_t>::const_iterator VFCI;$/;"	t
+VFI	seshat/rnnlib4seshat/Helpers.hpp	/^typedef vector<real_t>::iterator VFI;$/;"	t
+VICI	seshat/rnnlib4seshat/Helpers.hpp	/^typedef vector<int>::const_iterator VICI;$/;"	t
+VII	seshat/rnnlib4seshat/Helpers.hpp	/^typedef vector<int>::iterator VII;$/;"	t
+VIRCI	seshat/rnnlib4seshat/Helpers.hpp	/^typedef vector<int>::const_reverse_iterator VIRCI;$/;"	t
+VIRI	seshat/rnnlib4seshat/Helpers.hpp	/^typedef vector<int>::reverse_iterator VIRI;$/;"	t
+VMSDCI	seshat/rnnlib4seshat/Helpers.hpp	/^typedef vector< map<string, pair<int,real_t> > >::const_iterator VMSDCI;$/;"	t
+VMSDI	seshat/rnnlib4seshat/Helpers.hpp	/^typedef vector<map<string, pair<int,real_t> > >::iterator VMSDI;$/;"	t
+VMSDRI	seshat/rnnlib4seshat/Helpers.hpp	/^typedef vector<map<string, pair<int,real_t> > >::reverse_iterator VMSDRI;$/;"	t
+VPCFCI	seshat/rnnlib4seshat/Helpers.hpp	/^typedef vector<const real_t*>::const_iterator VPCFCI;$/;"	t
+VPCFCRI	seshat/rnnlib4seshat/Helpers.hpp	/^typedef vector<const real_t*>::const_reverse_iterator VPCFCRI;$/;"	t
+VPCFI	seshat/rnnlib4seshat/Helpers.hpp	/^typedef vector<const real_t*>::iterator VPCFI;$/;"	t
+VSCI	seshat/rnnlib4seshat/Helpers.hpp	/^typedef vector<string>::const_iterator VSCI;$/;"	t
+VSI	seshat/rnnlib4seshat/Helpers.hpp	/^typedef vector<string>::iterator VSI;$/;"	t
+VSTCI	seshat/rnnlib4seshat/Helpers.hpp	/^typedef vector<size_t>::const_iterator VSTCI;$/;"	t
+VUII	seshat/rnnlib4seshat/Helpers.hpp	/^typedef vector<unsigned int>::iterator VUII;$/;"	t
+VVDCI	seshat/rnnlib4seshat/Helpers.hpp	/^typedef vector<vector<real_t> >::const_iterator VVDCI;$/;"	t
+VVDI	seshat/rnnlib4seshat/Helpers.hpp	/^typedef vector<vector<real_t> >::iterator VVDI;$/;"	t
+VVFI	seshat/rnnlib4seshat/Helpers.hpp	/^typedef vector<vector<real_t> >::iterator VVFI;$/;"	t
+VVICI	seshat/rnnlib4seshat/Helpers.hpp	/^typedef vector<vector<int> >::const_iterator VVICI;$/;"	t
+VVII	seshat/rnnlib4seshat/Helpers.hpp	/^typedef vector<vector<int> >::iterator VVII;$/;"	t
+VVIRCI	seshat/rnnlib4seshat/Helpers.hpp	/^typedef vector<vector<int> >::const_reverse_iterator VVIRCI;$/;"	t
+VVIRI	seshat/rnnlib4seshat/Helpers.hpp	/^typedef vector<vector<int> >::reverse_iterator VVIRI;$/;"	t
+Val	seshat/rnnlib4seshat/DataExporter.hpp	/^struct Val {$/;"	s
+Vector	seshat/rnnlib4seshat/Container.hpp	/^  Vector() { }$/;"	f	struct:Vector
+Vector	seshat/rnnlib4seshat/Container.hpp	/^  Vector(const View<const T>& v) {$/;"	f	struct:Vector
+Vector	seshat/rnnlib4seshat/Container.hpp	/^  Vector(const vector<T>& v): vector<T>(v) {}$/;"	f	struct:Vector
+Vector	seshat/rnnlib4seshat/Container.hpp	/^  Vector(size_t n): vector<T>(n) {}$/;"	f	struct:Vector
+Vector	seshat/rnnlib4seshat/Container.hpp	/^  Vector(size_t n, const T& t): vector<T>(n, t) {}$/;"	f	struct:Vector
+Vector	seshat/rnnlib4seshat/Container.hpp	/^template<class T> struct Vector: public vector<T> {$/;"	s
+View	seshat/rnnlib4seshat/Container.hpp	/^  View(T* first = 0, T* second = 0):$/;"	f	struct:View
+View	seshat/rnnlib4seshat/Container.hpp	/^  View(pair<T*, T*>& p): sub_range<pair <T*, T*> >(p) {}$/;"	f	struct:View
+View	seshat/rnnlib4seshat/Container.hpp	/^template<class T> struct View: public sub_range<pair <T*, T*> > {$/;"	s
+WC_CONN_IT	seshat/rnnlib4seshat/WeightContainer.hpp	/^typedef multimap<string, tuple<string, string, int, int> >::iterator WC_CONN_IT; $/;"	t
+WC_CONN_PAIR	seshat/rnnlib4seshat/WeightContainer.hpp	/^typedef pair<string, tuple<string, string, int, int> > WC_CONN_PAIR;$/;"	t
+WeightContainer	seshat/rnnlib4seshat/WeightContainer.hpp	/^  WeightContainer(DataExportHandler *deh):$/;"	f	struct:WeightContainer
+WeightContainer	seshat/rnnlib4seshat/WeightContainer.hpp	/^struct WeightContainer: public DataExporter$/;"	s
+X	seshat/sample.h	/^  int X, Y;$/;"	m	class:Sample
+Y	seshat/sample.h	/^  int X, Y;$/;"	m	class:Sample
+_CELLCYK_	seshat/cellcyk.h	19;"	d
+_DURATION_MODEL_	seshat/duration.h	19;"	d
+_GRAMMAR_	seshat/grammar.h	19;"	d
+_G_PARSER_	seshat/gparser.h	19;"	d
+_HYPOTHESIS_	seshat/hypothesis.h	19;"	d
+_INCLUDED_ActivationFunctions_h	seshat/rnnlib4seshat/ActivationFunctions.hpp	19;"	d
+_INCLUDED_BiasLayer_h	seshat/rnnlib4seshat/BiasLayer.hpp	41;"	d
+_INCLUDED_BlockLayer_h	seshat/rnnlib4seshat/BlockLayer.hpp	41;"	d
+_INCLUDED_ClassificationLayer_h	seshat/rnnlib4seshat/ClassificationLayer.hpp	41;"	d
+_INCLUDED_CollapseLayer_h	seshat/rnnlib4seshat/CollapseLayer.hpp	41;"	d
+_INCLUDED_ConfigFile_h	seshat/rnnlib4seshat/ConfigFile.hpp	19;"	d
+_INCLUDED_Connection_h	seshat/rnnlib4seshat/Connection.hpp	19;"	d
+_INCLUDED_Container_h	seshat/rnnlib4seshat/Container.hpp	41;"	d
+_INCLUDED_CopyConnection_h	seshat/rnnlib4seshat/CopyConnection.hpp	41;"	d
+_INCLUDED_DataExporter_h	seshat/rnnlib4seshat/DataExporter.hpp	41;"	d
+_INCLUDED_DataSequence_h	seshat/rnnlib4seshat/DataSequence.hpp	41;"	d
+_INCLUDED_FullConnection_h	seshat/rnnlib4seshat/FullConnection.hpp	41;"	d
+_INCLUDED_GatherLayer_h	seshat/rnnlib4seshat/GatherLayer.hpp	41;"	d
+_INCLUDED_Helpers_h	seshat/rnnlib4seshat/Helpers.hpp	41;"	d
+_INCLUDED_IdentityLayer_h	seshat/rnnlib4seshat/IdentityLayer.hpp	41;"	d
+_INCLUDED_InputLayer_h	seshat/rnnlib4seshat/InputLayer.hpp	41;"	d
+_INCLUDED_Layer_h	seshat/rnnlib4seshat/Layer.hpp	41;"	d
+_INCLUDED_Log_h	seshat/rnnlib4seshat/Log.hpp	19;"	d
+_INCLUDED_LstmLayer_h	seshat/rnnlib4seshat/LstmLayer.hpp	41;"	d
+_INCLUDED_Matrix_h	seshat/rnnlib4seshat/Matrix.hpp	19;"	d
+_INCLUDED_Mdrnn_h	seshat/rnnlib4seshat/Mdrnn.hpp	41;"	d
+_INCLUDED_MultiArray_h	seshat/rnnlib4seshat/MultiArray.hpp	19;"	d
+_INCLUDED_MultilayerNet_h	seshat/rnnlib4seshat/MultilayerNet.hpp	41;"	d
+_INCLUDED_NamedObject_h	seshat/rnnlib4seshat/Named.hpp	19;"	d
+_INCLUDED_NetcdfDataset_h	seshat/rnnlib4seshat/NetcdfDataset.hpp	41;"	d
+_INCLUDED_NetworkOutput_h	seshat/rnnlib4seshat/NetworkOutput.hpp	19;"	d
+_INCLUDED_NeuronLayer_h	seshat/rnnlib4seshat/NeuronLayer.hpp	41;"	d
+_INCLUDED_Optimiser_h	seshat/rnnlib4seshat/Optimiser.hpp	41;"	d
+_INCLUDED_Random_h	seshat/rnnlib4seshat/Random.hpp	19;"	d
+_INCLUDED_Rprop_h	seshat/rnnlib4seshat/Rprop.hpp	41;"	d
+_INCLUDED_SeqBuffer_h	seshat/rnnlib4seshat/SeqBuffer.hpp	19;"	d
+_INCLUDED_SoftmaxLayer_h	seshat/rnnlib4seshat/SoftmaxLayer.hpp	41;"	d
+_INCLUDED_SteepestDescent_h	seshat/rnnlib4seshat/SteepestDescent.hpp	41;"	d
+_INCLUDED_StringAlignment_h	seshat/rnnlib4seshat/StringAlignment.hpp	19;"	d
+_INCLUDED_String_h	seshat/rnnlib4seshat/String.hpp	19;"	d
+_INCLUDED_Trainer_h	seshat/rnnlib4seshat/Trainer.hpp	41;"	d
+_INCLUDED_TranscriptionLayer_h	seshat/rnnlib4seshat/TranscriptionLayer.hpp	41;"	d
+_INCLUDED_WeightContainer_h	seshat/rnnlib4seshat/WeightContainer.hpp	41;"	d
+_LOGSPACE_	seshat/logspace.h	19;"	d
+_MEPARSER_	seshat/meparser.h	19;"	d
+_PRODUCTION_	seshat/production.h	19;"	d
+_SAMPLE_	seshat/sample.h	19;"	d
+_SEGMENTATION_MODEL_	seshat/segmentation.h	19;"	d
+_SPAREL_	seshat/sparel.h	19;"	d
+_STROKE_	seshat/stroke.h	19;"	d
+_SYMFEATURES_	seshat/symfeatures.h	19;"	d
+_SYMREC_	seshat/symrec.h	19;"	d
+_TABLECYK_	seshat/tablecyk.h	19;"	d
+__GMM__	seshat/gmm.h	19;"	d
+a	corners.py	/^	a = np.cos(theta)$/;"	v
+abs_sum	seshat/rnnlib4seshat/Helpers.hpp	/^template <class R> static typename range_value<R>::type abs_sum(const R& r) {$/;"	f
+activeDims	seshat/rnnlib4seshat/CollapseLayer.hpp	/^	vector<bool> activeDims;$/;"	m	struct:CollapseLayer
+acts	seshat/rnnlib4seshat/BiasLayer.hpp	/^  View<real_t> acts;$/;"	m	struct:BiasLayer
+add	seshat/tablecyk.cc	/^void TableCYK::add(int n, CellCYK *celda, int noterm_id, bool *esinit) {$/;"	f	class:TableCYK
+addInitSym	seshat/grammar.cc	/^void Grammar::addInitSym(char *str) {$/;"	f	class:Grammar
+addNoTerminal	seshat/grammar.cc	/^void Grammar::addNoTerminal(char *str) {$/;"	f	class:Grammar
+addRuleH	seshat/grammar.cc	/^void Grammar::addRuleH(float pr, char *S, char *A, char *B, char *out, char *merge) {$/;"	f	class:Grammar
+addRuleIns	seshat/grammar.cc	/^void Grammar::addRuleIns(float pr, char *S, char *A, char *B, char *out, char *merge) {$/;"	f	class:Grammar
+addRuleMrt	seshat/grammar.cc	/^void Grammar::addRuleMrt(float pr, char *S, char *A, char *B, char *out, char *merge) {$/;"	f	class:Grammar
+addRuleSSE	seshat/grammar.cc	/^void Grammar::addRuleSSE(float pr, char *S, char *A, char *B, char *out, char *merge) {$/;"	f	class:Grammar
+addRuleSub	seshat/grammar.cc	/^void Grammar::addRuleSub(float pr, char *S, char *A, char *B, char *out, char *merge) {$/;"	f	class:Grammar
+addRuleSup	seshat/grammar.cc	/^void Grammar::addRuleSup(float pr, char *S, char *A, char *B, char *out, char *merge) {$/;"	f	class:Grammar
+addRuleV	seshat/grammar.cc	/^void Grammar::addRuleV(float pr, char *S, char *A, char *B, char *out, char *merge) {$/;"	f	class:Grammar
+addRuleVe	seshat/grammar.cc	/^void Grammar::addRuleVe(float pr, char *S, char *A, char *B, char *out, char *merge) {$/;"	f	class:Grammar
+addTerminal	seshat/grammar.cc	/^void Grammar::addTerminal(float pr, char *S, char *T, char *tex) {$/;"	f	class:Grammar
+add_bias	seshat/rnnlib4seshat/Mdrnn.hpp	/^  FullConnection* add_bias(Layer* layer) {$/;"	f	struct:Mdrnn
+add_connection	seshat/rnnlib4seshat/Mdrnn.hpp	/^  Connection* add_connection(Connection* conn) {$/;"	f	struct:Mdrnn
+add_delay	seshat/rnnlib4seshat/FullConnection.hpp	/^	const vector<int>* add_delay(const vector<int>& toCoords)$/;"	f	struct:FullConnection
+add_hidden_layers_to_level	seshat/rnnlib4seshat/Mdrnn.hpp	/^  Layer* add_hidden_layers_to_level($/;"	f	struct:Mdrnn
+add_hidden_level	seshat/rnnlib4seshat/Mdrnn.hpp	/^  int add_hidden_level($/;"	f	struct:Mdrnn
+add_input_noise	seshat/rnnlib4seshat/Trainer.hpp	/^  DataSequence* add_input_noise(const DataSequence* seq) {$/;"	f	struct:Trainer
+add_layer	seshat/rnnlib4seshat/Mdrnn.hpp	/^  Layer* add_layer($/;"	f	struct:Mdrnn
+add_layer	seshat/rnnlib4seshat/Mdrnn.hpp	/^  Layer* add_layer(Layer* layer, bool addBias = false, bool recurrent = false) {$/;"	f	struct:Mdrnn
+add_output_layer	seshat/rnnlib4seshat/Mdrnn.hpp	/^  Layer* add_output_layer(NetworkOutput* output, bool addBias = true) {$/;"	f	struct:Mdrnn
+anula_rep_points	seshat/online.cc	/^sentence * sentence::anula_rep_points() {$/;"	f	class:sentence
+apply_distortions	seshat/rnnlib4seshat/Trainer.hpp	/^  const DataSequence* apply_distortions(const DataSequence* seq) {$/;"	f	struct:Trainer
+approx	sudoku.py	/^        approx = cv2.approxPolyDP(i, 0.02 * peri, True)$/;"	v
+area	sudoku.py	/^    area = cv2.contourArea(i)$/;"	v
+arg_max	seshat/rnnlib4seshat/Helpers.hpp	/^template <class R> static int arg_max(const R& r) {$/;"	f
+argc	corners.py	/^argc = len(sys.argv)$/;"	v
+argc	main.py	/^argc = len(sys.argv)$/;"	v
+argc	sudoku.py	/^argc = len(sys.argv)$/;"	v
+argc	text_regions.py	/^argc = len(sys.argv)$/;"	v
+array	seshat/rnnlib4seshat/DataExporter.hpp	/^  const SeqBuffer<T>& array;$/;"	m	struct:SeqBufferVal
+assign	seshat/rnnlib4seshat/MultiArray.hpp	/^  template<class T2> void assign(const MultiArray<T2>& a) {$/;"	f	struct:MultiArray
+at	seshat/rnnlib4seshat/Container.hpp	/^  T& at(size_t i) {$/;"	f	struct:View
+at	seshat/rnnlib4seshat/Container.hpp	/^  const T& at(size_t i) const {$/;"	f	struct:View
+at	seshat/rnnlib4seshat/Helpers.hpp	/^template<class T1, class T2> static const T2& at($/;"	f
+at	seshat/rnnlib4seshat/MultiArray.hpp	/^  const View<T> at(const vector<int>& coords) {$/;"	f	struct:MultiArray
+at	seshat/rnnlib4seshat/MultiArray.hpp	/^  const View<const T> at(const vector<int>& coords) const {$/;"	f	struct:MultiArray
+at	seshat/rnnlib4seshat/SeqBuffer.hpp	/^  const View<T> at(int coord) {$/;"	f	struct:SeqBuffer
+at	seshat/rnnlib4seshat/SeqBuffer.hpp	/^  const View<const T> at(int coord) const {$/;"	f	struct:SeqBuffer
+ax	seshat/featureson.h	/^    double x,y,dx,dy,ax,ay,k;$/;"	m	class:frame
+ay	seshat/featureson.h	/^    double x,y,dx,dy,ax,ay,k;$/;"	m	class:frame
+b	corners.py	/^	b = np.sin(theta)$/;"	v
+back	seshat/rnnlib4seshat/SeqBuffer.hpp	/^  const View<T> back(const vector<int>& dirs = empty_list_of<int>()) {$/;"	f	struct:SeqBuffer
+backwardVariables	seshat/rnnlib4seshat/TranscriptionLayer.hpp	/^	SeqBuffer<Log<real_t> > backwardVariables;$/;"	m	struct:TranscriptionLayer
+batchLearn	seshat/rnnlib4seshat/Trainer.hpp	/^  bool batchLearn;$/;"	m	struct:Trainer
+begin	seshat/rnnlib4seshat/SeqBuffer.hpp	/^  SeqIterator begin(const vector<int>& dirs = empty_list_of<int>()) const {$/;"	f	struct:SeqBuffer
+begin	seshat/rnnlib4seshat/SeqBuffer.hpp	/^  void begin() {$/;"	f	struct:CoordIterator
+begins	seshat/rnnlib4seshat/String.hpp	/^static bool begins(const string& str, const char* search) {$/;"	f
+begins	seshat/rnnlib4seshat/String.hpp	/^static bool begins(const string& str, const string& search) {$/;"	f
+best_label_seq	seshat/rnnlib4seshat/TranscriptionLayer.hpp	/^	vector<int>& best_label_seq() const$/;"	f	struct:TranscriptionLayer
+bias	seshat/rnnlib4seshat/Mdrnn.hpp	/^  BiasLayer *bias;$/;"	m	struct:Mdrnn
+bidirectional	seshat/rnnlib4seshat/Mdrnn.hpp	/^  vector<bool> bidirectional;$/;"	m	struct:Mdrnn
+biggest	sudoku.py	/^            biggest = approx$/;"	v
+biggest	sudoku.py	/^biggest = None$/;"	v
+blank	seshat/rnnlib4seshat/TranscriptionLayer.hpp	/^	int blank;$/;"	m	struct:TranscriptionLayer
+blockIterator	seshat/rnnlib4seshat/BlockLayer.hpp	/^  CVI blockIterator;$/;"	m	struct:BlockLayer
+blockOffset	seshat/rnnlib4seshat/BlockLayer.hpp	/^  vector<int> blockOffset;$/;"	m	struct:BlockLayer
+blockShape	seshat/rnnlib4seshat/BlockLayer.hpp	/^  vector<size_t> blockShape;$/;"	m	struct:BlockLayer
+blstm_off	seshat/symrec.h	/^  Mdrnn *blstm_on, *blstm_off;$/;"	m	class:SymRec
+blstm_on	seshat/symrec.h	/^  Mdrnn *blstm_on, *blstm_off;$/;"	m	class:SymRec
+blue	pokusy_py/nao_pokus.py	/^blue=cv2.inRange(picc, (160,45,45),(170,255,255)) #blue$/;"	v
+blur	pokusy_py/nao_pokus.py	/^	blur = cv2.medianBlur(color[0], 7)$/;"	v
+bottom_left	corners.py	/^bottom_left = min(corners, key = lambda p: p[0][0] - p[0][1])$/;"	v
+bottom_left	sudoku.py	/^    bottom_left = min(biggest, key=lambda p: p[0][0] - p[0][1])$/;"	v
+bottom_right	corners.py	/^bottom_right = max(corners, key = lambda p: p[0][0] + p[0][1])$/;"	v
+bottom_right	sudoku.py	/^    bottom_right = max(biggest, key=lambda p: p[0][0] + p[0][1])$/;"	v
+bound	seshat/rnnlib4seshat/Helpers.hpp	/^template <class T> static T bound ($/;"	f
+bound_range	seshat/rnnlib4seshat/Helpers.hpp	/^template <class R> static void bound_range ($/;"	f
+bs	seshat/sample.h	/^  int bx, by, bs, bt; \/\/Offline bounding box$/;"	m	class:Sample
+bsearch	seshat/logspace.cc	/^void LogSpace::bsearch(int sx, int sy, int ss, int st, list<CellCYK*> *set) {$/;"	f	class:LogSpace
+bsearchHBP	seshat/logspace.cc	/^void LogSpace::bsearchHBP(int sx, int sy, int ss, int st, list<CellCYK*> *set, CellCYK *cd) {$/;"	f	class:LogSpace
+bsearchStv	seshat/logspace.cc	/^void LogSpace::bsearchStv(int sx, int sy, int ss, int st, list<CellCYK*> *set, bool U_V, CellCYK *cd) {$/;"	f	class:LogSpace
+bt	seshat/sample.h	/^  int bx, by, bs, bt; \/\/Offline bounding box$/;"	m	class:Sample
+build	seshat/rnnlib4seshat/Layer.hpp	/^  virtual void build() {$/;"	f	struct:Layer
+build	seshat/rnnlib4seshat/Mdrnn.hpp	/^  virtual void build() {$/;"	f	struct:Mdrnn
+build	seshat/rnnlib4seshat/Rprop.hpp	/^  void build() {$/;"	f	struct:Rprop
+build	seshat/rnnlib4seshat/SteepestDescent.hpp	/^  void build() {$/;"	f	struct:SteepestDescent
+build	seshat/rnnlib4seshat/WeightContainer.hpp	/^  void build()$/;"	f	struct:WeightContainer
+bx	seshat/sample.h	/^  int bx, by, bs, bt; \/\/Offline bounding box$/;"	m	class:Sample
+by	seshat/sample.h	/^  int bx, by, bs, bt; \/\/Offline bounding box$/;"	m	class:Sample
+calculate_derivatives	seshat/featureson.cc	/^void sentenceF::calculate_derivatives(vector<PointR> & points, bool norm) {$/;"	f	class:sentenceF
+calculate_errors	seshat/rnnlib4seshat/ClassificationLayer.hpp	/^	real_t calculate_errors(const DataSequence& seq)$/;"	f	struct:ClassificationLayer
+calculate_errors	seshat/rnnlib4seshat/Mdrnn.hpp	/^  virtual real_t calculate_errors(const DataSequence& seq) {$/;"	f	struct:Mdrnn
+calculate_errors	seshat/rnnlib4seshat/NetworkOutput.hpp	/^	virtual real_t calculate_errors(const DataSequence& seq){return realMax;}$/;"	f	struct:NetworkOutput
+calculate_errors	seshat/rnnlib4seshat/TranscriptionLayer.hpp	/^	real_t calculate_errors(const DataSequence& seq)$/;"	f	struct:TranscriptionLayer
+calculate_features	seshat/featureson.cc	/^void sentenceF::calculate_features(sentence &S) {$/;"	f	class:sentenceF
+calculate_kurvature	seshat/featureson.cc	/^void sentenceF::calculate_kurvature() {$/;"	f	class:sentenceF
+calculate_output_errors	seshat/rnnlib4seshat/Mdrnn.hpp	/^  virtual real_t calculate_output_errors(const DataSequence& seq) {$/;"	f	struct:Mdrnn
+cam	pokusy_py/countour_pokus.py	/^cam=vdp.subscribeCamera("camtooppaaa", 0, 2, 0, 30)$/;"	v
+cam	pokusy_py/nao_pokus.py	/^cam=vdp.subscribeCamera("camtopaaa", 0, 2, 12, 30)$/;"	v
+canny_output	corners.py	/^canny_output = cv2.Canny(dst, 60,200)$/;"	v
+canny_output	hardcoded.py	/^canny_output = cv2.Canny(dst, 40,200)$/;"	v
+canny_output	pokusy_py/countour_pokus.py	/^canny_output = cv2.Canny(picc, 100,200)$/;"	v
+ccEqual	seshat/cellcyk.cc	/^bool CellCYK::ccEqual(CellCYK *H) {$/;"	f	class:CellCYK
+ccUnion	seshat/cellcyk.cc	/^void CellCYK::ccUnion(CellCYK *A, CellCYK *B) {$/;"	f	class:CellCYK
+ccc	seshat/cellcyk.h	/^  bool *ccc;$/;"	m	struct:CellCYK
+cellErrors	seshat/rnnlib4seshat/LstmLayer.hpp	/^  SeqBuffer<real_t> cellErrors;$/;"	m	struct:LstmLayer
+cellsPerBlock	seshat/rnnlib4seshat/LstmLayer.hpp	/^  size_t cellsPerBlock;$/;"	m	struct:LstmLayer
+cen	seshat/sample.h	/^  int cen;$/;"	m	struct:SegmentHyp
+check	seshat/rnnlib4seshat/Helpers.hpp	187;"	d
+checkClase	seshat/symrec.cc	/^bool SymRec::checkClase(char *str) {$/;"	f	class:SymRec
+check_out	seshat/production.cc	/^bool ProductionB::check_out() {$/;"	f	class:ProductionB
+check_str	seshat/production.cc	/^int check_str(char *str, char *pat) {$/;"	f
+cl2key	seshat/symrec.h	/^  map<string,int> cl2key;$/;"	m	class:SymRec
+clase	seshat/hypothesis.h	/^  int clase; \/\/If the hypothesis encodes a terminal symbols this is the class id (-1 otherwise)$/;"	m	struct:Hypothesis
+clases	seshat/production.h	/^  bool *clases;$/;"	m	class:ProductionT
+clasificar	seshat/symrec.cc	/^int SymRec::clasificar(Sample *M, int ncomp, const int NB, int *vclase, float *vpr, int *as, int *ds) {$/;"	f	class:SymRec
+clasificar	seshat/symrec.cc	/^int SymRec::clasificar(Sample *M, list<int> *LT, const int NB, int *vclase, float *vpr, int *as, int *ds) {$/;"	f	class:SymRec
+class_prob	seshat/rnnlib4seshat/ClassificationLayer.hpp	/^	real_t class_prob(int pt, int index) const$/;"	f	struct:BinaryClassificationLayer
+class_prob	seshat/rnnlib4seshat/ClassificationLayer.hpp	/^	real_t class_prob(int pt, int index) const$/;"	f	struct:MulticlassClassificationLayer
+classify	seshat/symrec.cc	/^int SymRec::classify(Sample *M, SegmentHyp *SegHyp, const int NB, int *vclase, float *vpr, int *as, int *ds) {$/;"	f	class:SymRec
+clusterF	seshat/meparser.h	/^  float clusterF, segmentsTH;$/;"	m	class:meParser
+collapse_layer	seshat/rnnlib4seshat/Mdrnn.hpp	/^  Layer* collapse_layer($/;"	f	struct:Mdrnn
+color_coords	pokusy_py/nao_pokus.py	/^color_coords = []$/;"	v
+combineStrokes	seshat/meparser.cc	/^void meParser::combineStrokes(Sample *M, TableCYK *tcyk, LogSpace **LSP, int N) {$/;"	f	class:meParser
+compatible	seshat/cellcyk.cc	/^bool CellCYK::compatible(CellCYK *H) {$/;"	f	class:CellCYK
+compute_prob	seshat/sparel.cc	/^double SpaRel::compute_prob(Hypothesis *h1, Hypothesis *h2, int k) {$/;"	f	class:SpaRel
+compute_strokes_distances	seshat/sample.cc	/^void Sample::compute_strokes_distances(int rx, int ry) {$/;"	f	class:Sample
+config	seshat/rnnlib4seshat/Trainer.hpp	/^  ConfigFile& config;$/;"	m	struct:Trainer
+confusionMatrix	seshat/rnnlib4seshat/ClassificationLayer.hpp	/^	vector<vector<int> > confusionMatrix;$/;"	m	struct:ClassificationLayer
+confusionMatrix	seshat/rnnlib4seshat/TranscriptionLayer.hpp	/^	bool confusionMatrix;$/;"	m	struct:TranscriptionLayer
+connect_from_hidden_level	seshat/rnnlib4seshat/Mdrnn.hpp	/^  void connect_from_hidden_level(int levelNum, Layer* to) {$/;"	f	struct:Mdrnn
+connect_layers	seshat/rnnlib4seshat/Mdrnn.hpp	/^  FullConnection* connect_layers($/;"	f	struct:Mdrnn
+connect_to_hidden_level	seshat/rnnlib4seshat/Mdrnn.hpp	/^  void connect_to_hidden_level(Layer* from, int levelNum) {$/;"	f	struct:Mdrnn
+connections	seshat/rnnlib4seshat/Mdrnn.hpp	/^  multimap<const Layer*, Connection*> connections;$/;"	m	struct:Mdrnn
+connections	seshat/rnnlib4seshat/WeightContainer.hpp	/^  multimap<string, tuple<string, string, int, int> > connections;$/;"	m	struct:WeightContainer
+contains	seshat/rnnlib4seshat/ConfigFile.hpp	/^  bool contains(const string& name) const {$/;"	f	struct:ConfigFile
+contours_img	sudoku.py	/^contours_img = np.zeros((rows, cols), dtype=np.uint8)$/;"	v
+contours_to_scgink	nao-mathematica.py	/^def contours_to_scgink(contours, scgink_file, min_length=9):$/;"	f
+coo	seshat/tablecyk.h	/^  coo() {$/;"	f	struct:coo
+coo	seshat/tablecyk.h	/^  coo(int a, int b, int c, int d) {$/;"	f	struct:coo
+coo	seshat/tablecyk.h	/^struct coo{$/;"	s
+copy	seshat/hypothesis.cc	/^void Hypothesis::copy(Hypothesis *H) {$/;"	f	class:Hypothesis
+copy	seshat/rnnlib4seshat/Helpers.hpp	/^template<class R1, class R2> static void copy(const R1& source, R2& dest) {$/;"	f
+copy_connections	seshat/rnnlib4seshat/Mdrnn.hpp	/^  int copy_connections(Layer* src, Layer* dest, bool mirror = false) {$/;"	f	struct:Mdrnn
+copy_inputs	seshat/rnnlib4seshat/InputLayer.hpp	/^	template<typename T> void copy_inputs(const SeqBuffer<T>& inputs)$/;"	f	struct:InputLayer
+corners	corners.py	/^corners = cv2.goodFeaturesToTrack(gray,30,0.01,10)$/;"	v
+corners	corners.py	/^corners = np.int0(corners)$/;"	v
+count	seshat/rnnlib4seshat/Helpers.hpp	/^template<class R> static size_t count($/;"	f
+count_adjacent	seshat/rnnlib4seshat/Helpers.hpp	/^template <class R> static size_t count_adjacent(const R& r) {$/;"	f
+criteria	seshat/rnnlib4seshat/Mdrnn.hpp	/^  Vector<string> criteria;$/;"	m	struct:Mdrnn
+criteria	seshat/rnnlib4seshat/NetworkOutput.hpp	/^	Vector<string> criteria;$/;"	m	struct:NetworkOutput
+criteria	seshat/rnnlib4seshat/Trainer.hpp	/^  Vector<string>& criteria;$/;"	m	struct:Trainer
+cv2	corners.py	/^import cv2$/;"	i
+cv2	hardcoded.py	/^import cv2$/;"	i
+cv2	main.py	/^import cv2$/;"	i
+cv2	nao-mathematica.py	/^import cv2$/;"	i
+cv2	pokusy_py/countour_pokus.py	/^import cv2$/;"	i
+cv2	pokusy_py/nao_pokus.py	/^import cv2$/;"	i
+cv2	pokusy_py/opencv_priklad.py	/^import cv2$/;"	i
+cv2	pokusy_py/opencv_priklad_1.py	/^import cv2$/;"	i
+cv2	sudoku.py	/^import cv2$/;"	i
+cv2	text_regions.py	/^import cv2$/;"	i
+cx	seshat/stroke.h	/^  int cx, cy; \/\/Centroid$/;"	m	class:Stroke
+cy	seshat/stroke.h	/^  int cx, cy; \/\/Centroid$/;"	m	class:Stroke
+dEdYTerms	seshat/rnnlib4seshat/TranscriptionLayer.hpp	/^	vector<Log<real_t> > dEdYTerms;$/;"	m	struct:TranscriptionLayer
+data	seshat/logspace.h	/^  CellCYK **data;$/;"	m	class:LogSpace
+data	seshat/rnnlib4seshat/MultiArray.hpp	/^  Vector<T> data;$/;"	m	struct:MultiArray
+dataExporters	seshat/rnnlib4seshat/DataExporter.hpp	/^  map<string, DataExporter*> dataExporters;$/;"	m	struct:DataExportHandler
+dataFraction	seshat/rnnlib4seshat/Trainer.hpp	/^  real_t dataFraction;$/;"	m	struct:Trainer
+dataoff	seshat/sample.h	/^  int **dataoff;$/;"	m	class:Sample
+dataon	seshat/sample.h	/^  vector<Stroke*> dataon;$/;"	m	class:Sample
+deh_off	seshat/symrec.h	/^  DataExportHandler deh_on, deh_off;$/;"	m	class:SymRec
+deh_on	seshat/symrec.h	/^  DataExportHandler deh_on, deh_off;$/;"	m	class:SymRec
+delPenalty	seshat/rnnlib4seshat/StringAlignment.hpp	/^	int delPenalty;$/;"	m	struct:StringAlignment
+delay	seshat/rnnlib4seshat/FullConnection.hpp	/^	vector<int> delay;$/;"	m	struct:FullConnection
+delayedCoords	seshat/rnnlib4seshat/FullConnection.hpp	/^	vector<int> delayedCoords;$/;"	m	struct:FullConnection
+delayedCoords	seshat/rnnlib4seshat/LstmLayer.hpp	/^  vector<int> delayedCoords;$/;"	m	struct:LstmLayer
+delete_map	seshat/rnnlib4seshat/Helpers.hpp	/^template<class R> void delete_map(R& r) {$/;"	f
+delete_range	seshat/rnnlib4seshat/Helpers.hpp	/^template<class R> void delete_range(R& r) {$/;"	f
+delete_val	seshat/rnnlib4seshat/DataExporter.hpp	/^  void delete_val(map<string, Val*>& vals, const string& name) {$/;"	f	struct:DataExporter
+deletions	seshat/rnnlib4seshat/StringAlignment.hpp	/^	int deletions;$/;"	m	struct:StringAlignment
+delsMap	seshat/rnnlib4seshat/StringAlignment.hpp	/^	map<typename boost::range_value<R1>::type, int> delsMap;$/;"	m	struct:StringAlignment
+deltas	seshat/rnnlib4seshat/Rprop.hpp	/^  vector<real_t> deltas;$/;"	m	struct:Rprop
+deltas	seshat/rnnlib4seshat/SteepestDescent.hpp	/^  vector<real_t> deltas;$/;"	m	struct:SteepestDescent
+depth	seshat/rnnlib4seshat/SeqBuffer.hpp	/^  size_t depth;$/;"	m	struct:SeqBuffer
+deriv	seshat/rnnlib4seshat/ActivationFunctions.hpp	/^  static real_t deriv(real_t y) {$/;"	f	struct:Identity
+deriv	seshat/rnnlib4seshat/ActivationFunctions.hpp	/^  static real_t deriv(real_t y) {$/;"	f	struct:Logistic
+deriv	seshat/rnnlib4seshat/ActivationFunctions.hpp	/^  static real_t deriv(real_t y) {$/;"	f	struct:Max2min0
+deriv	seshat/rnnlib4seshat/ActivationFunctions.hpp	/^  static real_t deriv(real_t y) {$/;"	f	struct:Maxmin1
+deriv	seshat/rnnlib4seshat/ActivationFunctions.hpp	/^  static real_t deriv(real_t y) {$/;"	f	struct:Maxmin2
+deriv	seshat/rnnlib4seshat/ActivationFunctions.hpp	/^  static real_t deriv(real_t y) {$/;"	f	struct:Softsign
+deriv	seshat/rnnlib4seshat/ActivationFunctions.hpp	/^  static real_t deriv(real_t y) {$/;"	f	struct:Tanh
+derivatives	seshat/rnnlib4seshat/WeightContainer.hpp	/^  Vector<real_t> derivatives;$/;"	m	struct:WeightContainer
+derivs	seshat/rnnlib4seshat/FullConnection.hpp	/^	const View<real_t> derivs()$/;"	f	struct:FullConnection
+derivs	seshat/rnnlib4seshat/Optimiser.hpp	/^  vector<real_t>& derivs;$/;"	m	struct:Optimiser
+derivs	seshat/rnnlib4seshat/Trainer.hpp	/^  Vector<real_t>& derivs;$/;"	m	struct:Trainer
+det	seshat/gmm.h	/^  float **invcov, **mean, **weight, *prior, *det;$/;"	m	class:GMM
+detRefSymbol	seshat/sample.cc	/^void Sample::detRefSymbol() {$/;"	f	class:Sample
+dfactor	seshat/meparser.h	/^  float qfactor, dfactor, gfactor, InsPen;$/;"	m	class:meParser
+difference	seshat/rnnlib4seshat/Helpers.hpp	/^template <class T1, class T2> static size_t difference(const pair<T1,T2>& p)$/;"	f
+differentiate	seshat/rnnlib4seshat/Trainer.hpp	/^  real_t differentiate(const DataSequence* seq) {$/;"	f	struct:Trainer
+dimX	seshat/sample.cc	/^int Sample::dimX() {$/;"	f	class:Sample
+dimY	seshat/sample.cc	/^int Sample::dimY() {$/;"	f	class:Sample
+directions	seshat/rnnlib4seshat/Layer.hpp	/^  vector<int> directions;$/;"	m	struct:Layer
+directions	seshat/rnnlib4seshat/SeqBuffer.hpp	/^  vector<int> directions;$/;"	m	struct:CoordIterator
+disjoint	seshat/rnnlib4seshat/Helpers.hpp	/^template<class T> static bool disjoint(const set<T>& s1, const set<T>& s2) {$/;"	f
+display	seshat/rnnlib4seshat/DataExporter.cpp	/^void DataExportHandler::display(const string& path) const {$/;"	f	class:DataExportHandler
+display	seshat/rnnlib4seshat/DataExporter.hpp	/^  template <typename T> void display($/;"	f	struct:DataExporter
+displayVals	seshat/rnnlib4seshat/DataExporter.hpp	/^  map<string, Val*> displayVals;$/;"	m	struct:DataExporter
+dist	pokusy_py/nao_pokus.py	/^	dist = cv2.distanceTransform(blur, cv2.cv.CV_DIST_L2,5)$/;"	v
+distance	seshat/rnnlib4seshat/StringAlignment.hpp	/^	int distance;	$/;"	m	struct:StringAlignment
+distortedWeights	seshat/rnnlib4seshat/Trainer.hpp	/^  vector<real_t> distortedWeights;$/;"	m	struct:Trainer
+dot	seshat/rnnlib4seshat/Matrix.hpp	/^static void dot($/;"	f
+dot	seshat/rnnlib4seshat/Matrix.hpp	/^template<class R> static void dot(const R& a, const real_t *M, const R& b) {$/;"	f
+dot_transpose	seshat/rnnlib4seshat/Matrix.hpp	/^static void dot_transpose($/;"	f
+dot_transpose	seshat/rnnlib4seshat/Matrix.hpp	/^template<class R> static void dot_transpose($/;"	f
+dot_transpose_m_squared	seshat/rnnlib4seshat/Matrix.hpp	/^static void dot_transpose_m_squared($/;"	f
+dot_transpose_m_squared	seshat/rnnlib4seshat/Matrix.hpp	/^template<class R> static void dot_transpose_m_squared($/;"	f
+dst	corners.py	/^dst = cv2.warpPerspective(img,M,(rows,cols))$/;"	v
+dst	corners.py	/^dst = dst[50:400, 50:400]$/;"	v
+dst	hardcoded.py	/^dst = cv2.warpPerspective(img,M,(rows,cols))$/;"	v
+dst	hardcoded.py	/^dst = dst[50:200, 50:400]$/;"	v
+dst	sudoku.py	/^    dst = cv2.warpPerspective(gray, M, (rows, cols))$/;"	v
+duration	seshat/meparser.h	/^  DurationModel  *duration;$/;"	m	class:meParser
+duration_prob	seshat/duration.h	/^  float **duration_prob;$/;"	m	class:DurationModel
+dx	seshat/featureson.h	/^    double x,y,dx,dy,ax,ay,k;$/;"	m	class:frame
+dy	seshat/featureson.h	/^    double x,y,dx,dy,ax,ay,k;$/;"	m	class:frame
+edges	corners.py	/^edges = cv2.Canny(gray,60,200,apertureSize = 3)$/;"	v
+elt	seshat/rnnlib4seshat/Matrix.hpp	/^static real_t& elt(View<real_t> M, int x, int y, int width) {$/;"	f
+empty	seshat/rnnlib4seshat/MultiArray.hpp	/^  virtual bool empty() const {$/;"	f	struct:MultiArray
+empty_list_of	seshat/rnnlib4seshat/Helpers.hpp	/^template<class T> static assign_detail::generic_list<T> empty_list_of() {$/;"	f
+end	seshat/rnnlib4seshat/SeqBuffer.hpp	/^  bool end;$/;"	m	struct:CoordIterator
+ends	seshat/rnnlib4seshat/String.hpp	/^static bool ends(const string& str, const char* search) {$/;"	f
+ends	seshat/rnnlib4seshat/String.hpp	/^static bool ends(const string& str, const string& search) {$/;"	f
+enumerate	seshat/rnnlib4seshat/Helpers.hpp	/^enumerate(R& r) {$/;"	f
+epoch	seshat/rnnlib4seshat/Trainer.hpp	/^  int epoch;$/;"	m	struct:Trainer
+equal	seshat/rnnlib4seshat/Helpers.hpp	/^template<class R1, class R2> static bool equal(const R1& source, R2& dest) {$/;"	f
+error	seshat/grammar.cc	/^void error(const char *msg) {$/;"	f
+error	seshat/grammar.cc	/^void error(const char *msg, char *str) {$/;"	f
+errorMap	seshat/rnnlib4seshat/NetworkOutput.hpp	/^	map <string, real_t> errorMap;$/;"	m	struct:NetworkOutput
+errors	seshat/rnnlib4seshat/BiasLayer.hpp	/^  View<real_t> errors;$/;"	m	struct:BiasLayer
+errors	seshat/rnnlib4seshat/Mdrnn.hpp	/^  map<string, real_t> errors;$/;"	m	struct:Mdrnn
+esInit	seshat/grammar.h	/^  bool *esInit;$/;"	m	struct:Grammar
+esNum	seshat/stroke.cc	/^bool esNum(char c){$/;"	f
+etaChange	seshat/rnnlib4seshat/Rprop.hpp	/^  real_t etaChange;$/;"	m	struct:Rprop
+etaMin	seshat/rnnlib4seshat/Rprop.hpp	/^  real_t etaMin;$/;"	m	struct:Rprop
+etaPlus	seshat/rnnlib4seshat/Rprop.hpp	/^  real_t etaPlus;$/;"	m	struct:Rprop
+euclidean_squared	seshat/rnnlib4seshat/Helpers.hpp	/^euclidean_squared(const R1& r1, const R2& r2) {$/;"	f
+evaluate	seshat/rnnlib4seshat/Trainer.hpp	/^  real_t evaluate(const DataSequence* seq) {$/;"	f	struct:Trainer
+exp	seshat/rnnlib4seshat/Log.hpp	/^  T exp()$/;"	f	class:Log
+expLimit	seshat/rnnlib4seshat/Log.hpp	/^  static const T expLimit;$/;"	m	class:Log
+expLimit	seshat/rnnlib4seshat/Log.hpp	/^template <class T> const T Log<T>::expLimit = std::log(expMax);$/;"	m	class:Log
+expMax	seshat/rnnlib4seshat/Log.hpp	/^  static const T expMax;$/;"	m	class:Log
+expMax	seshat/rnnlib4seshat/Log.hpp	/^template <class T> const T Log<T>::expMax = numeric_limits<T>::max();$/;"	m	class:Log
+expMin	seshat/rnnlib4seshat/Log.hpp	/^  static const T expMin;$/;"	m	class:Log
+expMin	seshat/rnnlib4seshat/Log.hpp	/^template <class T> const T Log<T>::expMin = numeric_limits<T>::min();$/;"	m	class:Log
+expVal	seshat/rnnlib4seshat/Log.hpp	/^  T expVal;$/;"	m	class:Log
+extend	seshat/rnnlib4seshat/Container.hpp	/^  template<class R> Set<T>& extend(const R& r) {$/;"	f	struct:Set
+extend	seshat/rnnlib4seshat/Container.hpp	/^  template<class R> Vector<T>& extend(const R& r) {$/;"	f	struct:Vector
+feed_back	seshat/rnnlib4seshat/BlockLayer.hpp	/^  void feed_back(const vector<int>& outCoords) {$/;"	f	struct:BlockLayer
+feed_back	seshat/rnnlib4seshat/CollapseLayer.hpp	/^	void feed_back(const vector<int>& coords)$/;"	f	struct:CollapseLayer
+feed_back	seshat/rnnlib4seshat/Connection.hpp	/^	virtual void feed_back(const vector<int>& coords){}$/;"	f	struct:Connection
+feed_back	seshat/rnnlib4seshat/CopyConnection.hpp	/^	void feed_back(const vector<int>& coords)$/;"	f	struct:CopyConnection
+feed_back	seshat/rnnlib4seshat/FullConnection.hpp	/^	void feed_back(const vector<int>& toCoords)$/;"	f	struct:FullConnection
+feed_back	seshat/rnnlib4seshat/GatherLayer.hpp	/^	void feed_back(const vector<int>& outCoords)$/;"	f	struct:GatherLayer
+feed_back	seshat/rnnlib4seshat/IdentityLayer.hpp	/^	void feed_back(const vector<int>& coords)$/;"	f	struct:IdentityLayer
+feed_back	seshat/rnnlib4seshat/Layer.hpp	/^  virtual void feed_back(const vector<int>& coords) {}$/;"	f	struct:Layer
+feed_back	seshat/rnnlib4seshat/LstmLayer.hpp	/^  void feed_back(const vector<int>& coords) {$/;"	f	struct:LstmLayer
+feed_back	seshat/rnnlib4seshat/Mdrnn.hpp	/^  virtual void feed_back() {$/;"	f	struct:Mdrnn
+feed_back	seshat/rnnlib4seshat/NeuronLayer.hpp	/^	void feed_back(const vector<int>& coords)$/;"	f	struct:NeuronLayer
+feed_back	seshat/rnnlib4seshat/SoftmaxLayer.hpp	/^	void feed_back(const vector<int>& coords)$/;"	f	struct:SoftmaxLayer
+feed_back_layer	seshat/rnnlib4seshat/Mdrnn.hpp	/^  void feed_back_layer(Layer* layer) {$/;"	f	struct:Mdrnn
+feed_forward	seshat/rnnlib4seshat/BlockLayer.hpp	/^  void feed_forward(const vector<int>& outCoords) {$/;"	f	struct:BlockLayer
+feed_forward	seshat/rnnlib4seshat/CollapseLayer.hpp	/^	void feed_forward(const vector<int>& coords)$/;"	f	struct:CollapseLayer
+feed_forward	seshat/rnnlib4seshat/Connection.hpp	/^	virtual void feed_forward(const vector<int>& coords){}$/;"	f	struct:Connection
+feed_forward	seshat/rnnlib4seshat/CopyConnection.hpp	/^	void feed_forward(const vector<int>& coords)$/;"	f	struct:CopyConnection
+feed_forward	seshat/rnnlib4seshat/FullConnection.hpp	/^	void feed_forward(const vector<int>& toCoords)$/;"	f	struct:FullConnection
+feed_forward	seshat/rnnlib4seshat/GatherLayer.hpp	/^	void feed_forward(const vector<int>& outCoords)$/;"	f	struct:GatherLayer
+feed_forward	seshat/rnnlib4seshat/IdentityLayer.hpp	/^	void feed_forward(const vector<int>& coords)$/;"	f	struct:IdentityLayer
+feed_forward	seshat/rnnlib4seshat/Layer.hpp	/^  virtual void feed_forward(const vector<int>& coords) {}$/;"	f	struct:Layer
+feed_forward	seshat/rnnlib4seshat/LstmLayer.hpp	/^  void feed_forward(const vector<int>& coords) {$/;"	f	struct:LstmLayer
+feed_forward	seshat/rnnlib4seshat/Mdrnn.hpp	/^  virtual void feed_forward(const DataSequence& seq) {$/;"	f	struct:Mdrnn
+feed_forward	seshat/rnnlib4seshat/NeuronLayer.hpp	/^	void feed_forward(const vector<int>& coords)$/;"	f	struct:NeuronLayer
+feed_forward	seshat/rnnlib4seshat/SoftmaxLayer.hpp	/^	void feed_forward(const vector<int>& coords)$/;"	f	struct:SoftmaxLayer
+feed_forward_layer	seshat/rnnlib4seshat/Mdrnn.hpp	/^  void feed_forward_layer(Layer* layer) {$/;"	f	struct:Mdrnn
+filename	seshat/rnnlib4seshat/ConfigFile.hpp	/^  string filename;$/;"	m	struct:ConfigFile
+fill	seshat/rnnlib4seshat/Helpers.hpp	/^template<class R> static void fill ($/;"	f
+fill_data	seshat/rnnlib4seshat/MultiArray.hpp	/^  void fill_data(const T& fillVal) {$/;"	f	struct:MultiArray
+find	seshat/rnnlib4seshat/Helpers.hpp	/^template <class R, class T> static typename range_iterator<R>::type find($/;"	f
+flip	seshat/rnnlib4seshat/Helpers.hpp	/^template <class R> static vector<typename boost::range_value<R>::type>& flip($/;"	f
+flood	seshat/rnnlib4seshat/Helpers.hpp	/^template<class R> static void flood($/;"	f
+fn	seshat/rnnlib4seshat/ActivationFunctions.hpp	/^  static real_t fn(real_t x) {$/;"	f	struct:Identity
+fn	seshat/rnnlib4seshat/ActivationFunctions.hpp	/^  static real_t fn(real_t x) {$/;"	f	struct:Logistic
+fn	seshat/rnnlib4seshat/ActivationFunctions.hpp	/^  static real_t fn(real_t x) {$/;"	f	struct:Max2min0
+fn	seshat/rnnlib4seshat/ActivationFunctions.hpp	/^  static real_t fn(real_t x) {$/;"	f	struct:Maxmin1
+fn	seshat/rnnlib4seshat/ActivationFunctions.hpp	/^  static real_t fn(real_t x) {$/;"	f	struct:Maxmin2
+fn	seshat/rnnlib4seshat/ActivationFunctions.hpp	/^  static real_t fn(real_t x) {$/;"	f	struct:Softsign
+fn	seshat/rnnlib4seshat/ActivationFunctions.hpp	/^  static real_t fn(real_t x) {$/;"	f	struct:Tanh
+for_each	seshat/rnnlib4seshat/Helpers.hpp	/^static UnaryFunction for_each(R& r, UnaryFunction f) {$/;"	f
+forgetGateActs	seshat/rnnlib4seshat/LstmLayer.hpp	/^  SeqBuffer<real_t> forgetGateActs;$/;"	m	struct:LstmLayer
+forwardVariables	seshat/rnnlib4seshat/TranscriptionLayer.hpp	/^	SeqBuffer<Log<real_t> > forwardVariables;$/;"	m	struct:TranscriptionLayer
+frame	seshat/featureson.h	/^class frame {$/;"	c
+frames	seshat/featureson.h	/^    frame * frames;$/;"	m	class:sentenceF
+from	seshat/rnnlib4seshat/Connection.hpp	/^	Layer* from;$/;"	m	struct:Connection
+front	seshat/rnnlib4seshat/SeqBuffer.hpp	/^  const View<T> front(const vector<int>& dirs = empty_list_of<int>()) {$/;"	f	struct:SeqBuffer
+fusion	seshat/meparser.cc	/^CellCYK *meParser::fusion(Sample *M, ProductionB *pd, Hypothesis *A, Hypothesis *B, int N, double prob) {$/;"	f	class:meParser
+g	seshat/gparser.h	/^  Grammar *g;$/;"	m	class:gParser
+gParser	seshat/gparser.cc	/^gParser::gParser(Grammar *gram, FILE *fd, char *path) {$/;"	f	class:gParser
+gParser	seshat/gparser.h	/^class gParser{$/;"	c
+gatesPerBlock	seshat/rnnlib4seshat/LstmLayer.hpp	/^  size_t gatesPerBlock;$/;"	m	struct:LstmLayer
+gather_level	seshat/rnnlib4seshat/Mdrnn.hpp	/^  Layer* gather_level(const string& name, int levelNum) {$/;"	f	struct:Mdrnn
+gauss_pdf	seshat/rnnlib4seshat/Helpers.hpp	/^template<class T1, class T2, class T3, class T4> static T1 gauss_pdf($/;"	f
+get	seshat/rnnlib4seshat/ConfigFile.hpp	/^  template<class T> T get(const string& name) {$/;"	f	struct:ConfigFile
+get	seshat/rnnlib4seshat/ConfigFile.hpp	/^  template<class T> T get(const string& name, const T& defaultVal) {$/;"	f	struct:ConfigFile
+get	seshat/rnnlib4seshat/MultiArray.hpp	/^  T& get(const vector<int>& coords) {$/;"	f	struct:MultiArray
+get	seshat/rnnlib4seshat/MultiArray.hpp	/^  const T& get(const vector<int>& coords) const {$/;"	f	struct:MultiArray
+get	seshat/sample.cc	/^int Sample::get(int x, int y) {$/;"	f	class:Sample
+get	seshat/stroke.cc	/^Punto *Stroke::get(int idx) {$/;"	f	class:Stroke
+get	seshat/tablecyk.cc	/^CellCYK *TableCYK::get(int n) {$/;"	f	class:TableCYK
+getAVGstroke_size	seshat/sample.cc	/^void Sample::getAVGstroke_size(float *avgw, float *avgh) {$/;"	f	class:Sample
+getCentroids	seshat/sample.cc	/^void Sample::getCentroids(CellCYK *cd, int *ce, int *as, int *ds) {$/;"	f	class:Sample
+getClase	seshat/production.cc	/^bool ProductionT::getClase(int k) {$/;"	f	class:ProductionT
+getDist	seshat/sample.cc	/^float Sample::getDist(int si, int sj) {$/;"	f	class:Sample
+getFea	seshat/featureson.h	/^    double getFea(int i){$/;"	f	class:frame
+getFeas	seshat/sparel.cc	/^void SpaRel::getFeas(Hypothesis *a, Hypothesis *b, float *sample, int ry) {$/;"	f	class:SpaRel
+getH	seshat/logspace.cc	/^void LogSpace::getH(CellCYK *c, list<CellCYK*> *set) {$/;"	f	class:LogSpace
+getHorProb	seshat/sparel.cc	/^double SpaRel::getHorProb(Hypothesis *ha, Hypothesis *hb) {$/;"	f	class:SpaRel
+getI	seshat/logspace.cc	/^void LogSpace::getI(CellCYK *c, list<CellCYK*> *set) {$/;"	f	class:LogSpace
+getId	seshat/stroke.cc	/^int Stroke::getId() {$/;"	f	class:Stroke
+getInsProb	seshat/sparel.cc	/^double SpaRel::getInsProb(Hypothesis *ha, Hypothesis *hb) {$/;"	f	class:SpaRel
+getM	seshat/logspace.cc	/^void LogSpace::getM(CellCYK *c, list<CellCYK*> *set) {$/;"	f	class:LogSpace
+getMLH	seshat/tablecyk.cc	/^Hypothesis *TableCYK::getMLH() {$/;"	f	class:TableCYK
+getMLtype	seshat/production.cc	/^char ProductionT::getMLtype(int k) {$/;"	f	class:ProductionT
+getMrtProb	seshat/sparel.cc	/^double SpaRel::getMrtProb(Hypothesis *ha, Hypothesis *hb) {$/;"	f	class:SpaRel
+getNClases	seshat/symrec.cc	/^int SymRec::getNClases() {$/;"	f	class:SymRec
+getNoTerm	seshat/production.cc	/^int ProductionT::getNoTerm() {$/;"	f	class:ProductionT
+getNpuntos	seshat/stroke.cc	/^int Stroke::getNpuntos() {$/;"	f	class:Stroke
+getOfflineFKI	seshat/symfeatures.cc	/^DataSequence *SymFeatures::getOfflineFKI(int **img, int H, int W) {$/;"	f	class:SymFeatures
+getOnline	seshat/symfeatures.cc	/^DataSequence *SymFeatures::getOnline(Sample *M, SegmentHyp *SegHyp) {$/;"	f	class:SymFeatures
+getOutDot	seshat/sample.cc	/^char *Sample::getOutDot() {$/;"	f	class:Sample
+getPrior	seshat/production.cc	/^float ProductionT::getPrior(int k) {$/;"	f	class:ProductionT
+getS	seshat/logspace.cc	/^void LogSpace::getS(CellCYK *c, list<CellCYK*> *set) {$/;"	f	class:LogSpace
+getStroke	seshat/sample.cc	/^Stroke *Sample::getStroke(int i) {$/;"	f	class:Sample
+getSubProb	seshat/sparel.cc	/^double SpaRel::getSubProb(Hypothesis *ha, Hypothesis *hb) {$/;"	f	class:SpaRel
+getSupProb	seshat/sparel.cc	/^double SpaRel::getSupProb(Hypothesis *ha, Hypothesis *hb) {$/;"	f	class:SpaRel
+getTeX	seshat/production.cc	/^char *ProductionT::getTeX(int k) {$/;"	f	class:ProductionT
+getU	seshat/logspace.cc	/^void LogSpace::getU(CellCYK *c, list<CellCYK*> *set) {$/;"	f	class:LogSpace
+getV	seshat/logspace.cc	/^void LogSpace::getV(CellCYK *c, list<CellCYK*> *set) {$/;"	f	class:LogSpace
+getVerProb	seshat/sparel.cc	/^double SpaRel::getVerProb(Hypothesis *ha, Hypothesis *hb, bool strict) {$/;"	f	class:SpaRel
+get_array	seshat/rnnlib4seshat/ConfigFile.hpp	/^  template<class T> Vector<Vector<T> > get_array($/;"	f	struct:ConfigFile
+get_close_strokes	seshat/sample.cc	/^void Sample::get_close_strokes(int id, list<int> *L, float dist_th) {$/;"	f	class:Sample
+get_derivs	seshat/rnnlib4seshat/WeightContainer.hpp	/^  View<real_t> get_derivs(pair<int, int> range)$/;"	f	struct:WeightContainer
+get_fr_dim	seshat/featureson.cc	/^int frame::get_fr_dim() {$/;"	f	class:frame
+get_input_layer	seshat/rnnlib4seshat/Mdrnn.hpp	/^  Layer* get_input_layer() const {$/;"	f	struct:Mdrnn
+get_list	seshat/rnnlib4seshat/ConfigFile.hpp	/^  template<class T> Vector<T> get_list($/;"	f	struct:ConfigFile
+get_out_coords	seshat/rnnlib4seshat/CollapseLayer.hpp	/^	vector<int> get_out_coords(const vector<int>& inCoords)$/;"	f	struct:CollapseLayer
+get_outstr	seshat/production.cc	/^char *ProductionB::get_outstr() {$/;"	f	class:ProductionB
+get_size	seshat/rnnlib4seshat/GatherLayer.hpp	/^	int get_size(vector<Layer*>& srcs)$/;"	f	struct:GatherLayer
+get_weights	seshat/rnnlib4seshat/WeightContainer.hpp	/^  View<real_t> get_weights(pair<int, int> range)$/;"	f	struct:WeightContainer
+getpu	seshat/online.h	/^  bool getpu() {$/;"	f	class:Point
+getpu	seshat/online.h	/^  bool getpu() {$/;"	f	class:PointR
+gfactor	seshat/meparser.h	/^  float qfactor, dfactor, gfactor, InsPen;$/;"	m	class:meParser
+gmm_spr	seshat/meparser.h	/^  GMM *gmm_spr;$/;"	m	class:meParser
+grad	text_regions.py	/^grad = cv2.morphologyEx(thresh_final, cv2.MORPH_GRADIENT, morph_kernel)$/;"	v
+gray	corners.py	/^gray = cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)$/;"	v
+gray	sudoku.py	/^gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)$/;"	v
+gray_blurred	sudoku.py	/^gray_blurred = cv2.GaussianBlur(gray, (5, 5), 0)$/;"	v
+group_penalty	seshat/sample.cc	/^float Sample::group_penalty(CellCYK *A, CellCYK *B) {$/;"	f	class:Sample
+grow	seshat/rnnlib4seshat/Container.hpp	/^  Vector<T>& grow(size_t length) {$/;"	f	struct:Vector
+hd	seshat/hypothesis.h	/^  Hypothesis *hi, *hd;$/;"	m	struct:Hypothesis
+header_off	seshat/symrec.h	/^  DataHeader header_on, header_off;$/;"	m	class:SymRec
+header_on	seshat/symrec.h	/^  DataHeader header_on, header_off;$/;"	m	class:SymRec
+hi	seshat/hypothesis.h	/^  Hypothesis *hi, *hd;$/;"	m	struct:Hypothesis
+hiddenLayers	seshat/rnnlib4seshat/Mdrnn.hpp	/^  vector<Layer*> hiddenLayers;$/;"	m	struct:Mdrnn
+hiddenLevels	seshat/rnnlib4seshat/Mdrnn.hpp	/^  vector<vector<Layer*> > hiddenLevels;$/;"	m	struct:Mdrnn
+id	seshat/stroke.h	/^  int id; \/\/InkML information$/;"	m	class:Stroke
+image_path	corners.py	/^	image_path = str(sys.argv[1])$/;"	v
+image_path	corners.py	/^image_path = "images\/image2.png"$/;"	v
+image_path	hardcoded.py	/^image_path = "images\/orig.png"$/;"	v
+image_path	main.py	/^	image_path = str(sys.argv[1])$/;"	v
+image_path	main.py	/^image_path = "images\/orig.png"$/;"	v
+image_path	sudoku.py	/^    image_path = str(sys.argv[1])$/;"	v
+image_path	sudoku.py	/^image_path = "images\/image2.png"$/;"	v
+image_path	text_regions.py	/^	image_path = str(sys.argv[1])$/;"	v
+image_path	text_regions.py	/^image_path = "images\/orig.png"$/;"	v
+img	corners.py	/^img = cv2.imread(image_path)$/;"	v
+img	hardcoded.py	/^img = cv2.imread("images\/orig.png")$/;"	v
+img	main.py	/^img = cv2.imread(image_path)$/;"	v
+img	pokusy_py/opencv_priklad.py	/^img = cv2.imread("nao.jpg")$/;"	v
+img	pokusy_py/opencv_priklad_1.py	/^img = cv2.imread("nao.jpg")$/;"	v
+img	sudoku.py	/^img = cv2.imread(image_path)$/;"	v
+img	text_regions.py	/^img = cv2.imread(image_path)$/;"	v
+img_name	corners.py	/^img_name = image_path.split('\/')[-1:][0].split('.')[0]$/;"	v
+img_name	hardcoded.py	/^img_name = image_path.split('\/')[-1:][0].split('.')[0]$/;"	v
+importance	seshat/rnnlib4seshat/DataSequence.hpp	/^	SeqBuffer<real_t> importance;$/;"	m	struct:DataSequence
+in	seshat/rnnlib4seshat/Helpers.hpp	/^template <class R, class T> static bool in(const R& r, const T& t) {$/;"	f
+in	seshat/rnnlib4seshat/Helpers.hpp	/^template<class T1, class T2> static bool in($/;"	f
+in	seshat/rnnlib4seshat/Helpers.hpp	/^template<class T1, class T2> static bool in(const map<T1, T2>& a, const T1& b) {$/;"	f
+in	seshat/rnnlib4seshat/String.hpp	/^static bool in(const string& str, const char* search) {$/;"	f
+in	seshat/rnnlib4seshat/String.hpp	/^static bool in(const string& str, const string& search) {$/;"	f
+inCoords	seshat/rnnlib4seshat/BlockLayer.hpp	/^  vector<int> inCoords;$/;"	m	struct:BlockLayer
+inGateActs	seshat/rnnlib4seshat/LstmLayer.hpp	/^  SeqBuffer<real_t> inGateActs;$/;"	m	struct:LstmLayer
+in_closed_interval	seshat/rnnlib4seshat/Helpers.hpp	/^template<class T> static bool in_closed_interval(pair<T,T> interval, T val) {$/;"	f
+in_left	seshat/rnnlib4seshat/Helpers.hpp	/^template<class T1, class T2> static bool in_left($/;"	f
+in_open_interval	seshat/rnnlib4seshat/Helpers.hpp	/^template<class T> static bool in_open_interval(pair<T,T> interval, T val) {$/;"	f
+in_range	seshat/rnnlib4seshat/Helpers.hpp	/^template <class R> static bool in_range(R& r, size_t n) {$/;"	f
+in_range	seshat/rnnlib4seshat/MultiArray.hpp	/^  bool in_range(const vector<int>& coords) const {$/;"	f	struct:MultiArray
+in_right	seshat/rnnlib4seshat/Helpers.hpp	/^template<class T1, class T2> static bool in_right($/;"	f
+index	seshat/rnnlib4seshat/Helpers.hpp	/^template <class R, class T> static size_t index(const R& r, const T& t) {$/;"	f
+indices	seshat/rnnlib4seshat/Helpers.hpp	/^indices(const R& r) {$/;"	f
+infinity	seshat/rnnlib4seshat/Helpers.hpp	/^static const real_t infinity = numeric_limits<real_t>::infinity();$/;"	v
+init	seshat/rnnlib4seshat/NeuronLayer.hpp	/^	void init()$/;"	f	struct:NeuronLayer
+initCYKterms	seshat/meparser.cc	/^void meParser::initCYKterms(Sample *M, TableCYK *tcyk, int N, int K) {$/;"	f	class:meParser
+initDelta	seshat/rnnlib4seshat/Rprop.hpp	/^  real_t initDelta;$/;"	m	struct:Rprop
+initsyms	seshat/grammar.h	/^  list<int> initsyms;$/;"	m	struct:Grammar
+inkml_id	seshat/hypothesis.h	/^  string inkml_id;$/;"	m	struct:Hypothesis
+inner_product	seshat/rnnlib4seshat/Helpers.hpp	/^inner_product(const R1& a, const R2& b, typename range_value<R1>::type c = 0) {$/;"	f
+inputActivations	seshat/rnnlib4seshat/Layer.hpp	/^  SeqBuffer<real_t> inputActivations;$/;"	m	struct:Layer
+inputBlock	seshat/rnnlib4seshat/Mdrnn.hpp	/^  vector<size_t> inputBlock;$/;"	m	struct:Mdrnn
+inputBlockLayer	seshat/rnnlib4seshat/Mdrnn.hpp	/^  Layer* inputBlockLayer;$/;"	m	struct:Mdrnn
+inputClasses	seshat/rnnlib4seshat/DataSequence.hpp	/^	SeqBuffer<int> inputClasses;$/;"	m	struct:DataSequence
+inputErrors	seshat/rnnlib4seshat/Layer.hpp	/^  SeqBuffer<real_t> inputErrors;$/;"	m	struct:Layer
+inputLabelCounts	seshat/rnnlib4seshat/NetcdfDataset.hpp	/^	map<string, int> inputLabelCounts;$/;"	m	struct:DataHeader
+inputLabels	seshat/rnnlib4seshat/NetcdfDataset.hpp	/^	Vector<string> inputLabels;$/;"	m	struct:DataHeader
+inputLayer	seshat/rnnlib4seshat/Mdrnn.hpp	/^  InputLayer* inputLayer;$/;"	m	struct:Mdrnn
+inputNoiseDev	seshat/rnnlib4seshat/Trainer.hpp	/^  real_t inputNoiseDev;$/;"	m	struct:Trainer
+inputSize	seshat/rnnlib4seshat/NetcdfDataset.hpp	/^	size_t inputSize;$/;"	m	struct:DataHeader
+input_seq_begin	seshat/rnnlib4seshat/Layer.hpp	/^  virtual SeqIterator input_seq_begin() const {$/;"	f	struct:Layer
+input_seq_rbegin	seshat/rnnlib4seshat/Layer.hpp	/^  virtual SeqIterator input_seq_rbegin() const {$/;"	f	struct:Layer
+input_seq_shape	seshat/rnnlib4seshat/Layer.hpp	/^  virtual const View<const size_t> input_seq_shape() const {$/;"	f	struct:Layer
+input_size	seshat/rnnlib4seshat/Layer.hpp	/^  virtual size_t input_size() const {$/;"	f	struct:Layer
+inputs	seshat/rnnlib4seshat/DataSequence.hpp	/^	SeqBuffer<real_t> inputs;$/;"	m	struct:DataSequence
+insMap	seshat/rnnlib4seshat/StringAlignment.hpp	/^	map<typename boost::range_value<R1>::type, int> insMap;$/;"	m	struct:StringAlignment
+insPenalty	seshat/rnnlib4seshat/StringAlignment.hpp	/^	int insPenalty;$/;"	m	struct:StringAlignment
+insertions	seshat/rnnlib4seshat/StringAlignment.hpp	/^	int insertions;$/;"	m	struct:StringAlignment
+int_to_sortable_string	seshat/rnnlib4seshat/String.hpp	/^static string int_to_sortable_string(size_t num, size_t max) {$/;"	f
+integer	seshat/rnnlib4seshat/Helpers.hpp	/^template<class T> static int integer(const T& t) {$/;"	f
+intersecting	seshat/rnnlib4seshat/Helpers.hpp	/^template<class T> static bool intersecting(const set<T>& s1, const set<T>& s2) {$/;"	f
+invTrainSeqs	seshat/rnnlib4seshat/Trainer.hpp	/^  real_t invTrainSeqs;$/;"	m	struct:Trainer
+invcov	seshat/gmm.h	/^  float **invcov, **mean, **weight, *prior, *det;$/;"	m	class:GMM
+iota	seshat/rnnlib4seshat/Helpers.hpp	/^template <class T1, class T2> static vector<T1> iota($/;"	f
+iota	seshat/rnnlib4seshat/Helpers.hpp	/^template <class T1, class T2> static vector<T1> iota(const T2& t) {$/;"	f
+ip	pokusy_py/countour_pokus.py	/^ip = "10.10.48.252"$/;"	v
+ip	pokusy_py/nao_pokus.py	/^ip = "10.10.48.252"$/;"	v
+isFillChar	seshat/gparser.cc	/^bool gParser::isFillChar(char c) {$/;"	f	class:gParser
+isRelation	seshat/sample.cc	/^bool isRelation(char *str) {$/;"	f
+is_hat	seshat/online.h	/^  bool is_hat;$/;"	m	class:stroke
+is_mirror	seshat/rnnlib4seshat/Mdrnn.hpp	/^  bool is_mirror(const Layer* layer) {$/;"	f	struct:Mdrnn
+is_recurrent	seshat/rnnlib4seshat/Mdrnn.hpp	/^  bool is_recurrent(const Layer* layer) const {$/;"	f	struct:Mdrnn
+join	seshat/rnnlib4seshat/String.hpp	/^template<class T, class R >static string join($/;"	f
+k	seshat/featureson.h	/^    double x,y,dx,dy,ax,ay,k;$/;"	m	class:frame
+k	text_regions.py	/^    k = cv2.waitKey(33)$/;"	v
+key2cl	seshat/symrec.h	/^  string *key2cl;$/;"	m	class:SymRec
+key2str	seshat/grammar.cc	/^const char *Grammar::key2str(int k) {$/;"	f	class:Grammar
+keyClase	seshat/symrec.cc	/^int SymRec::keyClase(char *str) {$/;"	f	class:SymRec
+l1	seshat/rnnlib4seshat/Trainer.hpp	/^  real_t l1;$/;"	m	struct:Trainer
+l2	seshat/rnnlib4seshat/Trainer.hpp	/^  real_t l2;$/;"	m	struct:Trainer
+label_seq_to_str	seshat/rnnlib4seshat/DataSequence.hpp	/^template<class R> static string label_seq_to_str(const R& labelSeq, const vector<string>& alphabet, const string& delim = " ")$/;"	f
+labels	seshat/rnnlib4seshat/ClassificationLayer.hpp	/^	Vector<string> labels;$/;"	m	struct:ClassificationLayer
+labels	seshat/rnnlib4seshat/DataExporter.hpp	/^  const vector<string>* labels;$/;"	m	struct:SeqBufferVal
+last_index	seshat/rnnlib4seshat/Helpers.hpp	/^template <class R> static size_t last_index(R& r) {$/;"	f
+lcen	seshat/hypothesis.h	/^  int lcen, rcen;$/;"	m	struct:Hypothesis
+learnRate	seshat/rnnlib4seshat/SteepestDescent.hpp	/^  real_t learnRate;$/;"	m	struct:SteepestDescent
+left_pad	seshat/rnnlib4seshat/String.hpp	/^template<class T> string left_pad(const T& val, int width, char fill = '0') {$/;"	f
+leftmost	seshat/sparel.cc	/^Hypothesis *leftmost(Hypothesis *h) {$/;"	f
+linea	seshat/sample.cc	/^void Sample::linea(int **img, Punto *pa, Punto *pb, int stkid) {$/;"	f	class:Sample
+linea_pbm	seshat/sample.cc	/^void Sample::linea_pbm(int **img, Punto *pa, Punto *pb, int stkid) {$/;"	f	class:Sample
+lines	corners.py	/^lines = cv2.HoughLines(edges,1,np.pi\/180,250)$/;"	v
+link_layers	seshat/rnnlib4seshat/WeightContainer.hpp	/^  void link_layers(const string& fromName, const string& toName, const string& connName = "", int paramBegin = 0, int paramEnd = 0) {$/;"	f	struct:WeightContainer
+load	seshat/rnnlib4seshat/DataExporter.cpp	/^void DataExportHandler::load(ConfigFile& conf, ostream& out) {$/;"	f	class:DataExportHandler
+load	seshat/rnnlib4seshat/DataExporter.hpp	/^  bool load(ConfigFile& conf, ostream& out = cout) {$/;"	f	struct:DataExporter
+load	seshat/rnnlib4seshat/DataExporter.hpp	/^  bool load(istream& in, ostream& out = cout) {$/;"	f	struct:ParamVal
+load	seshat/rnnlib4seshat/DataExporter.hpp	/^  bool load(istream& in, ostream& out = cout) {$/;"	f	struct:RangeVal
+load	seshat/rnnlib4seshat/DataExporter.hpp	/^  virtual bool load(istream& in, ostream& out = cout) {$/;"	f	struct:Val
+loadInkML	seshat/sample.cc	/^void Sample::loadInkML(char *str) {$/;"	f	class:Sample
+loadModel	seshat/duration.cc	/^void DurationModel::loadModel(FILE *fd, SymRec *sr) {$/;"	f	class:DurationModel
+loadModel	seshat/gmm.cc	/^void GMM::loadModel( char *str ) {$/;"	f	class:GMM
+loadSCGInk	seshat/sample.cc	/^void Sample::loadSCGInk(char *str) {$/;"	f	class:Sample
+loadSymRec	seshat/meparser.cc	/^void meParser::loadSymRec(char *config) {$/;"	f	class:meParser
+log	seshat/rnnlib4seshat/Log.hpp	/^  T log() const$/;"	f	class:Log
+logActivations	seshat/rnnlib4seshat/SoftmaxLayer.hpp	/^	SeqBuffer<Log<real_t> > logActivations;$/;"	m	struct:SoftmaxLayer
+logInfinity	seshat/rnnlib4seshat/Log.hpp	/^  static const T logInfinity;$/;"	m	class:Log
+logInfinity	seshat/rnnlib4seshat/Log.hpp	/^template <class T> const T Log<T>::logInfinity = 1e100;$/;"	m	class:Log
+logVal	seshat/rnnlib4seshat/Log.hpp	/^  T logVal;$/;"	m	class:Log
+logZero	seshat/rnnlib4seshat/Log.hpp	/^  static const T logZero;$/;"	m	class:Log
+logZero	seshat/rnnlib4seshat/Log.hpp	/^template <class T> const T Log<T>::logZero = -Log<T>::logInfinity;$/;"	m	class:Log
+log_add	seshat/rnnlib4seshat/Log.hpp	/^  static T log_add(T x, T y)$/;"	f	class:Log
+log_divide	seshat/rnnlib4seshat/Log.hpp	/^  static T log_divide(T x, T y)$/;"	f	class:Log
+log_multiply	seshat/rnnlib4seshat/Log.hpp	/^  static T log_multiply(T x, T y)$/;"	f	class:Log
+log_subtract	seshat/rnnlib4seshat/Log.hpp	/^  static T log_subtract(T x, T y)$/;"	f	class:Log
+log_sum	seshat/rnnlib4seshat/Helpers.hpp	/^template <class R> static typename range_value<R>::type log_sum(const R& r) {$/;"	f
+lower	seshat/rnnlib4seshat/String.hpp	/^static const string lower(const string& s) {$/;"	f
+m	seshat/rnnlib4seshat/StringAlignment.hpp	/^	size_t m;$/;"	m	struct:StringAlignment
+main	seshat/seshat.cc	/^int main(int argc, char *argv[]) {$/;"	f
+make_classification_layer	seshat/rnnlib4seshat/ClassificationLayer.cpp	/^ClassificationLayer* make_classification_layer(ostream& out, const string& name, size_t numSeqDims, const vector<string>& labels, WeightContainer *weight, DataExportHandler *deh)$/;"	f
+make_layer_recurrent	seshat/rnnlib4seshat/Mdrnn.hpp	/^  void make_layer_recurrent(Layer* layer) {$/;"	f	struct:Mdrnn
+make_name	seshat/rnnlib4seshat/FullConnection.hpp	/^	static const string& make_name(Layer* f, Layer* t, const vector<int>& d)$/;"	f	struct:FullConnection
+make_target_labels	seshat/rnnlib4seshat/TranscriptionLayer.hpp	/^	vector<string> make_target_labels(const vector<string>& labs)$/;"	f	struct:TranscriptionLayer
+mark	seshat/rnnlib4seshat/Helpers.hpp	/^static void mark() {$/;"	f
+matrix	seshat/rnnlib4seshat/StringAlignment.hpp	/^	Vector<Vector<int> > matrix;$/;"	m	struct:StringAlignment
+matrixOps	seshat/rnnlib4seshat/Matrix.hpp	/^static uint64_t matrixOps = 0;$/;"	v
+max	seshat/rnnlib4seshat/Helpers.hpp	/^template <class R> static typename range_value<R>::type max(const R& r) {$/;"	f
+maxDelta	seshat/rnnlib4seshat/Rprop.hpp	/^  real_t maxDelta;$/;"	m	struct:Rprop
+max_area	sudoku.py	/^            max_area = area$/;"	v
+max_area	sudoku.py	/^max_area = 0$/;"	v
+max_strokes	seshat/duration.h	/^  int max_strokes;$/;"	m	class:DurationModel
+max_strokes	seshat/meparser.h	/^  int   max_strokes;$/;"	m	class:meParser
+mdl	seshat/rnnlib4seshat/Trainer.hpp	/^  bool mdl;$/;"	m	struct:Trainer
+mdlInitStdDev	seshat/rnnlib4seshat/Trainer.hpp	/^  real_t mdlInitStdDev;$/;"	m	struct:Trainer
+mdlMlErrors	seshat/rnnlib4seshat/Trainer.hpp	/^  Vector<prob_t> mdlMlErrors;$/;"	m	struct:Trainer
+mdlOldDerivs	seshat/rnnlib4seshat/Trainer.hpp	/^  Vector<real_t> mdlOldDerivs;$/;"	m	struct:Trainer
+mdlOptimiser	seshat/rnnlib4seshat/Trainer.hpp	/^  Optimiser* mdlOptimiser;$/;"	m	struct:Trainer
+mdlPriorMean	seshat/rnnlib4seshat/Trainer.hpp	/^  real_t mdlPriorMean;$/;"	m	struct:Trainer
+mdlPriorStdDev	seshat/rnnlib4seshat/Trainer.hpp	/^  real_t mdlPriorStdDev;$/;"	m	struct:Trainer
+mdlPriorVariance	seshat/rnnlib4seshat/Trainer.hpp	/^  real_t mdlPriorVariance;$/;"	m	struct:Trainer
+mdlSamples	seshat/rnnlib4seshat/Trainer.hpp	/^  int mdlSamples;$/;"	m	struct:Trainer
+mdlSeqDerivs	seshat/rnnlib4seshat/Trainer.hpp	/^  Vector<real_t> mdlSeqDerivs;$/;"	m	struct:Trainer
+mdlSeqErrors	seshat/rnnlib4seshat/Trainer.hpp	/^  map<string, real_t> mdlSeqErrors;$/;"	m	struct:Trainer
+mdlStdDevDerivs	seshat/rnnlib4seshat/Trainer.hpp	/^  Vector<real_t> mdlStdDevDerivs;$/;"	m	struct:Trainer
+mdlStdDevs	seshat/rnnlib4seshat/Trainer.hpp	/^  Vector<real_t> mdlStdDevs;$/;"	m	struct:Trainer
+mdlSymmetricSampling	seshat/rnnlib4seshat/Trainer.hpp	/^  bool mdlSymmetricSampling;$/;"	m	struct:Trainer
+mdlWeight	seshat/rnnlib4seshat/Trainer.hpp	/^  real_t mdlWeight;$/;"	m	struct:Trainer
+mdl_calculate_prior_params	seshat/rnnlib4seshat/Trainer.hpp	/^  void mdl_calculate_prior_params() {$/;"	f	struct:Trainer
+mdl_differentiate	seshat/rnnlib4seshat/Trainer.hpp	/^  void mdl_differentiate(real_t scaleFactor = 1) {$/;"	f	struct:Trainer
+mdl_evaluate	seshat/rnnlib4seshat/Trainer.hpp	/^  real_t mdl_evaluate() {$/;"	f	struct:Trainer
+mdl_mean	seshat/rnnlib4seshat/Trainer.hpp	/^  real_t mdl_mean(int i) {$/;"	f	struct:Trainer
+mdl_ml_error	seshat/rnnlib4seshat/Trainer.hpp	/^  real_t mdl_ml_error() {$/;"	f	struct:Trainer
+mdl_print_stats	seshat/rnnlib4seshat/Trainer.hpp	/^  void mdl_print_stats() {$/;"	f	struct:Trainer
+mdl_sample_weights	seshat/rnnlib4seshat/Trainer.hpp	/^  void mdl_sample_weights(int sampleNum) {$/;"	f	struct:Trainer
+mdl_std_dev	seshat/rnnlib4seshat/Trainer.hpp	/^  real_t mdl_std_dev(int i) {$/;"	f	struct:Trainer
+mdl_variance	seshat/rnnlib4seshat/Trainer.hpp	/^  real_t mdl_variance(int i) {$/;"	f	struct:Trainer
+meParser	seshat/meparser.cc	/^meParser::meParser(char *conf) {$/;"	f	class:meParser
+meParser	seshat/meparser.h	/^class meParser{$/;"	c
+mean	seshat/gmm.h	/^  float **invcov, **mean, **weight, *prior, *det;$/;"	m	class:GMM
+mean	seshat/rnnlib4seshat/Helpers.hpp	/^template <class R> static typename range_value<R>::type mean(const R& r) {$/;"	f
+means_off	seshat/symfeatures.h	/^  double means_on[ON_FEAT], means_off[OFF_FEAT];$/;"	m	class:SymFeatures
+means_on	seshat/symfeatures.h	/^  double means_on[ON_FEAT], means_off[OFF_FEAT];$/;"	m	class:SymFeatures
+mergeRegions	seshat/production.cc	/^void ProductionB::mergeRegions(Hypothesis *a, Hypothesis *b, Hypothesis *s) {$/;"	f	class:ProductionB
+merge_cen	seshat/production.h	/^  char merge_cen;$/;"	m	class:ProductionB
+minDelta	seshat/rnnlib4seshat/Rprop.hpp	/^  real_t minDelta;$/;"	m	struct:Rprop
+min_dist	seshat/stroke.cc	/^float Stroke::min_dist(Stroke *st) {$/;"	f	class:Stroke
+minmax	seshat/rnnlib4seshat/Helpers.hpp	/^minmax(const R& r) {$/;"	f
+mltype	seshat/production.h	/^  char *mltype;$/;"	m	class:ProductionT
+model	seshat/segmentation.h	/^  GMM *model;$/;"	m	class:SegmentationModelGMM
+model	seshat/sparel.h	/^  GMM *model;$/;"	m	class:SpaRel
+momentum	seshat/rnnlib4seshat/SteepestDescent.hpp	/^  real_t momentum;$/;"	m	struct:SteepestDescent
+morph_kernel	text_regions.py	/^morph_kernel = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (3,3))$/;"	v
+mue	seshat/sparel.h	/^  Sample *mue;$/;"	m	class:SpaRel
+n	seshat/rnnlib4seshat/StringAlignment.hpp	/^	size_t n;$/;"	m	struct:StringAlignment
+nStrokes	seshat/sample.cc	/^int Sample::nStrokes() {$/;"	f	class:Sample
+n_frames	seshat/featureson.h	/^    int n_frames;$/;"	m	class:sentenceF
+n_points	seshat/online.h	/^  int n_points;$/;"	m	class:stroke
+n_strokes	seshat/online.h	/^  int n_strokes;$/;"	m	class:sentence
+name	seshat/rnnlib4seshat/Named.hpp	/^  string name;$/;"	m	struct:Named
+natural	seshat/rnnlib4seshat/Helpers.hpp	/^template<class T> static size_t natural(const T& t) {$/;"	f
+nc	seshat/cellcyk.h	/^  int nc;$/;"	m	struct:CellCYK
+net	seshat/rnnlib4seshat/Trainer.hpp	/^  Mdrnn* net;$/;"	m	struct:Trainer
+netErrors	seshat/rnnlib4seshat/Trainer.hpp	/^  map<string, real_t>& netErrors;$/;"	m	struct:Trainer
+netNormFactors	seshat/rnnlib4seshat/Trainer.hpp	/^  const map<string, real_t>& netNormFactors;$/;"	m	struct:Trainer
+new_parameters	seshat/rnnlib4seshat/WeightContainer.hpp	/^  pair<size_t, size_t> new_parameters(size_t numParams, const string& fromName, const string& toName, const string& connName) {$/;"	f	struct:WeightContainer
+nextCellErrors	seshat/rnnlib4seshat/LstmLayer.hpp	/^  vector<View<real_t> > nextCellErrors;$/;"	m	struct:LstmLayer
+nextErrors	seshat/rnnlib4seshat/LstmLayer.hpp	/^  vector<View<real_t> > nextErrors;$/;"	m	struct:LstmLayer
+nextFgActs	seshat/rnnlib4seshat/LstmLayer.hpp	/^  vector<View<real_t> > nextFgActs;$/;"	m	struct:LstmLayer
+nextLine	seshat/gparser.cc	/^bool gParser::nextLine(FILE *fd, char *lin) {$/;"	f	class:gParser
+next_id	seshat/sample.h	/^  int next_id;$/;"	m	class:Sample
+nnt	seshat/cellcyk.h	/^  int nnt;$/;"	m	struct:CellCYK
+noTerminales	seshat/grammar.h	/^  map<string,int> noTerminales;$/;"	m	struct:Grammar
+norm	seshat/rnnlib4seshat/Helpers.hpp	/^template <class R> static typename range_value<R>::type norm(const R& r) {$/;"	f
+normFactors	seshat/rnnlib4seshat/Mdrnn.hpp	/^  map<string, real_t> normFactors;$/;"	m	struct:Mdrnn
+normFactors	seshat/rnnlib4seshat/NetworkOutput.hpp	/^	map <string, real_t> normFactors;$/;"	m	struct:NetworkOutput
+normal	pokusy_py/nao_pokus.py	/^	normal = cv2.normalize(dist, alpha=0,beta=255,norm_type=cv2.cv.CV_MINMAX,dtype=cv2.cv.CV_8UC1)$/;"	v
+normal	seshat/rnnlib4seshat/Random.cpp	/^real_t Random::normal()$/;"	f	class:Random
+normal	seshat/rnnlib4seshat/Random.cpp	/^real_t Random::normal(real_t dev, real_t mean)$/;"	f	class:Random
+normalizaAspect	seshat/featureson.cc	/^vector<PointR> sentenceF::normalizaAspect(vector<Point> & puntos) {$/;"	f	class:sentenceF
+not_visible	seshat/sample.cc	/^bool Sample::not_visible(int si, int sj, Punto *pi, Punto *pj) {$/;"	f	class:Sample
+noterm	seshat/cellcyk.h	/^  Hypothesis **noterm;$/;"	m	struct:CellCYK
+np	corners.py	/^import numpy as np$/;"	i
+np	hardcoded.py	/^import numpy as np$/;"	i
+np	nao-mathematica.py	/^import numpy as np$/;"	i
+np	sudoku.py	/^import numpy as np$/;"	i
+nth_last	seshat/rnnlib4seshat/Helpers.hpp	/^static typename range_value<R>::type& nth_last(R& r, size_t n = 1) {$/;"	f
+ntid	seshat/hypothesis.h	/^  int ntid;        \/\/Nonterminal ID in parent$/;"	m	struct:Hypothesis
+numBlocks	seshat/rnnlib4seshat/LstmLayer.hpp	/^  size_t numBlocks;$/;"	m	struct:LstmLayer
+numCells	seshat/rnnlib4seshat/LstmLayer.hpp	/^  size_t numCells;$/;"	m	struct:LstmLayer
+numDims	seshat/rnnlib4seshat/NetcdfDataset.hpp	/^	int numDims;$/;"	m	struct:DataHeader
+numErrorsByClass	seshat/rnnlib4seshat/ClassificationLayer.hpp	/^	vector<int> numErrorsByClass;$/;"	m	struct:ClassificationLayer
+numSequences	seshat/rnnlib4seshat/NetcdfDataset.hpp	/^	size_t numSequences;$/;"	m	struct:DataHeader
+numTargetsByClass	seshat/rnnlib4seshat/ClassificationLayer.hpp	/^	vector<int> numTargetsByClass;$/;"	m	struct:ClassificationLayer
+numTimesteps	seshat/rnnlib4seshat/NetcdfDataset.hpp	/^	size_t numTimesteps;$/;"	m	struct:DataHeader
+num_dims	seshat/rnnlib4seshat/MultiArray.hpp	/^  virtual size_t num_dims() const {$/;"	f	struct:MultiArray
+num_seq_dims	seshat/rnnlib4seshat/Layer.hpp	/^  virtual size_t num_seq_dims() const {$/;"	f	struct:Layer
+num_seq_dims	seshat/rnnlib4seshat/Mdrnn.hpp	/^  size_t num_seq_dims() const {$/;"	f	struct:Mdrnn
+num_seq_dims	seshat/rnnlib4seshat/SeqBuffer.hpp	/^  size_t num_seq_dims() const {$/;"	f	struct:SeqBuffer
+num_timesteps	seshat/rnnlib4seshat/DataSequence.hpp	/^	size_t num_timesteps() const$/;"	f	struct:DataSequence
+num_weights	seshat/rnnlib4seshat/Connection.hpp	/^	virtual size_t num_weights() const {return 0;}$/;"	f	struct:Connection
+num_weights	seshat/rnnlib4seshat/FullConnection.hpp	/^	size_t num_weights() const$/;"	f	struct:FullConnection
+numpy	main.py	/^import numpy$/;"	i
+numpy	pokusy_py/countour_pokus.py	/^import numpy$/;"	i
+numpy	pokusy_py/nao_pokus.py	/^import numpy$/;"	i
+numpy	text_regions.py	/^import numpy$/;"	i
+offset	seshat/rnnlib4seshat/MultiArray.hpp	/^  size_t offset(const vector<int>& coords) const {$/;"	f	struct:MultiArray
+oldStates	seshat/rnnlib4seshat/LstmLayer.hpp	/^  vector<View<real_t> > oldStates;$/;"	m	struct:LstmLayer
+online	seshat/rnnlib4seshat/Rprop.hpp	/^  bool online;$/;"	m	struct:Rprop
+operator !=	seshat/online.h	/^  bool operator !=(const Point & p) const {$/;"	f	class:Point
+operator !=	seshat/online.h	/^  bool operator !=(const PointR & p) const {$/;"	f	class:PointR
+operator *	seshat/rnnlib4seshat/Log.hpp	/^template<class T> Log<T> operator *(Log<T> log1, Log<T> log2)$/;"	f
+operator *	seshat/rnnlib4seshat/SeqBuffer.hpp	/^  const vector<int>& operator* () const {$/;"	f	struct:CoordIterator
+operator *=	seshat/rnnlib4seshat/Helpers.hpp	/^template<class T1, class T2, class T3, class T4> static void operator *=($/;"	f
+operator *=	seshat/rnnlib4seshat/Helpers.hpp	/^template<class T1, class T2, class T3> static void operator *=($/;"	f
+operator *=	seshat/rnnlib4seshat/Log.hpp	/^	Log<T>& operator *=(const Log<T>& l)$/;"	f	class:Log
+operator +	seshat/rnnlib4seshat/Helpers.hpp	/^template<class T1, class T2, class T3> static pair<T1, T2> operator +($/;"	f
+operator +	seshat/rnnlib4seshat/Log.hpp	/^template<class T> Log<T> operator +(Log<T> log1, Log<T> log2)$/;"	f
+operator ++	seshat/rnnlib4seshat/SeqBuffer.hpp	/^  CoordIterator& operator++ () {$/;"	f	struct:CoordIterator
+operator +=	seshat/rnnlib4seshat/Container.hpp	/^  Set& operator +=(const T& val) {$/;"	f	struct:Set
+operator +=	seshat/rnnlib4seshat/Helpers.hpp	/^template<class T1, class T2, class T3, class T4> static void operator +=($/;"	f
+operator +=	seshat/rnnlib4seshat/Helpers.hpp	/^template<class T1, class T2> static void operator +=($/;"	f
+operator +=	seshat/rnnlib4seshat/Log.hpp	/^  Log<T>& operator +=(const Log<T>& l)$/;"	f	class:Log
+operator -	seshat/rnnlib4seshat/Log.hpp	/^template<class T> Log<T> operator -(Log<T> log1, Log<T> log2)$/;"	f
+operator -=	seshat/rnnlib4seshat/Helpers.hpp	/^template<class T1, class T2, class T3, class T4> static void operator -=($/;"	f
+operator -=	seshat/rnnlib4seshat/Log.hpp	/^  Log<T>& operator -=(const Log<T>& l)$/;"	f	class:Log
+operator /	seshat/rnnlib4seshat/Log.hpp	/^template<class T> Log<T> operator \/(Log<T> log1, Log<T> log2)$/;"	f
+operator /=	seshat/rnnlib4seshat/Helpers.hpp	/^template<class T1, class T2, class T3, class T4> static void operator \/=($/;"	f
+operator /=	seshat/rnnlib4seshat/Helpers.hpp	/^template<class T1, class T2, class T3> static void operator \/=($/;"	f
+operator /=	seshat/rnnlib4seshat/Log.hpp	/^  Log<T>& operator \/=(const Log<T>& l)$/;"	f	class:Log
+operator <	seshat/cellcyk.cc	/^bool CellCYK::operator<(const CellCYK &C) {$/;"	f	class:CellCYK
+operator <	seshat/rnnlib4seshat/Log.hpp	/^template<class T> bool operator <(Log<T> log1, Log<T> log2)$/;"	f
+operator <	seshat/tablecyk.cc	/^bool operator<(const coo &A, const coo &B) {$/;"	f
+operator <<	seshat/rnnlib4seshat/ConfigFile.hpp	/^static ostream& operator << (ostream& out, const ConfigFile& conf) {$/;"	f
+operator <<	seshat/rnnlib4seshat/Connection.hpp	/^static ostream& operator <<(ostream& out, const Connection& c)$/;"	f
+operator <<	seshat/rnnlib4seshat/DataExporter.hpp	/^static ostream& operator << (ostream& out, const DataExportHandler& de) {$/;"	f
+operator <<	seshat/rnnlib4seshat/DataExporter.hpp	/^static ostream& operator <<(ostream& out, const DataExporter& d) {$/;"	f
+operator <<	seshat/rnnlib4seshat/DataExporter.hpp	/^static ostream& operator <<(ostream& out, const Val& v) {$/;"	f
+operator <<	seshat/rnnlib4seshat/DataSequence.hpp	/^static ostream& operator <<(ostream& out, const DataSequence& seq)$/;"	f
+operator <<	seshat/rnnlib4seshat/Helpers.hpp	/^static ostream& operator << (ostream& out, const tuple<T1, T2, T3, T4, T5>& t) {$/;"	f
+operator <<	seshat/rnnlib4seshat/Helpers.hpp	/^template <class C, class Tr, class R> static basic_ostream<C, Tr>& operator <<($/;"	f
+operator <<	seshat/rnnlib4seshat/Helpers.hpp	/^template<class T1, class T2, class T3, class T4> static ostream& operator << ($/;"	f
+operator <<	seshat/rnnlib4seshat/Helpers.hpp	/^template<class T1, class T2, class T3, class T4> static ostream& operator <<($/;"	f
+operator <<	seshat/rnnlib4seshat/Helpers.hpp	/^template<class T1, class T2, class T3> static ostream& operator << ($/;"	f
+operator <<	seshat/rnnlib4seshat/Helpers.hpp	/^template<class T1, class T2> static ostream& operator << ($/;"	f
+operator <<	seshat/rnnlib4seshat/Helpers.hpp	/^template<class T1, class T2> static ostream& operator <<($/;"	f
+operator <<	seshat/rnnlib4seshat/Layer.cpp	/^ostream& operator <<(ostream& out, const Layer& l) {$/;"	f
+operator <<	seshat/rnnlib4seshat/Log.hpp	/^template<class T> ostream& operator <<(ostream& out, const Log<T>& l)$/;"	f
+operator <<	seshat/rnnlib4seshat/Mdrnn.cpp	/^ostream& operator << (ostream& out, const Mdrnn& net) {$/;"	f
+operator <<	seshat/rnnlib4seshat/Named.hpp	/^static ostream& operator << (ostream& out, const Named& n) {$/;"	f
+operator <<	seshat/rnnlib4seshat/Optimiser.cpp	/^ostream& operator << (ostream& out, const Optimiser& o) {$/;"	f
+operator <<	seshat/rnnlib4seshat/SeqBuffer.hpp	/^template <class T> static ostream& operator <<($/;"	f
+operator <=	seshat/rnnlib4seshat/Log.hpp	/^template<class T> bool operator <=(Log<T> log1, Log<T> log2)$/;"	f
+operator =	seshat/online.h	/^  Point & operator= (const Point & p) {$/;"	f	class:Point
+operator =	seshat/online.h	/^  PointR & operator= (const PointR & p) {$/;"	f	class:PointR
+operator =	seshat/rnnlib4seshat/Container.hpp	/^  template<class R> Set<T>& operator =(const R& r) {$/;"	f	struct:Set
+operator =	seshat/rnnlib4seshat/Container.hpp	/^  template<class R> Vector<T>& operator =(const R& r) {$/;"	f	struct:Vector
+operator =	seshat/rnnlib4seshat/Container.hpp	/^  template<class R> const View<T>& operator =(const R& r) const {$/;"	f	struct:View
+operator =	seshat/rnnlib4seshat/Log.hpp	/^  Log<T>& operator =(const Log<T>& l)$/;"	f	class:Log
+operator =	seshat/rnnlib4seshat/MultiArray.hpp	/^  template<class T2> MultiArray<T>& operator=(const MultiArray<T2>& a) {$/;"	f	struct:MultiArray
+operator =	seshat/rnnlib4seshat/SeqBuffer.hpp	/^  template<class T2> SeqBuffer<T>& operator =(const SeqBuffer<T2>& a) {$/;"	f	struct:SeqBuffer
+operator ==	seshat/online.h	/^  bool operator == (const Point & p) const {$/;"	f	class:Point
+operator ==	seshat/online.h	/^  bool operator ==(const PointR & p) const {$/;"	f	class:PointR
+operator ==	seshat/rnnlib4seshat/Log.hpp	/^template<class T> bool operator ==(Log<T> log1, Log<T> log2)$/;"	f
+operator ==	seshat/rnnlib4seshat/MultiArray.hpp	/^template <class T> static bool operator ==($/;"	f
+operator ==	seshat/tablecyk.h	/^  bool operator==(coo &R) {$/;"	f	struct:coo
+operator >	seshat/rnnlib4seshat/Log.hpp	/^template<class T> bool operator >(Log<T> log1, Log<T> log2)$/;"	f
+operator >=	seshat/rnnlib4seshat/Log.hpp	/^template<class T> bool operator >=(Log<T> log1, Log<T> log2)$/;"	f
+operator >>	seshat/rnnlib4seshat/DataExporter.hpp	/^static istream& operator >>(istream& in, Val& v) {$/;"	f
+operator >>	seshat/rnnlib4seshat/Helpers.hpp	/^template <class C, class Tr, class R> static basic_istream<C, Tr>& operator >>($/;"	f
+operator >>	seshat/rnnlib4seshat/Log.hpp	/^template<class T> istream& operator >>(istream& in, Log<T>& l)$/;"	f
+operator []	seshat/rnnlib4seshat/MultiArray.hpp	/^  const View<T> operator[](const vector<int>& coords) {$/;"	f	struct:MultiArray
+operator []	seshat/rnnlib4seshat/MultiArray.hpp	/^  const View<const T> operator[](const vector<int>& coords) const {$/;"	f	struct:MultiArray
+operator []	seshat/rnnlib4seshat/SeqBuffer.hpp	/^  const View<T> operator[](int coord) {$/;"	f	struct:SeqBuffer
+operator []	seshat/rnnlib4seshat/SeqBuffer.hpp	/^  const View<const T> operator[](int coord) const {$/;"	f	struct:SeqBuffer
+optimiser	seshat/rnnlib4seshat/Trainer.hpp	/^  Optimiser* optimiser;$/;"	m	struct:Trainer
+ordinal	seshat/rnnlib4seshat/String.hpp	/^static string ordinal(size_t n) {$/;"	f
+os	seshat/sample.h	/^  int ox, oy, os, ot; \/\/Online bounding box$/;"	m	class:Sample
+ot	seshat/sample.h	/^  int ox, oy, os, ot; \/\/Online bounding box$/;"	m	class:Sample
+out	seshat/rnnlib4seshat/ClassificationLayer.hpp	/^	ostream& out;$/;"	m	struct:ClassificationLayer
+out	seshat/rnnlib4seshat/Mdrnn.hpp	/^  ostream& out;$/;"	m	struct:Mdrnn
+out	seshat/rnnlib4seshat/Rprop.hpp	/^  ostream& out;$/;"	m	struct:Rprop
+out	seshat/rnnlib4seshat/SteepestDescent.hpp	/^  ostream& out;$/;"	m	struct:SteepestDescent
+out	seshat/rnnlib4seshat/Trainer.hpp	/^  ostream& out;$/;"	m	struct:Trainer
+out	seshat/rnnlib4seshat/TranscriptionLayer.hpp	/^	ostream& out;$/;"	m	struct:TranscriptionLayer
+outGateActs	seshat/rnnlib4seshat/LstmLayer.hpp	/^  SeqBuffer<real_t> outGateActs;$/;"	m	struct:LstmLayer
+outSeqShape	seshat/rnnlib4seshat/BlockLayer.hpp	/^  vector<size_t> outSeqShape;$/;"	m	struct:BlockLayer
+outSeqShape	seshat/rnnlib4seshat/CollapseLayer.hpp	/^	vector<size_t> outSeqShape;$/;"	m	struct:CollapseLayer
+outStr	seshat/production.h	/^  char *outStr;$/;"	m	class:ProductionB
+out_acts	seshat/rnnlib4seshat/BiasLayer.hpp	/^  const View<real_t> out_acts(const vector<int>& coords) {$/;"	f	struct:BiasLayer
+out_acts	seshat/rnnlib4seshat/Layer.hpp	/^  virtual const View<real_t> out_acts(const vector<int>& coords) {$/;"	f	struct:Layer
+out_errs	seshat/rnnlib4seshat/BiasLayer.hpp	/^  const View<real_t> out_errs(const vector<int>& coords) {$/;"	f	struct:BiasLayer
+out_errs	seshat/rnnlib4seshat/Layer.hpp	/^  virtual const View<real_t> out_errs(const vector<int>& coords) {$/;"	f	struct:Layer
+outdot	seshat/sample.h	/^  char *outinkml, *outdot;$/;"	m	class:Sample
+outer	seshat/rnnlib4seshat/Matrix.hpp	/^static void outer($/;"	f
+outer	seshat/rnnlib4seshat/Matrix.hpp	/^template<class R> static void outer(const R& a, real_t *M, const R&b) {$/;"	f
+outer_a_squared	seshat/rnnlib4seshat/Matrix.hpp	/^static void outer_a_squared($/;"	f
+outer_a_squared	seshat/rnnlib4seshat/Matrix.hpp	/^template<class R> static void outer_a_squared($/;"	f
+outinkml	seshat/sample.h	/^  char *outinkml, *outdot;$/;"	m	class:Sample
+outputActivations	seshat/rnnlib4seshat/Layer.hpp	/^  SeqBuffer<real_t> outputActivations;$/;"	m	struct:Layer
+outputErrors	seshat/rnnlib4seshat/Layer.hpp	/^  SeqBuffer<real_t> outputErrors;$/;"	m	struct:Layer
+outputLabelSeq	seshat/rnnlib4seshat/TranscriptionLayer.hpp	/^	vector<int> outputLabelSeq;$/;"	m	struct:TranscriptionLayer
+outputLayers	seshat/rnnlib4seshat/Mdrnn.hpp	/^  vector<Layer*> outputLayers;$/;"	m	struct:Mdrnn
+outputSize	seshat/rnnlib4seshat/NetcdfDataset.hpp	/^	size_t outputSize;$/;"	m	struct:DataHeader
+output_class	seshat/rnnlib4seshat/ClassificationLayer.hpp	/^	int output_class(int pt) const$/;"	f	struct:BinaryClassificationLayer
+output_class	seshat/rnnlib4seshat/ClassificationLayer.hpp	/^	int output_class(int pt) const$/;"	f	struct:MulticlassClassificationLayer
+output_seq_begin	seshat/rnnlib4seshat/Layer.hpp	/^  virtual SeqIterator output_seq_begin() const {$/;"	f	struct:Layer
+output_seq_shape	seshat/rnnlib4seshat/Layer.hpp	/^  virtual const View<const size_t> output_seq_shape() const {$/;"	f	struct:Layer
+output_size	seshat/rnnlib4seshat/Layer.hpp	/^  virtual size_t output_size() const {$/;"	f	struct:Layer
+outputs	seshat/rnnlib4seshat/ClassificationLayer.hpp	/^	vector<int> outputs;$/;"	m	struct:ClassificationLayer
+outputs	seshat/rnnlib4seshat/Mdrnn.hpp	/^  vector<NetworkOutput*> outputs;$/;"	m	struct:Mdrnn
+ox	seshat/sample.h	/^  int ox, oy, os, ot; \/\/Online bounding box$/;"	m	class:Sample
+oy	seshat/sample.h	/^  int ox, oy, os, ot; \/\/Online bounding box$/;"	m	class:Sample
+pair_mean	seshat/rnnlib4seshat/Helpers.hpp	/^template<class T1, class T2> static real_t pair_mean(const pair<T1, T2>& p) {$/;"	f
+pair_product	seshat/rnnlib4seshat/Helpers.hpp	/^template<class T1, class T2> static real_t pair_product(const pair<T1, T2>& p) {$/;"	f
+pair_sum	seshat/rnnlib4seshat/Helpers.hpp	/^template<class T1, class T2> static real_t pair_sum(const pair<T1, T2>& p) {$/;"	f
+param	seshat/rnnlib4seshat/DataExporter.hpp	/^  T& param;$/;"	m	struct:ParamVal
+paramRange	seshat/rnnlib4seshat/FullConnection.hpp	/^	pair<size_t, size_t> paramRange;$/;"	m	struct:FullConnection
+params	seshat/rnnlib4seshat/ConfigFile.hpp	/^  map<string, string> params;$/;"	m	struct:ConfigFile
+parent	seshat/hypothesis.h	/^  CellCYK *parent; \/\/Parent cell$/;"	m	struct:Hypothesis
+parse	seshat/gparser.cc	/^void gParser::parse(FILE *fd) {$/;"	f	class:gParser
+parse_me	seshat/meparser.cc	/^void meParser::parse_me(Sample *M) {$/;"	f	class:meParser
+partition	seshat/logspace.cc	/^int LogSpace::partition(CellCYK **vec, int ini, int fin) {$/;"	f	class:LogSpace
+path_scgink	corners.py	/^path_scgink = "seshat\/SampleMathExps\/{}.scgink".format(img_name)$/;"	v
+path_scgink	hardcoded.py	/^path_scgink = "seshat\/SampleMathExps\/{}.scgink".format(img_name)$/;"	v
+path_to_string	seshat/rnnlib4seshat/TranscriptionLayer.hpp	/^	vector<int>& path_to_string(const vector<int>& path) const$/;"	f	struct:TranscriptionLayer
+pbfactor	seshat/meparser.h	/^  float ptfactor, pbfactor, rfactor;$/;"	m	class:meParser
+pdf	seshat/gmm.cc	/^float GMM::pdf(int c, float *v) {$/;"	f	class:GMM
+peepRange	seshat/rnnlib4seshat/LstmLayer.hpp	/^  pair<size_t, size_t> peepRange;$/;"	m	struct:LstmLayer
+peepSource	seshat/rnnlib4seshat/LstmLayer.hpp	/^  LstmLayer<CI,CO,G>* peepSource;$/;"	m	struct:LstmLayer
+peepsPerBlock	seshat/rnnlib4seshat/LstmLayer.hpp	/^  size_t peepsPerBlock;$/;"	m	struct:LstmLayer
+pen_down	seshat/online.h	/^  bool pen_down;$/;"	m	class:stroke
+peri	sudoku.py	/^        peri = cv2.arcLength(i, True)$/;"	v
+perturb_weight	seshat/rnnlib4seshat/WeightContainer.cpp	/^void perturb_weight(real_t& weight, real_t stdDev, bool additive)$/;"	f
+perturb_weights	seshat/rnnlib4seshat/WeightContainer.cpp	/^template <class R> void perturb_weights(R& weights, R& stdDevs, bool additive)$/;"	f
+perturb_weights	seshat/rnnlib4seshat/WeightContainer.cpp	/^template <class R> void perturb_weights(R& weights, real_t stdDev, bool additive)$/;"	f
+pic	pokusy_py/countour_pokus.py	/^pic = vdp.getImageRemote(cam)$/;"	v
+pic	pokusy_py/nao_pokus.py	/^pic = vdp.getImageRemote(cam)$/;"	v
+picc	pokusy_py/countour_pokus.py	/^picc = (numpy.reshape(numpy.frombuffer(pic[6], dtype = '%iuint8' % pic[2]), (pic[1], pic[0], pic[2])))$/;"	v
+picc	pokusy_py/nao_pokus.py	/^picc = (numpy.reshape(numpy.frombuffer(pic[6], dtype = '%iuint8' % pic[2]), (pic[1], pic[0], pic[2])))$/;"	v
+pix_stk	seshat/sample.h	/^  int **pix_stk;$/;"	m	class:Sample
+pm_comps	seshat/tablecyk.h	/^  int pm_comps;$/;"	m	class:TableCYK
+point_pu	seshat/online.h	/^  bool point_pu;$/;"	m	class:Point
+point_pu	seshat/online.h	/^  bool point_pu;$/;"	m	class:PointR
+points	seshat/online.h	/^  vector<Point> points;$/;"	m	class:stroke
+pop_front	seshat/rnnlib4seshat/Container.hpp	/^  T& pop_front() {$/;"	f	struct:Vector
+port	pokusy_py/countour_pokus.py	/^port = 9559$/;"	v
+port	pokusy_py/nao_pokus.py	/^port = 9559$/;"	v
+posterior	seshat/gmm.cc	/^void GMM::posterior(float *x, float *pr) {$/;"	f	class:GMM
+pr	seshat/hypothesis.h	/^  double pr; \/\/log-probability$/;"	m	struct:Hypothesis
+pre	seshat/gparser.h	/^  char *pre;$/;"	m	class:gParser
+preGateStates	seshat/rnnlib4seshat/LstmLayer.hpp	/^  SeqBuffer<real_t> preGateStates;$/;"	m	struct:LstmLayer
+preOutGateActs	seshat/rnnlib4seshat/LstmLayer.hpp	/^  SeqBuffer<real_t> preOutGateActs;$/;"	m	struct:LstmLayer
+prevAvgDelta	seshat/rnnlib4seshat/Rprop.hpp	/^  real_t prevAvgDelta;$/;"	m	struct:Rprop
+prevDerivs	seshat/rnnlib4seshat/Rprop.hpp	/^  vector<real_t> prevDerivs;$/;"	m	struct:Rprop
+print	seshat/production.cc	/^void ProductionH::print() {$/;"	f	class:ProductionH
+print	seshat/production.cc	/^void ProductionIns::print() {$/;"	f	class:ProductionIns
+print	seshat/production.cc	/^void ProductionMrt::print() {$/;"	f	class:ProductionMrt
+print	seshat/production.cc	/^void ProductionSSE::print() {$/;"	f	class:ProductionSSE
+print	seshat/production.cc	/^void ProductionSub::print() {$/;"	f	class:ProductionSub
+print	seshat/production.cc	/^void ProductionSup::print() {$/;"	f	class:ProductionSup
+print	seshat/production.cc	/^void ProductionT::print() {$/;"	f	class:ProductionT
+print	seshat/production.cc	/^void ProductionV::print() {$/;"	f	class:ProductionV
+print	seshat/production.cc	/^void ProductionVe::print() {$/;"	f	class:ProductionVe
+print	seshat/rnnlib4seshat/BlockLayer.hpp	/^  void print(ostream& out = cout) const {$/;"	f	struct:BlockLayer
+print	seshat/rnnlib4seshat/Connection.hpp	/^	virtual void print(ostream& out) const{}$/;"	f	struct:Connection
+print	seshat/rnnlib4seshat/CopyConnection.hpp	/^	void print(ostream& out) const$/;"	f	struct:CopyConnection
+print	seshat/rnnlib4seshat/DataExporter.hpp	/^  void print(ostream& out) const {$/;"	f	struct:ParamVal
+print	seshat/rnnlib4seshat/DataExporter.hpp	/^  void print(ostream& out) const {$/;"	f	struct:RangeVal
+print	seshat/rnnlib4seshat/DataExporter.hpp	/^  void print(ostream& out) const {$/;"	f	struct:SeqBufferVal
+print	seshat/rnnlib4seshat/DataSequence.hpp	/^	void print(ostream& out, vector<string>* targetLabels = 0, vector<string>* inputLabels = 0) const$/;"	f	struct:DataSequence
+print	seshat/rnnlib4seshat/FullConnection.hpp	/^	void print(ostream& out) const$/;"	f	struct:FullConnection
+print	seshat/rnnlib4seshat/Helpers.hpp	/^template<class T1, class T2, class T3, class T4, class T5> static void print($/;"	f
+print	seshat/rnnlib4seshat/Helpers.hpp	/^template<class T1, class T2, class T3, class T4> static void print($/;"	f
+print	seshat/rnnlib4seshat/Helpers.hpp	/^template<class T1, class T2, class T3> static void print($/;"	f
+print	seshat/rnnlib4seshat/Helpers.hpp	/^template<class T1, class T2> static void print($/;"	f
+print	seshat/rnnlib4seshat/Helpers.hpp	/^template<class T> static void print(const T& t, ostream& out = cout) {$/;"	f
+print	seshat/rnnlib4seshat/Layer.hpp	/^  virtual void print(ostream& out = cout) const {$/;"	f	struct:Layer
+print	seshat/rnnlib4seshat/LstmLayer.hpp	/^  void print(ostream& out = cout) const {$/;"	f	struct:LstmLayer
+print	seshat/rnnlib4seshat/Mdrnn.hpp	/^  virtual void print(ostream& out = cout) const {$/;"	f	struct:Mdrnn
+print	seshat/rnnlib4seshat/Named.hpp	/^  void print(ostream& out = cout) const {$/;"	f	struct:Named
+print	seshat/rnnlib4seshat/Rprop.hpp	/^  void print(ostream& out = cout) const {$/;"	f	struct:Rprop
+print	seshat/rnnlib4seshat/SeqBuffer.hpp	/^  void print(ostream& out) const {$/;"	f	struct:SeqBuffer
+print	seshat/rnnlib4seshat/SteepestDescent.hpp	/^  void print(ostream& out = cout) const {$/;"	f	struct:SteepestDescent
+print	seshat/sample.cc	/^void Sample::print() {$/;"	f	class:Sample
+print	seshat/stroke.cc	/^void Stroke::print() {$/;"	f	class:Stroke
+printInkML	seshat/sample.cc	/^void Sample::printInkML(Grammar *G, Hypothesis *H) {$/;"	f	class:Sample
+printOut	seshat/production.cc	/^void ProductionB::printOut(Grammar *G, Hypothesis *H) {$/;"	f	class:ProductionB
+printSymRecInkML	seshat/sample.cc	/^void Sample::printSymRecInkML(Hypothesis *H, FILE *fout) {$/;"	f	class:Sample
+print_bimap	seshat/rnnlib4seshat/Helpers.hpp	/^template<class T1, class T2> void print_bimap($/;"	f
+print_distortions	seshat/rnnlib4seshat/Trainer.hpp	/^  bool print_distortions() {$/;"	f	struct:Trainer
+print_latex	seshat/meparser.cc	/^void meParser::print_latex(Hypothesis *H) {$/;"	f	class:meParser
+print_left	seshat/rnnlib4seshat/Helpers.hpp	/^template<class T1, class T2> static void print_left($/;"	f
+print_mathml	seshat/production.cc	/^void ProductionH::print_mathml(Grammar *G, Hypothesis *H, FILE *fout, int *nid) {$/;"	f	class:ProductionH
+print_mathml	seshat/production.cc	/^void ProductionIns::print_mathml(Grammar *G, Hypothesis *H, FILE *fout, int *nid) {$/;"	f	class:ProductionIns
+print_mathml	seshat/production.cc	/^void ProductionMrt::print_mathml(Grammar *G, Hypothesis *H, FILE *fout, int *nid) {$/;"	f	class:ProductionMrt
+print_mathml	seshat/production.cc	/^void ProductionSSE::print_mathml(Grammar *G, Hypothesis *H, FILE *fout, int *nid) {$/;"	f	class:ProductionSSE
+print_mathml	seshat/production.cc	/^void ProductionSub::print_mathml(Grammar *G, Hypothesis *H, FILE *fout, int *nid) {$/;"	f	class:ProductionSub
+print_mathml	seshat/production.cc	/^void ProductionSup::print_mathml(Grammar *G, Hypothesis *H, FILE *fout, int *nid) {$/;"	f	class:ProductionSup
+print_mathml	seshat/production.cc	/^void ProductionV::print_mathml(Grammar *G, Hypothesis *H, FILE *fout, int *nid) {$/;"	f	class:ProductionV
+print_mathml	seshat/production.cc	/^void ProductionVe::print_mathml(Grammar *G, Hypothesis *H, FILE *fout, int *nid) {$/;"	f	class:ProductionVe
+print_output_shape	seshat/rnnlib4seshat/Mdrnn.hpp	/^  virtual void print_output_shape(ostream& out = cout) const {$/;"	f	struct:Mdrnn
+print_range	seshat/rnnlib4seshat/Helpers.hpp	/^template <class C, class Tr, class R> static void print_range($/;"	f
+print_right	seshat/rnnlib4seshat/Helpers.hpp	/^template<class T1, class T2> static void print_right($/;"	f
+print_symrec	seshat/meparser.cc	/^void meParser::print_symrec(Hypothesis *H) {$/;"	f	class:meParser
+print_time	seshat/rnnlib4seshat/Helpers.hpp	/^static void print_time($/;"	f
+prior	seshat/gmm.h	/^  float **invcov, **mean, **weight, *prior, *det;$/;"	m	class:GMM
+prior	seshat/production.h	/^  float prior;$/;"	m	class:ProductionB
+prior_label_prob	seshat/rnnlib4seshat/TranscriptionLayer.hpp	/^	virtual const Log<real_t>& prior_label_prob(int label)$/;"	f	struct:TranscriptionLayer
+prob	seshat/duration.cc	/^float DurationModel::prob(int symclas, int size) {$/;"	f	class:DurationModel
+prob	seshat/segmentation.cc	/^float SegmentationModelGMM::prob(CellCYK *cd, Sample *m) {$/;"	f	class:SegmentationModelGMM
+prob_t	seshat/rnnlib4seshat/Helpers.hpp	/^typedef Log<real_t> prob_t;$/;"	t
+probs	seshat/production.h	/^  float *probs;$/;"	m	class:ProductionT
+probs	seshat/sparel.h	/^  float probs[NRELS];$/;"	m	class:SpaRel
+prod	seshat/hypothesis.h	/^  ProductionB *prod;$/;"	m	struct:Hypothesis
+prodTerms	seshat/grammar.h	/^  list<ProductionT *> prodTerms;$/;"	m	struct:Grammar
+prod_sse	seshat/hypothesis.h	/^  ProductionB *prod_sse;$/;"	m	struct:Hypothesis
+prodsH	seshat/grammar.h	/^  list<ProductionB *> prodsH, prodsSup, prodsSub;$/;"	m	struct:Grammar
+prodsIns	seshat/grammar.h	/^  list<ProductionB *> prodsV, prodsVe, prodsIns, prodsMrt, prodsSSE;$/;"	m	struct:Grammar
+prodsMrt	seshat/grammar.h	/^  list<ProductionB *> prodsV, prodsVe, prodsIns, prodsMrt, prodsSSE;$/;"	m	struct:Grammar
+prodsSSE	seshat/grammar.h	/^  list<ProductionB *> prodsV, prodsVe, prodsIns, prodsMrt, prodsSSE;$/;"	m	struct:Grammar
+prodsSub	seshat/grammar.h	/^  list<ProductionB *> prodsH, prodsSup, prodsSub;$/;"	m	struct:Grammar
+prodsSup	seshat/grammar.h	/^  list<ProductionB *> prodsH, prodsSup, prodsSub;$/;"	m	struct:Grammar
+prodsV	seshat/grammar.h	/^  list<ProductionB *> prodsV, prodsVe, prodsIns, prodsMrt, prodsSSE;$/;"	m	struct:Grammar
+prodsVe	seshat/grammar.h	/^  list<ProductionB *> prodsV, prodsVe, prodsIns, prodsMrt, prodsSSE;$/;"	m	struct:Grammar
+product	seshat/rnnlib4seshat/Helpers.hpp	/^template <class R> static typename range_value<R>::type product(const R& r) {$/;"	f
+prt_line	seshat/rnnlib4seshat/Helpers.hpp	/^static void prt_line(ostream& out = cout) {$/;"	f
+pseq	seshat/stroke.h	/^  Punto *pseq;$/;"	m	class:Stroke
+pt	seshat/hypothesis.h	/^  ProductionT *pt;$/;"	m	struct:Hypothesis
+pt	seshat/rnnlib4seshat/SeqBuffer.hpp	/^  vector<int> pt;$/;"	m	struct:CoordIterator
+ptfactor	seshat/meparser.h	/^  float ptfactor, pbfactor, rfactor;$/;"	m	class:meParser
+pts1	corners.py	/^pts1 = np.float32([top_left,bottom_left,top_right,bottom_right])$/;"	v
+pts1	hardcoded.py	/^pts1 = np.float32([[160,47],[115,321],[395,223],[417,406]])$/;"	v
+pts1	sudoku.py	/^    pts1 = np.float32([top_left, bottom_left, top_right, bottom_right])$/;"	v
+pts2	corners.py	/^pts2 = np.float32([[0,0],[0,rows],[cols,0],[cols,rows]])$/;"	v
+pts2	hardcoded.py	/^pts2 = np.float32([[0,0],[0,rows],[cols,0],[cols,rows]])$/;"	v
+pts2	sudoku.py	/^    pts2 = np.float32([[0, 0], [0, rows], [cols, 0], [cols, rows]])$/;"	v
+push_front	seshat/rnnlib4seshat/Container.hpp	/^  void push_front(const T& t) {$/;"	f	struct:Vector
+qfactor	seshat/meparser.h	/^  float qfactor, dfactor, gfactor, InsPen;$/;"	m	class:meParser
+quicksort	seshat/logspace.cc	/^void LogSpace::quicksort(CellCYK **vec, int ini, int fin) {$/;"	f	class:LogSpace
+randomise	seshat/rnnlib4seshat/WeightContainer.hpp	/^  int randomise(real_t range)$/;"	f	struct:WeightContainer
+range	seshat/rnnlib4seshat/DataExporter.hpp	/^  R range;$/;"	m	struct:RangeVal
+range_divide	seshat/rnnlib4seshat/Helpers.hpp	/^template<class R1, class R2, class R3> static void range_divide($/;"	f
+range_divide_equals	seshat/rnnlib4seshat/Helpers.hpp	/^template<class R1, class R2> static void range_divide_equals($/;"	f
+range_divide_val	seshat/rnnlib4seshat/Helpers.hpp	/^template<class R1, class R2> static void range_divide_val($/;"	f
+range_divide_val	seshat/rnnlib4seshat/Helpers.hpp	/^template<class R> static void range_divide_val($/;"	f
+range_indep_gauss_pdf	seshat/rnnlib4seshat/Helpers.hpp	/^range_indep_gauss_pdf(const R1& variables, const R2& means, const R3& stdDevs) {$/;"	f
+range_min_size	seshat/rnnlib4seshat/Helpers.hpp	/^static size_t range_min_size ($/;"	f
+range_min_size	seshat/rnnlib4seshat/Helpers.hpp	/^template<class R1, class R2, class R3, class R4> static size_t range_min_size ($/;"	f
+range_min_size	seshat/rnnlib4seshat/Helpers.hpp	/^template<class R1, class R2, class R3> static size_t range_min_size ($/;"	f
+range_min_size	seshat/rnnlib4seshat/Helpers.hpp	/^template<class R1, class R2> static size_t range_min_size ($/;"	f
+range_minus	seshat/rnnlib4seshat/Helpers.hpp	/^template<class R1, class R2, class R3> static void range_minus($/;"	f
+range_minus_equals	seshat/rnnlib4seshat/Helpers.hpp	/^static void range_minus_equals(R1& a, const R2& b) {$/;"	f
+range_minus_val	seshat/rnnlib4seshat/Helpers.hpp	/^template<class R1, class R2> static void range_minus_val($/;"	f
+range_minus_val	seshat/rnnlib4seshat/Helpers.hpp	/^template<class R> static void range_minus_val($/;"	f
+range_multiply	seshat/rnnlib4seshat/Helpers.hpp	/^template<class R1, class R2, class R3> static void range_multiply($/;"	f
+range_multiply_add	seshat/rnnlib4seshat/Helpers.hpp	/^template<class R1, class R2, class R3> static void range_multiply_add($/;"	f
+range_multiply_equals	seshat/rnnlib4seshat/Helpers.hpp	/^template<class R1, class R2> static void range_multiply_equals($/;"	f
+range_multiply_val	seshat/rnnlib4seshat/Helpers.hpp	/^template<class R1, class R2> static void range_multiply_val($/;"	f
+range_multiply_val	seshat/rnnlib4seshat/Helpers.hpp	/^template<class R> static void range_multiply_val($/;"	f
+range_negate	seshat/rnnlib4seshat/Helpers.hpp	/^range_negate(const R& r) {$/;"	f
+range_negate_equals	seshat/rnnlib4seshat/Helpers.hpp	/^template<class R> static void range_negate_equals(R& r) {$/;"	f
+range_plus	seshat/rnnlib4seshat/Helpers.hpp	/^static R1& range_plus(R1& a, const R2& b, const R3& c) {$/;"	f
+range_plus_equals	seshat/rnnlib4seshat/Helpers.hpp	/^template<class R1, class R2> static void range_plus_equals(R1& a, const R2& b) {$/;"	f
+range_plus_val	seshat/rnnlib4seshat/Helpers.hpp	/^static void range_plus_val($/;"	f
+range_plus_val	seshat/rnnlib4seshat/Helpers.hpp	/^template<class R> static void range_plus_val($/;"	f
+rbegin	seshat/rnnlib4seshat/SeqBuffer.hpp	/^  SeqIterator rbegin(const vector<int>& dirs = empty_list_of<int>()) const {$/;"	f	struct:SeqBuffer
+rcen	seshat/hypothesis.h	/^  int lcen, rcen;$/;"	m	struct:Hypothesis
+read	seshat/rnnlib4seshat/Helpers.hpp	/^template<class T> static T read(const string& data) {$/;"	f
+real	seshat/rnnlib4seshat/Helpers.hpp	/^template<class T> static real_t real(const T& t) {$/;"	f
+realMax	seshat/rnnlib4seshat/Helpers.hpp	/^static const real_t realMax = numeric_limits<real_t>::max();$/;"	v
+realMin	seshat/rnnlib4seshat/Helpers.hpp	/^static const real_t realMin = numeric_limits<real_t>::min();$/;"	v
+real_t	seshat/rnnlib4seshat/Helpers.hpp	/^typedef float real_t;$/;"	t
+recurrentLayers	seshat/rnnlib4seshat/Mdrnn.hpp	/^  vector<Layer*> recurrentLayers;$/;"	m	struct:Mdrnn
+red	pokusy_py/nao_pokus.py	/^red=cv2.inRange(picc, (0,45,45), (20,255,255)) #red$/;"	v
+regularise	seshat/rnnlib4seshat/Trainer.hpp	/^  void regularise(real_t scaleFactor = 1) {$/;"	f	struct:Trainer
+remove	seshat/rnnlib4seshat/ConfigFile.hpp	/^  bool remove(const string& name) {$/;"	f	struct:ConfigFile
+render	seshat/sample.cc	/^int **Sample::render(int *pW, int *pH) {$/;"	f	class:Sample
+renderStrokesPBM	seshat/sample.cc	/^void Sample::renderStrokesPBM(list<int> *SL, int ***img, int *rows, int *cols) {$/;"	f	class:Sample
+render_img	seshat/sample.cc	/^void Sample::render_img(char *out) {$/;"	f	class:Sample
+replicate	seshat/rnnlib4seshat/Container.hpp	/^  Vector<T> replicate(size_t times) const {$/;"	f	struct:Vector
+reset_derivs	seshat/rnnlib4seshat/Trainer.hpp	/^  void reset_derivs() {$/;"	f	struct:Trainer
+reset_derivs	seshat/rnnlib4seshat/WeightContainer.hpp	/^  void reset_derivs()$/;"	f	struct:WeightContainer
+reshape	seshat/rnnlib4seshat/MultiArray.hpp	/^  template<class R> void reshape(const R& dims, const T& fillVal) {$/;"	f	struct:MultiArray
+reshape	seshat/rnnlib4seshat/MultiArray.hpp	/^  template<class R> void reshape(const R& newShape) {$/;"	f	struct:MultiArray
+reshape	seshat/rnnlib4seshat/SeqBuffer.hpp	/^  template<class R> void reshape(const R& newSeqShap, const T& fillval) {$/;"	f	struct:SeqBuffer
+reshape	seshat/rnnlib4seshat/SeqBuffer.hpp	/^  template<class R> void reshape(const R& newSeqShape) {$/;"	f	struct:SeqBuffer
+reshape	seshat/rnnlib4seshat/SeqBuffer.hpp	/^  template<class T2> void reshape(const SeqBuffer<T2>& buff) {$/;"	f	struct:SeqBuffer
+reshape	seshat/rnnlib4seshat/SeqBuffer.hpp	/^  template<class T2> void reshape(const SeqBuffer<T2>& buff, const T& fillVal) {$/;"	f	struct:SeqBuffer
+reshape_errors	seshat/rnnlib4seshat/Layer.hpp	/^  virtual void reshape_errors() {$/;"	f	struct:Layer
+reshape_with_depth	seshat/rnnlib4seshat/SeqBuffer.hpp	/^  template<class R> void reshape_with_depth($/;"	f	struct:SeqBuffer
+reshape_with_depth	seshat/rnnlib4seshat/SeqBuffer.hpp	/^  template<class R> void reshape_with_depth(const R& newSeqShap, size_t dep) {$/;"	f	struct:SeqBuffer
+resize_data	seshat/rnnlib4seshat/MultiArray.hpp	/^  virtual void resize_data() {$/;"	f	struct:MultiArray
+reverse	seshat/rnnlib4seshat/Helpers.hpp	/^template <class R> static void reverse(R& r) {$/;"	f
+reverse_copy	seshat/rnnlib4seshat/Helpers.hpp	/^template<class R1, class R2> static void reverse_copy($/;"	f
+reverse_sort	seshat/rnnlib4seshat/Helpers.hpp	/^template <class R> static R& reverse_sort(R& r) {$/;"	f
+revert_distortions	seshat/rnnlib4seshat/Trainer.hpp	/^  const void revert_distortions() {$/;"	f	struct:Trainer
+rfactor	seshat/meparser.h	/^  float ptfactor, pbfactor, rfactor;$/;"	m	class:meParser
+rightmost	seshat/sparel.cc	/^Hypothesis *rightmost(Hypothesis *h) {$/;"	f
+rs	seshat/sample.h	/^  int rs, rt; \/\/Bottom-right$/;"	m	struct:SegmentHyp
+rs	seshat/stroke.h	/^  int rx, ry, rs, rt;$/;"	m	class:Stroke
+rt	seshat/sample.h	/^  int rs, rt; \/\/Bottom-right$/;"	m	struct:SegmentHyp
+rt	seshat/stroke.h	/^  int rx, ry, rs, rt;$/;"	m	class:Stroke
+runningGradTest	seshat/rnnlib4seshat/Helpers.hpp	/^static bool runningGradTest = false;$/;"	v
+rx	seshat/sample.h	/^  int rx, ry; \/\/Top-left$/;"	m	struct:SegmentHyp
+rx	seshat/stroke.h	/^  int rx, ry, rs, rt;$/;"	m	class:Stroke
+ry	seshat/sample.h	/^  int rx, ry; \/\/Top-left$/;"	m	struct:SegmentHyp
+ry	seshat/stroke.h	/^  int rx, ry, rs, rt;$/;"	m	class:Stroke
+s	seshat/cellcyk.h	/^  int s,t; \/\/bottom-right$/;"	m	struct:CellCYK
+s	seshat/tablecyk.h	/^  int x,y,s,t;$/;"	m	struct:coo
+safe_exp	seshat/rnnlib4seshat/Log.hpp	/^  static T safe_exp(T x)$/;"	f	class:Log
+safe_log	seshat/rnnlib4seshat/Log.hpp	/^  static T safe_log(T x)$/;"	f	class:Log
+save	seshat/rnnlib4seshat/DataExporter.cpp	/^void DataExportHandler::save(ostream& out) const {$/;"	f	class:DataExportHandler
+save	seshat/rnnlib4seshat/DataExporter.hpp	/^  template<typename T> void save(T& param, const string& name) {$/;"	f	struct:DataExporter
+save	seshat/rnnlib4seshat/DataExporter.hpp	/^  void save(ostream& out) const {$/;"	f	struct:DataExporter
+saveVals	seshat/rnnlib4seshat/DataExporter.hpp	/^  map<string, Val*> saveVals;$/;"	m	struct:DataExporter
+save_by_conns	seshat/rnnlib4seshat/WeightContainer.hpp	/^  void save_by_conns(vector<real_t>& container, const string& nam)$/;"	f	struct:WeightContainer
+save_data	seshat/rnnlib4seshat/Trainer.hpp	/^  void save_data(const string& filename, ConfigFile& conf) {$/;"	f	struct:Trainer
+save_dot	seshat/meparser.cc	/^void meParser::save_dot( Hypothesis *H, char *outfile ) {$/;"	f	class:meParser
+save_range	seshat/rnnlib4seshat/DataExporter.hpp	/^  template<typename R> void save_range(const R& range, const string& name) {$/;"	f	struct:DataExporter
+second_deriv	seshat/rnnlib4seshat/ActivationFunctions.hpp	/^  static real_t second_deriv(real_t y) {$/;"	f	struct:Identity
+second_deriv	seshat/rnnlib4seshat/ActivationFunctions.hpp	/^  static real_t second_deriv(real_t y) {$/;"	f	struct:Logistic
+second_deriv	seshat/rnnlib4seshat/ActivationFunctions.hpp	/^  static real_t second_deriv(real_t y) {$/;"	f	struct:Max2min0
+second_deriv	seshat/rnnlib4seshat/ActivationFunctions.hpp	/^  static real_t second_deriv(real_t y) {$/;"	f	struct:Maxmin1
+second_deriv	seshat/rnnlib4seshat/ActivationFunctions.hpp	/^  static real_t second_deriv(real_t y) {$/;"	f	struct:Maxmin2
+second_deriv	seshat/rnnlib4seshat/ActivationFunctions.hpp	/^  static real_t second_deriv(real_t y) {$/;"	f	struct:Softsign
+second_deriv	seshat/rnnlib4seshat/ActivationFunctions.hpp	/^  static real_t second_deriv(real_t y) {$/;"	f	struct:Tanh
+segment_range	seshat/rnnlib4seshat/TranscriptionLayer.hpp	/^	integer_range<int> segment_range(int time, int totalSegs = -1) const $/;"	f	struct:TranscriptionLayer
+segmentation	seshat/meparser.h	/^  SegmentationModelGMM *segmentation;$/;"	m	class:meParser
+segmentsTH	seshat/meparser.h	/^  float clusterF, segmentsTH;$/;"	m	class:meParser
+select_channels	seshat/rnnlib4seshat/Helpers.hpp	/^static vector<typename boost::range_value<R1>::type>& select_channels($/;"	f
+sentence	seshat/online.cc	/^sentence::sentence(int n_s): n_strokes(n_s) {}$/;"	f	class:sentence
+sentence	seshat/online.h	/^class sentence {$/;"	c
+sentenceF	seshat/featureson.cc	/^sentenceF::sentenceF(): n_frames(0), frames(NULL) {};$/;"	f	class:sentenceF
+sentenceF	seshat/featureson.h	/^class sentenceF {$/;"	c
+seq_means	seshat/rnnlib4seshat/SeqBuffer.hpp	/^  vector<real_t>& seq_means() const {$/;"	f	struct:SeqBuffer
+seq_offset	seshat/rnnlib4seshat/SeqBuffer.hpp	/^  int seq_offset(const vector<int>& coords) {$/;"	f	struct:SeqBuffer
+seq_shape	seshat/rnnlib4seshat/SeqBuffer.hpp	/^  const View<const size_t> seq_shape() const {$/;"	f	struct:SeqBuffer
+seq_size	seshat/rnnlib4seshat/SeqBuffer.hpp	/^  size_t seq_size() const {$/;"	f	struct:SeqBuffer
+seqsPerWeightUpdate	seshat/rnnlib4seshat/Trainer.hpp	/^  int seqsPerWeightUpdate;$/;"	m	struct:Trainer
+set	seshat/stroke.cc	/^void Stroke::set(int idx, Punto *p) {$/;"	f	class:Stroke
+setClase	seshat/production.cc	/^void ProductionT::setClase(int k, float pr, char *tex, char mlt) {$/;"	f	class:ProductionT
+setMerges	seshat/production.cc	/^void ProductionB::setMerges(char c) {$/;"	f	class:ProductionB
+setRegion	seshat/sample.cc	/^void Sample::setRegion(CellCYK *c, int *v, int size) {$/;"	f	class:Sample
+setRegion	seshat/sample.cc	/^void Sample::setRegion(CellCYK *c, int nStk) {$/;"	f	class:Sample
+setRegion	seshat/sample.cc	/^void Sample::setRegion(CellCYK *c, list<int> *LT) {$/;"	f	class:Sample
+setSymRec	seshat/sample.cc	/^void Sample::setSymRec( SymRec *sr ){$/;"	f	class:Sample
+set_delay	seshat/rnnlib4seshat/FullConnection.hpp	/^	void set_delay(const vector<int>& d)$/;"	f	struct:FullConnection
+set_error	seshat/rnnlib4seshat/ClassificationLayer.hpp	/^	real_t set_error(int pt, int targetClass)$/;"	f	struct:BinaryClassificationLayer
+set_error	seshat/rnnlib4seshat/ClassificationLayer.hpp	/^	real_t set_error(int pt, int targetClass)$/;"	f	struct:MulticlassClassificationLayer
+set_out_dot	seshat/sample.cc	/^void Sample::set_out_dot(char *out) {$/;"	f	class:Sample
+set_out_inkml	seshat/sample.cc	/^void Sample::set_out_inkml(char *out) {$/;"	f	class:Sample
+set_seed	seshat/rnnlib4seshat/Random.cpp	/^unsigned int Random::set_seed(unsigned int seed)$/;"	f	class:Random
+set_val	seshat/rnnlib4seshat/ConfigFile.hpp	/^  template<class T> const T& set_val($/;"	f	struct:ConfigFile
+setpu	seshat/online.h	/^  void setpu() {$/;"	f	class:Point
+setpu	seshat/online.h	/^  void setpu() {$/;"	f	class:PointR
+shape	seshat/rnnlib4seshat/MultiArray.hpp	/^  Vector<size_t> shape;$/;"	m	struct:MultiArray
+shape	seshat/rnnlib4seshat/SeqBuffer.hpp	/^  Vector<size_t> shape;$/;"	m	struct:CoordIterator
+shrink	seshat/rnnlib4seshat/Container.hpp	/^  Vector<T>& shrink(size_t length) {$/;"	f	struct:Vector
+shuffle	seshat/rnnlib4seshat/Helpers.hpp	/^template<class R> static R& shuffle (R& r) {$/;"	f
+sig	seshat/cellcyk.h	/^  CellCYK *sig;$/;"	m	struct:CellCYK
+sign	seshat/rnnlib4seshat/Helpers.hpp	/^template<class T> static int sign(const T& t) {$/;"	f
+size	seshat/rnnlib4seshat/MultiArray.hpp	/^  virtual size_t size() const {$/;"	f	struct:MultiArray
+size	seshat/tablecyk.cc	/^int TableCYK::size(int n) {$/;"	f	class:TableCYK
+slice	seshat/rnnlib4seshat/Container.hpp	/^  View slice(int first = 0, int last = numeric_limits<int>::max()) {$/;"	f	struct:View
+slice	seshat/rnnlib4seshat/Container.hpp	/^  View slice(pair<int, int>& r) {$/;"	f	struct:View
+slice	seshat/rnnlib4seshat/Container.hpp	/^  View<T> slice(int first = 0, int last = numeric_limits<int>::max()) {$/;"	f	struct:Vector
+slice	seshat/rnnlib4seshat/Container.hpp	/^  View<T> slice(pair<int, int>& r) {$/;"	f	struct:Vector
+slice	seshat/rnnlib4seshat/Container.hpp	/^  const View slice(int first = 0, int last = numeric_limits<int>::max()) const {$/;"	f	struct:View
+slice	seshat/rnnlib4seshat/Container.hpp	/^  const View slice(pair<int, int>& r) const {$/;"	f	struct:View
+slice	seshat/rnnlib4seshat/Container.hpp	/^  const View<T> slice($/;"	f	struct:Vector
+slice	seshat/rnnlib4seshat/Container.hpp	/^  const View<T> slice(pair<int, int>& r) const {$/;"	f	struct:Vector
+smooth	seshat/sparel.cc	/^void SpaRel::smooth(float *post){$/;"	f	class:SpaRel
+solape	seshat/production.cc	/^float ProductionB::solape(Hypothesis *a, Hypothesis *b) {$/;"	f	class:ProductionB
+solape	seshat/sparel.cc	/^float solape(CellCYK *a, CellCYK *b) {$/;"	f
+solvePath	seshat/gparser.cc	/^void gParser::solvePath(char *in, char *out) {$/;"	f	class:gParser
+sort	seshat/rnnlib4seshat/Helpers.hpp	/^template <class R> static R& sort(R& r) {$/;"	f
+source	seshat/rnnlib4seshat/FullConnection.hpp	/^	FullConnection* source;$/;"	m	struct:FullConnection
+source	seshat/rnnlib4seshat/Layer.hpp	/^  Layer* source;$/;"	m	struct:Layer
+sourceSize	seshat/rnnlib4seshat/BlockLayer.hpp	/^  size_t sourceSize;$/;"	m	struct:BlockLayer
+sources	seshat/rnnlib4seshat/GatherLayer.hpp	/^	vector<Layer*> sources;$/;"	m	struct:GatherLayer
+span	seshat/rnnlib4seshat/Helpers.hpp	/^template <class T1, class T2> static integer_range<T2> span(T1 t1, T2 t2) {$/;"	f
+span	seshat/rnnlib4seshat/Helpers.hpp	/^template <class T> static integer_range<T> span(T t) {$/;"	f
+split	seshat/gparser.cc	/^int gParser::split(char *str,char ***res){$/;"	f	class:gParser
+split	seshat/rnnlib4seshat/String.hpp	/^template<class T> static Vector<T> split($/;"	f
+split_with_repeat	seshat/rnnlib4seshat/String.hpp	/^template<class T> static Vector<T> split_with_repeat($/;"	f
+squared	seshat/rnnlib4seshat/Helpers.hpp	/^template<class T> static T squared(const T& t) {$/;"	f
+start_sequence	seshat/rnnlib4seshat/BlockLayer.hpp	/^  void start_sequence() {$/;"	f	struct:BlockLayer
+start_sequence	seshat/rnnlib4seshat/CollapseLayer.hpp	/^	virtual void start_sequence()$/;"	f	struct:CollapseLayer
+start_sequence	seshat/rnnlib4seshat/Layer.hpp	/^  virtual void start_sequence() {$/;"	f	struct:Layer
+start_sequence	seshat/rnnlib4seshat/LstmLayer.hpp	/^  void start_sequence() {$/;"	f	struct:LstmLayer
+start_sequence	seshat/rnnlib4seshat/SoftmaxLayer.hpp	/^	void start_sequence()$/;"	f	struct:SoftmaxLayer
+stateDelays	seshat/rnnlib4seshat/LstmLayer.hpp	/^  vector<vector<int> > stateDelays;$/;"	m	struct:LstmLayer
+states	seshat/rnnlib4seshat/LstmLayer.hpp	/^  SeqBuffer<real_t> states;$/;"	m	struct:LstmLayer
+std_dev	seshat/rnnlib4seshat/Helpers.hpp	/^template <class R> static typename range_value<R>::type std_dev(const R& r) {$/;"	f
+stds_off	seshat/symfeatures.h	/^  double  stds_on[ON_FEAT],  stds_off[OFF_FEAT];$/;"	m	class:SymFeatures
+stds_on	seshat/symfeatures.h	/^  double  stds_on[ON_FEAT],  stds_off[OFF_FEAT];$/;"	m	class:SymFeatures
+step	seshat/rnnlib4seshat/SeqBuffer.hpp	/^  void step(size_t d) {$/;"	f	struct:CoordIterator
+stk_dis	seshat/sample.h	/^  float **stk_dis;$/;"	m	class:Sample
+stks	seshat/sample.h	/^  list<int> stks;  \/\/List of strokes$/;"	m	struct:SegmentHyp
+str	seshat/rnnlib4seshat/Helpers.hpp	/^template<class T> static string str(const T& t) {$/;"	f
+strClase	seshat/symrec.cc	/^char *SymRec::strClase(int c) {$/;"	f	class:SymRec
+str_to_label_seq	seshat/rnnlib4seshat/DataSequence.hpp	/^static vector<int> str_to_label_seq(const string& labelSeqString, const vector<string>& alphabet)$/;"	f
+strides	seshat/rnnlib4seshat/MultiArray.hpp	/^  vector<size_t> strides;$/;"	m	struct:MultiArray
+stroke	seshat/online.cc	/^stroke::stroke(int n_p, bool pen_d, bool is_ht): n_points(n_p), pen_down(pen_d), is_hat(is_ht) {}$/;"	f	class:stroke
+stroke	seshat/online.h	/^class stroke {$/;"	c
+stroke_distance	seshat/sample.cc	/^float Sample::stroke_distance(int si, int sj) {$/;"	f	class:Sample
+strokes	seshat/online.h	/^  vector<stroke> strokes;$/;"	m	class:sentence
+suaviza_traza	seshat/online.cc	/^sentence * sentence::suaviza_traza(int cont_size) {$/;"	f	class:sentence
+subPenalty	seshat/rnnlib4seshat/StringAlignment.hpp	/^	int subPenalty;$/;"	m	struct:StringAlignment
+subsMap	seshat/rnnlib4seshat/StringAlignment.hpp	/^	map<typename boost::range_value<R1>::type, map<typename boost::range_value<R1>::type, int> > subsMap;$/;"	m	struct:StringAlignment
+substitutions	seshat/rnnlib4seshat/StringAlignment.hpp	/^	int substitutions;$/;"	m	struct:StringAlignment
+sum	seshat/rnnlib4seshat/Helpers.hpp	/^template <class R> static typename range_value<R>::type sum(const R& r) {$/;"	f
+sum_of_squares	seshat/rnnlib4seshat/Helpers.hpp	/^sum_of_squares(const R1& r1, const R2& r2) {$/;"	f
+sum_right	seshat/rnnlib4seshat/Helpers.hpp	/^template<class T1, class T2> static T2 sum_right(const map<T1, T2>& m) {$/;"	f
+symType	seshat/symrec.cc	/^int SymRec::symType(int k) {$/;"	f	class:SymRec
+sym_rec	seshat/grammar.h	/^  SymRec *sym_rec;$/;"	m	struct:Grammar
+sym_rec	seshat/meparser.h	/^  SymRec *sym_rec;$/;"	m	class:meParser
+symmetry	seshat/rnnlib4seshat/Mdrnn.hpp	/^  vector<bool> symmetry;$/;"	m	struct:Mdrnn
+sys	corners.py	/^import sys$/;"	i
+sys	main.py	/^import sys$/;"	i
+sys	sudoku.py	/^import sys$/;"	i
+sys	text_regions.py	/^import sys$/;"	i
+t	seshat/cellcyk.h	/^  int s,t; \/\/bottom-right$/;"	m	struct:CellCYK
+t	seshat/tablecyk.h	/^  int x,y,s,t;$/;"	m	struct:coo
+tag	seshat/rnnlib4seshat/DataSequence.hpp	/^	string tag;$/;"	m	struct:DataSequence
+talla	seshat/cellcyk.h	/^  int talla; \/\/total number of strokes$/;"	m	struct:CellCYK
+targetClasses	seshat/rnnlib4seshat/DataSequence.hpp	/^	SeqBuffer<int> targetClasses;$/;"	m	struct:DataSequence
+targetLabelCounts	seshat/rnnlib4seshat/NetcdfDataset.hpp	/^	map<string, int> targetLabelCounts;$/;"	m	struct:DataHeader
+targetLabelSeq	seshat/rnnlib4seshat/DataSequence.hpp	/^	vector<int> targetLabelSeq;$/;"	m	struct:DataSequence
+targetLabels	seshat/rnnlib4seshat/NetcdfDataset.hpp	/^	Vector<string> targetLabels;$/;"	m	struct:DataHeader
+targetLabels	seshat/rnnlib4seshat/SoftmaxLayer.hpp	/^	vector<string> targetLabels;$/;"	m	struct:SoftmaxLayer
+targetPatterns	seshat/rnnlib4seshat/DataSequence.hpp	/^	SeqBuffer<real_t> targetPatterns;$/;"	m	struct:DataSequence
+targetWordSeq	seshat/rnnlib4seshat/DataSequence.hpp	/^	vector<string> targetWordSeq;$/;"	m	struct:DataSequence
+targets	seshat/rnnlib4seshat/ClassificationLayer.hpp	/^	SeqBuffer<int> targets;$/;"	m	struct:ClassificationLayer
+task	seshat/rnnlib4seshat/Trainer.hpp	/^  string task;$/;"	m	struct:Trainer
+testDistortions	seshat/rnnlib4seshat/Trainer.hpp	/^  bool testDistortions;$/;"	m	struct:Trainer
+texStr	seshat/production.h	/^  char **texStr;$/;"	m	class:ProductionT
+thresh	sudoku.py	/^thresh = cv2.adaptiveThreshold($/;"	v
+thresh_final	main.py	/^thresh_final = wb.whiteboard_detect(img)$/;"	v
+thresh_final	sudoku.py	/^    thresh_final = cv2.adaptiveThreshold($/;"	v
+thresh_final	text_regions.py	/^thresh_final = wb.whiteboard_detect(img)$/;"	v
+time_stamp	seshat/rnnlib4seshat/Helpers.hpp	/^static string time_stamp(const string& format = "%Y.%m.%d-%H.%M.%S%F%Q") {$/;"	f
+tipo	seshat/production.cc	/^char ProductionH::tipo() {$/;"	f	class:ProductionH
+tipo	seshat/production.cc	/^char ProductionIns::tipo() {$/;"	f	class:ProductionIns
+tipo	seshat/production.cc	/^char ProductionMrt::tipo() {$/;"	f	class:ProductionMrt
+tipo	seshat/production.cc	/^char ProductionSSE::tipo() {$/;"	f	class:ProductionSSE
+tipo	seshat/production.cc	/^char ProductionSub::tipo() {$/;"	f	class:ProductionSub
+tipo	seshat/production.cc	/^char ProductionSup::tipo() {$/;"	f	class:ProductionSup
+tipo	seshat/production.cc	/^char ProductionV::tipo() {$/;"	f	class:ProductionV
+tipo	seshat/production.cc	/^char ProductionVe::tipo() {$/;"	f	class:ProductionVe
+to	seshat/rnnlib4seshat/Connection.hpp	/^	Layer* to;$/;"	m	struct:Connection
+to	seshat/rnnlib4seshat/Container.hpp	/^  template<class T2> Vector<T2> to() const {$/;"	f	struct:Vector
+to	seshat/rnnlib4seshat/Container.hpp	/^  template<class T2> Vector<T2> to() const {$/;"	f	struct:View
+top_left	corners.py	/^top_left = min(corners, key = lambda p: p[0][0] + p[0][1])$/;"	v
+top_left	sudoku.py	/^    top_left = min(biggest, key=lambda p: p[0][0] + p[0][1])$/;"	v
+top_right	corners.py	/^top_right = max(corners, key = lambda p: p[0][0] - p[0][1])$/;"	v
+top_right	sudoku.py	/^    top_right = max(biggest, key=lambda p: p[0][0] - p[0][1])$/;"	v
+totalSegments	seshat/rnnlib4seshat/TranscriptionLayer.hpp	/^	int totalSegments;$/;"	m	struct:TranscriptionLayer
+totalTargetStringLength	seshat/rnnlib4seshat/NetcdfDataset.hpp	/^	size_t totalTargetStringLength;$/;"	m	struct:DataHeader
+totalTime	seshat/rnnlib4seshat/TranscriptionLayer.hpp	/^	int totalTime;$/;"	m	struct:TranscriptionLayer
+train	seshat/rnnlib4seshat/Mdrnn.hpp	/^  virtual real_t train(const DataSequence& seq) {$/;"	f	struct:Mdrnn
+transcrip	seshat/featureson.h	/^    string transcrip;$/;"	m	class:sentenceF
+transform	seshat/rnnlib4seshat/Helpers.hpp	/^static typename range_iterator<R2>::type transform($/;"	f
+tree2dot	seshat/meparser.cc	/^int meParser::tree2dot(FILE *fd, Hypothesis *H, int id) {$/;"	f	class:meParser
+trim	seshat/rnnlib4seshat/String.hpp	/^static void trim(string& str) {$/;"	f
+type	seshat/symrec.h	/^  int *type;$/;"	m	class:SymRec
+uniform	seshat/rnnlib4seshat/Random.cpp	/^real_t Random::uniform()$/;"	f	class:Random
+uniform	seshat/rnnlib4seshat/Random.cpp	/^real_t Random::uniform(real_t range)$/;"	f	class:Random
+unitsPerBlock	seshat/rnnlib4seshat/LstmLayer.hpp	/^  size_t unitsPerBlock;$/;"	m	struct:LstmLayer
+unnormedActivations	seshat/rnnlib4seshat/SoftmaxLayer.hpp	/^	SeqBuffer<real_t> unnormedActivations;$/;"	m	struct:SoftmaxLayer
+unnormedlogActivations	seshat/rnnlib4seshat/SoftmaxLayer.hpp	/^	SeqBuffer<Log<real_t> > unnormedlogActivations;$/;"	m	struct:SoftmaxLayer
+updateTarget	seshat/tablecyk.cc	/^void TableCYK::updateTarget(coo *K, Hypothesis *H) {$/;"	f	class:TableCYK
+update_derivs	seshat/rnnlib4seshat/Connection.hpp	/^	virtual void update_derivs(const vector<int>& coords){}$/;"	f	struct:Connection
+update_derivs	seshat/rnnlib4seshat/FullConnection.hpp	/^	void update_derivs(const vector<int>& toCoords)$/;"	f	struct:FullConnection
+update_derivs	seshat/rnnlib4seshat/Layer.hpp	/^  virtual void update_derivs(const vector<int>& coords) {}$/;"	f	struct:Layer
+update_derivs	seshat/rnnlib4seshat/LstmLayer.hpp	/^  void update_derivs(const vector<int>& coords)$/;"	f	struct:LstmLayer
+update_weights	seshat/rnnlib4seshat/Rprop.hpp	/^  void update_weights() {$/;"	f	struct:Rprop
+update_weights	seshat/rnnlib4seshat/SteepestDescent.hpp	/^  void update_weights() {$/;"	f	struct:SteepestDescent
+update_weights	seshat/rnnlib4seshat/Trainer.hpp	/^  void update_weights() {$/;"	f	struct:Trainer
+usage	seshat/seshat.cc	/^void usage(char *str) {$/;"	f
+used	seshat/rnnlib4seshat/ConfigFile.hpp	/^  set<string> used;$/;"	m	struct:ConfigFile
+variance	seshat/rnnlib4seshat/Helpers.hpp	/^template <class R> static typename range_value<R>::type variance(const R& r) {$/;"	f
+vdp	pokusy_py/countour_pokus.py	/^vdp=ALProxy("ALVideoDevice",ip,port)$/;"	v
+vdp	pokusy_py/nao_pokus.py	/^vdp=ALProxy("ALVideoDevice",ip,port)$/;"	v
+vector_assign	seshat/rnnlib4seshat/Helpers.hpp	/^template<class R, class T> void vector_assign(const R& r, vector<T>& v) {$/;"	f
+verbose	seshat/rnnlib4seshat/Helpers.hpp	/^static bool verbose = false;$/;"	v
+visibility	seshat/sample.cc	/^bool Sample::visibility(list<int> *strokes_list) {$/;"	f	class:Sample
+warn_unless	seshat/rnnlib4seshat/Helpers.hpp	/^static bool warn_unless ($/;"	f
+warn_unused	seshat/rnnlib4seshat/ConfigFile.hpp	/^  void warn_unused(ostream& out, bool removeUnused = true) {$/;"	f	struct:ConfigFile
+wb	main.py	/^import whiteboard as wb$/;"	i
+wb	text_regions.py	/^import whiteboard as wb$/;"	i
+wc	seshat/rnnlib4seshat/FullConnection.hpp	/^        WeightContainer *wc;$/;"	m	struct:FullConnection
+wc	seshat/rnnlib4seshat/Layer.hpp	/^  WeightContainer *wc;$/;"	m	struct:Layer
+wc	seshat/rnnlib4seshat/Mdrnn.hpp	/^  WeightContainer *wc;$/;"	m	struct:Mdrnn
+wc	seshat/rnnlib4seshat/Rprop.hpp	/^  WeightContainer *wc;$/;"	m	struct:Rprop
+wc	seshat/rnnlib4seshat/SteepestDescent.hpp	/^  WeightContainer *wc;$/;"	m	struct:SteepestDescent
+wc_off	seshat/symrec.h	/^  WeightContainer *wc_on, *wc_off;$/;"	m	class:SymRec
+wc_on	seshat/symrec.h	/^  WeightContainer *wc_on, *wc_off;$/;"	m	class:SymRec
+weight	seshat/gmm.h	/^  float **invcov, **mean, **weight, *prior, *det;$/;"	m	class:GMM
+weightCosts	seshat/rnnlib4seshat/Trainer.hpp	/^  Vector<real_t> weightCosts;$/;"	m	struct:Trainer
+weightDistortion	seshat/rnnlib4seshat/Trainer.hpp	/^  real_t weightDistortion;$/;"	m	struct:Trainer
+weight_cost	seshat/rnnlib4seshat/Trainer.hpp	/^  real_t weight_cost(int i) {$/;"	f	struct:Trainer
+weights	seshat/rnnlib4seshat/Connection.hpp	/^	virtual const View<real_t> weights(){return View<real_t>();}$/;"	f	struct:Connection
+weights	seshat/rnnlib4seshat/FullConnection.hpp	/^	const View<real_t> weights()$/;"	f	struct:FullConnection
+weights	seshat/rnnlib4seshat/Layer.hpp	/^  virtual const View<real_t> weights() {$/;"	f	struct:Layer
+weights	seshat/rnnlib4seshat/LstmLayer.hpp	/^  const View<real_t> weights() {$/;"	f	struct:LstmLayer
+weights	seshat/rnnlib4seshat/WeightContainer.hpp	/^  Vector<real_t> weights;$/;"	m	struct:WeightContainer
+whiteboard_detect	nao-mathematica.py	/^def whiteboard_detect(img):$/;"	f
+wts	seshat/rnnlib4seshat/Optimiser.hpp	/^  vector<real_t>& wts;$/;"	m	struct:Optimiser
+wts	seshat/rnnlib4seshat/Trainer.hpp	/^  Vector<real_t>& wts;$/;"	m	struct:Trainer
+x	seshat/cellcyk.h	/^  int x,y; \/\/top-left$/;"	m	struct:CellCYK
+x	seshat/featureson.h	/^    double x,y,dx,dy,ax,ay,k;$/;"	m	class:frame
+x	seshat/online.h	/^  float x, y;$/;"	m	class:PointR
+x	seshat/online.h	/^  int x, y;$/;"	m	class:Point
+x	seshat/stroke.h	/^  float x,y;$/;"	m	struct:Punto
+x	seshat/tablecyk.h	/^  int x,y,s,t;$/;"	m	struct:coo
+x0	corners.py	/^	x0 = a*rho$/;"	v
+x1	corners.py	/^	x1 = int(x0 + 1000*(-b))$/;"	v
+x2	corners.py	/^	x2 = int(x0 - 1000*(-b))$/;"	v
+y	seshat/cellcyk.h	/^  int x,y; \/\/top-left$/;"	m	struct:CellCYK
+y	seshat/featureson.h	/^    double x,y,dx,dy,ax,ay,k;$/;"	m	class:frame
+y	seshat/online.h	/^  float x, y;$/;"	m	class:PointR
+y	seshat/online.h	/^  int x, y;$/;"	m	class:Point
+y	seshat/stroke.h	/^  float x,y;$/;"	m	struct:Punto
+y	seshat/tablecyk.h	/^  int x,y,s,t;$/;"	m	struct:coo
+y0	corners.py	/^	y0 = b*rho$/;"	v
+y1	corners.py	/^	y1 = int(y0 + 1000*(a))$/;"	v
+y2	corners.py	/^	y2 = int(y0 - 1000*(a))$/;"	v
+yellow	pokusy_py/nao_pokus.py	/^yellow=cv2.inRange(picc, (22,100,100),(80,255,255)) #yellow$/;"	v
+zip	seshat/rnnlib4seshat/Helpers.hpp	/^zip(R1& r1, R2& r2) {$/;"	f
+zip	seshat/rnnlib4seshat/Helpers.hpp	/^zip(R1& r1, R2& r2, R3& r3) {$/;"	f
+zip	seshat/rnnlib4seshat/Helpers.hpp	/^zip(R1& r1, R2& r2, R3& r3, R4& r4) {$/;"	f
+zip	seshat/rnnlib4seshat/Helpers.hpp	/^zip(R1& r1, R2& r2, R3& r3, R4& r4, R5& r5) {$/;"	f
+~BiasLayer	seshat/rnnlib4seshat/BiasLayer.hpp	/^  ~BiasLayer() {}$/;"	f	struct:BiasLayer
+~CellCYK	seshat/cellcyk.cc	/^CellCYK::~CellCYK() {$/;"	f	class:CellCYK
+~Connection	seshat/rnnlib4seshat/Connection.hpp	/^	virtual ~Connection(){}$/;"	f	struct:Connection
+~CopyConnection	seshat/rnnlib4seshat/CopyConnection.hpp	/^	virtual ~CopyConnection(){}$/;"	f	struct:CopyConnection
+~DataExporter	seshat/rnnlib4seshat/DataExporter.hpp	/^  ~DataExporter() {$/;"	f	struct:DataExporter
+~DurationModel	seshat/duration.cc	/^DurationModel::~DurationModel() {$/;"	f	class:DurationModel
+~FullConnection	seshat/rnnlib4seshat/FullConnection.hpp	/^	~FullConnection(){}$/;"	f	struct:FullConnection
+~GMM	seshat/gmm.cc	/^GMM::~GMM() {$/;"	f	class:GMM
+~Grammar	seshat/grammar.cc	/^Grammar::~Grammar() {$/;"	f	class:Grammar
+~Hypothesis	seshat/hypothesis.cc	/^Hypothesis::~Hypothesis() {$/;"	f	class:Hypothesis
+~InputLayer	seshat/rnnlib4seshat/InputLayer.hpp	/^	~InputLayer(){}$/;"	f	struct:InputLayer
+~Layer	seshat/rnnlib4seshat/Layer.hpp	/^  virtual ~Layer() {}$/;"	f	struct:Layer
+~LogSpace	seshat/logspace.cc	/^LogSpace::~LogSpace() {$/;"	f	class:LogSpace
+~LstmLayer	seshat/rnnlib4seshat/LstmLayer.hpp	/^  ~LstmLayer() { }$/;"	f	struct:LstmLayer
+~Mdrnn	seshat/rnnlib4seshat/Mdrnn.hpp	/^  virtual ~Mdrnn() {$/;"	f	struct:Mdrnn
+~MultiArray	seshat/rnnlib4seshat/MultiArray.hpp	/^  virtual ~MultiArray() {$/;"	f	struct:MultiArray
+~Named	seshat/rnnlib4seshat/Named.hpp	/^  virtual ~Named(){}$/;"	f	struct:Named
+~NeuronLayer	seshat/rnnlib4seshat/NeuronLayer.hpp	/^	~NeuronLayer(){}$/;"	f	struct:NeuronLayer
+~Optimiser	seshat/rnnlib4seshat/Optimiser.hpp	/^  virtual ~Optimiser() {}$/;"	f	struct:Optimiser
+~ProductionB	seshat/production.cc	/^ProductionB::~ProductionB() {$/;"	f	class:ProductionB
+~ProductionT	seshat/production.cc	/^ProductionT::~ProductionT() {$/;"	f	class:ProductionT
+~Sample	seshat/sample.cc	/^Sample::~Sample() {$/;"	f	class:Sample
+~SegmentationModelGMM	seshat/segmentation.cc	/^SegmentationModelGMM::~SegmentationModelGMM() {$/;"	f	class:SegmentationModelGMM
+~SeqBuffer	seshat/rnnlib4seshat/SeqBuffer.hpp	/^  virtual ~SeqBuffer() { }$/;"	f	struct:SeqBuffer
+~SpaRel	seshat/sparel.cc	/^SpaRel::~SpaRel() {$/;"	f	class:SpaRel
+~StringAlignment	seshat/rnnlib4seshat/StringAlignment.hpp	/^	~StringAlignment(){}$/;"	f	struct:StringAlignment
+~Stroke	seshat/stroke.cc	/^Stroke::~Stroke() {$/;"	f	class:Stroke
+~SymFeatures	seshat/symfeatures.cc	/^SymFeatures::~SymFeatures() {$/;"	f	class:SymFeatures
+~SymRec	seshat/symrec.cc	/^SymRec::~SymRec() {$/;"	f	class:SymRec
+~TableCYK	seshat/tablecyk.cc	/^TableCYK::~TableCYK() {$/;"	f	class:TableCYK
+~TranscriptionLayer	seshat/rnnlib4seshat/TranscriptionLayer.hpp	/^	virtual ~TranscriptionLayer()$/;"	f	struct:TranscriptionLayer
+~Val	seshat/rnnlib4seshat/DataExporter.hpp	/^  virtual ~Val(){}$/;"	f	struct:Val
+~gParser	seshat/gparser.cc	/^gParser::~gParser() {$/;"	f	class:gParser
+~meParser	seshat/meparser.cc	/^meParser::~meParser() {$/;"	f	class:meParser
+~sentenceF	seshat/featureson.cc	/^sentenceF::~sentenceF() {$/;"	f	class:sentenceF
