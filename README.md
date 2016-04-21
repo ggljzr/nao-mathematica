@@ -42,7 +42,11 @@ co by dal ty sousedni body dohromady
 
 hledani souvisle oblasti:
 nejdriv teda asi musime najit souvislou voblast ktera bude tvorit jeden tah
-takze vzit prvni bilej bod a pak projit vsechny sousedni body a hledat sousedy
+takze vzit prvni bilej bod a pak projit vsechny vostatni body a hledat sousedy
+u prvniho bodu zalozit prvni cluster, pridat do nej vsechny body co sou souvisly
+s tim bodem, pak vzit prvni bod co neni a zalozit dalsi cluster atd...
+ve finale ten jeden cluster bude predstavovat ten jeden znak nebo jakoby tu jednu spojitou
+plochu
 
 ale stejne by to pak chtelo ty jednotlivy body shluknout do vetsich aby treba nebylo vic bodu tahu
 na jednim radku, to pak dela v tim seshatu celkem bordel

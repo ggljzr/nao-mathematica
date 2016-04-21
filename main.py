@@ -1,5 +1,4 @@
 #https://stackoverflow.com/questions/23506105/extracting-text-opencv
-#modified answer 3, added gaussian blur and adaptive threshold
 #pro ziskani strokes je asi potreba neco jako
 #https://en.wikipedia.org/wiki/Topological_skeleton, coz neni v opencv
 #distance transformation
