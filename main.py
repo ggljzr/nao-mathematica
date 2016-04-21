@@ -4,6 +4,7 @@
 #https://en.wikipedia.org/wiki/Topological_skeleton, coz neni v opencv
 #distance transformation
 #clusterizace
+#stackoverflow -> finding continuous areas of bits in 2d bit array
 
 #este by to teda chtelo udelat nakou tu transformaci tim morpholgy operatorem
 #(dilatace a tak), protoze u toho vobrazku pod uhlem je pak treba ta sedmicka 
