@@ -16,6 +16,7 @@ tak by se ten vobrazek pak moh nak voriznout podle toho jak je daleko vod steny
 https://github.com/falvaro/seshat pro rozpoznavani matematickejch vyrazu
 zatim sem zkousel udelat z tech kontur .scgink soubor a ten dat tomu
 seshatu, ten z nej spravne vyrenderuje vobrazek, ale ofc v nem nic nepozna
+(alternativa - Tesseract - mozna zminit v ty zaverecny zprave)
 
 ##ziskani tahu z obrazku
 https://stackoverflow.com/questions/23506105/extracting-text-opencv
