@@ -14,6 +14,11 @@ pak jednotlivy tahy pak prevyst kontury na polygony
 este me napadlo ze kdyby mel ten robot nak cidlo vzdalenosti
 tak by se ten vobrazek pak moh nak voriznout podle toho jak je daleko vod steny
 
+to rozpoznavani uz vicemene funguje
+TODO: u vobrazku tabule2.png to este bere kus spodni hrany jako text region tak
+na to se mozna podivat. Ale to by slo vyfiltrovat i pozdejc (moc malo tahu ve vobrazku
+nebo tak neco)
+
 ##sehat
 https://github.com/falvaro/seshat pro rozpoznavani matematickejch vyrazu
 zatim sem zkousel udelat z tech kontur .scgink soubor a ten dat tomu

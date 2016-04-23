@@ -51,7 +51,6 @@ cv2.imshow('orig', img)
 reg_n = 0
 for region in text_regions:
     cv2.imshow('region {}'.format(reg_n), region)
-    cv2.imwrite('region{}.png'.format(reg_n), region)
     reg_n += 1
 
 points_array = np.nonzero(text_regions[0])
