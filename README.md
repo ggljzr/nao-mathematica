@@ -3,6 +3,8 @@ parsovani matematickejch vyrazu z vobrazku
 ve finale urceny pro robota https://www.aldebaran.com/en/cool-robots/nao
 
 ##rozpoznat tabuli
+sudoku example http://opencvpython.blogspot.com/2012/06/sudoku-solver-part-2.html
+
 vyrovnat obraz aby byl kolmo (proste rovne) -- perspective transformation
 detekce tabule - mozna funkce pro detekci rohu
 taky funkce pro prevod kontur na polygony
@@ -16,7 +18,7 @@ tak by se ten vobrazek pak moh nak voriznout podle toho jak je daleko vod steny
 https://github.com/falvaro/seshat pro rozpoznavani matematickejch vyrazu
 zatim sem zkousel udelat z tech kontur .scgink soubor a ten dat tomu
 seshatu, ten z nej spravne vyrenderuje vobrazek, ale ofc v nem nic nepozna
-(alternativa - Tesseract - mozna zminit v ty zaverecny zprave)
+(alternativa - Tesseract OCR - mozna zminit v ty zaverecny zprave)
 
 ##ziskani tahu z obrazku
 https://stackoverflow.com/questions/23506105/extracting-text-opencv
@@ -29,6 +31,8 @@ stackoverflow -> finding continuous areas of bits in 2d bit array
 este by to teda chtelo udelat nakou tu transformaci tim morpholgy operatorem
 (dilatace a tak), protoze u toho vobrazku pod uhlem je pak treba ta sedmicka 
 takova potrhana coz by asi chtelo zacelit, i kdyz ten seshat by to mozna vydrzel
+vono je teda blby ze tohle zase zaceli ty diry co tam maj bejt, treba v sestce
+nebo vosmicce
 
 jinak co se tyce tech vobrazku tak to numpy.nonzero vypada dobre, akorat by to chtelo
 rozrezat ten text region este na jednotlivy znaky zase pomoci kontur a bounding boxes

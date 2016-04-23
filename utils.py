@@ -72,11 +72,14 @@ def whiteboard_detect(img):
 def get_text_regions(img):
     leveled = whiteboard_detect(img)
     
-    #rgb = cv2.cvtColor(leveled, cv2.COLOR_GRAY2RGB)
+    #rgb_rect = cv2.cvtColor(leveled, cv2.COLOR_GRAY2RGB)
 
     thresh = cv2.GaussianBlur(leveled, (11, 11), 0)
+    
+    #tady asi nejlepsi nastavit malou block size, asi tak 3
+    #jinak to priklady blizko u sebe veme jako jeden
     thresh = cv2.adaptiveThreshold(
-        thresh, 255, cv2.ADAPTIVE_THRESH_MEAN_C, cv2.THRESH_BINARY_INV, 11, 2)
+        thresh, 255, cv2.ADAPTIVE_THRESH_MEAN_C, cv2.THRESH_BINARY_INV, 3, 2)
     kernel = cv2.getStructuringElement(cv2.MORPH_CROSS, (3, 3))
     dilated = cv2.dilate(thresh, kernel, iterations=15)
     contours, hierarchy = cv2.findContours(
@@ -99,12 +102,18 @@ def get_text_regions(img):
         if h < 60 or w < 60:
             continue
 
-        # draw rectangle around contour on original image
-        #cv2.rectangle(rgb, (x, y), (x + w, y + h), (0, 255, 0), 1)
+        #draw rectangle around contour on original image
+        #cv2.rectangle(rgb_rect, (x, y), (x + w, y + h), (0, 255, 0), 1)
         
         #crop original leveled image and threshold it
         rect_mat = leveled[ y : y + h, x : x + w]
         rect_mat = cv2.adaptiveThreshold(rect_mat, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C, cv2.THRESH_BINARY_INV, 11, 2)
+      
+        #tady tu iteraci maximalne jednu
+        #jinak uz to ten vobrazek docela rozmatla
+        kernel = cv2.getStructuringElement(cv2.MORPH_CROSS, (3,3))
+        rect_mat = cv2.morphologyEx(rect_mat, cv2.MORPH_CLOSE, kernel, iterations=1)
+
         text_regions.append(rect_mat)
 
     return text_regions

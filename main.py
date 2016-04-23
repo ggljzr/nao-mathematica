@@ -46,6 +46,8 @@ img = cv2.imread(image_path)
 
 text_regions = utils.get_text_regions(img) 
 
+cv2.imshow('orig', img)
+
 reg_n = 0
 for region in text_regions:
     cv2.imshow('region {}'.format(reg_n), region)
@@ -57,7 +59,8 @@ points_xy = []
 
 points_xy = zip(points_array[1], points_array[0])
 
-print len(points_xy)
+#print len(points_xy)
+#print points_xy[0:20]
 
 while True:
     k = cv2.waitKey(33)
