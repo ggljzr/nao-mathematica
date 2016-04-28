@@ -4,6 +4,7 @@
 
 import numpy as np
 import cv2
+import math
 
 KEY_Q = 1048689
 
@@ -118,6 +119,98 @@ def get_text_regions(img):
 
     return text_regions
 
+def manhattan_dist(a,b):
+    return abs(a[0] - b[0]) + abs(a[1] - b[1])
+
+def is_neighbour(a,b):
+    dist = manhattan_dist(a,b)
+    if dist == 1:
+        return True
+    
+    if dist == 2:
+        if abs(a[0] - b[1]) == 1:
+            return True
+        if abs(a[1] - b[0]) == 1:
+            return True
+
+    return False
+
+def common_neigbours(cluster_a, cluster_b):
+    for a in cluster_a:
+        for b in cluster_b:
+            if is_neighbour(a,b):
+                return True
+    return False
+
+def euclidean_dist(a,b):
+    return math.sqrt((a[0] - b[0])**2 + (a[1] - b[1])**2 ) 
+
+def get_clusters(points):
+    clusters = []
+    for a in points:
+        current_cluster = []
+        new_cluster = True
+        cluster_index = 0;
+
+        #print a
+
+        for cluster in clusters:
+            if a in cluster:
+                current_cluster = cluster
+                new_cluster = False
+                break
+            cluster_index += 1
+
+        if new_cluster == True:
+            current_cluster.append(a)
+
+        for b in points:
+            if is_neighbour(a,b) == True:
+                for cluster in clusters:
+                    if b in cluster:
+                        new_cluster = False
+                        current_cluster = cluster
+                        
+                        if a not in current_cluster:
+                            current_cluster.append(a)
+                        break
+
+                if b not in current_cluster:
+                    current_cluster.append(b)
+                
+       
+        #print str(cluster_index) + str(current_cluster)
+        #print ""
+        if new_cluster == True:
+            clusters.append(current_cluster)
+
+    for cluster in clusters:
+        a = cluster[0]
+        cluster.sort(key = lambda x: euclidean_dist(x,a))
+    
+
+    return clusters
+
+def get_neigbours(point, points):
+    neighbours = []
+    for a in points:
+        if is_neighbour(a, point):
+            neighbours.append(a)
+    return neighbours
+
+def clusters_to_scgink(clusters, scgink_file, min_length = 9):
+    clusters_filtered = [cluster for cluster in clusters if len(cluster) >= min_length]
+
+    with open(scgink_file, 'w') as ink_file:
+        ink_file.write("SCG_INK\n")
+        ink_file.write("{}\n".format(len(clusters_filtered)))
+        for cluster in clusters_filtered:
+            ink_file.write("{}\n".format(len(cluster)))
+            for coord in cluster:
+                ink_file.write("{} {}\n".format(
+                    coord[0], coord[1]))
+
+
 
 def contours_to_scgink(contours, scgink_file, min_length=9):
     contours_filtered = [
@@ -125,9 +218,10 @@ def contours_to_scgink(contours, scgink_file, min_length=9):
 
     with open(scgink_file, 'w') as ink_file:
         ink_file.write("SCG_INK\n")
-        ink_file.write("{}\n".format(len(contours_final_filtered)))
-        for contour in contours_final_filtered:
+        ink_file.write("{}\n".format(len(contours_filtered)))
+        for contour in contours_filtered:
             ink_file.write("{}\n".format(len(contour)))
             for coord in contour:
                 ink_file.write("{} {}\n".format(
                     coord[0][0], coord[0][1]))
+
