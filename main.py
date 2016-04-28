@@ -31,6 +31,8 @@
 # este se taky podivat jesli by se nedalo nak pouzit to hierarchalClustering z opencv,
 # najit nakej tutorial
 
+#jako na to hledani tech tahu asi nakonec udelat tu dist transform a pak to hledat podle tech hrebenu
+
 import utils
 import cv2
 import sys
@@ -63,7 +65,15 @@ points_xy = zip(points_array[1], points_array[0])
 
 clusters = utils.get_clusters(points_xy)
 
-utils.clusters_to_scgink(clusters, "pokus.scgink")
+utils.clusters_to_scgink(clusters, "seshat/SampleMathExps/pokus.scgink")
+
+approx_curves = []
+
+for cluster in clusters:
+    curve = cv2.approxPolyDP(np.array(cluster), 0.9, False);
+    approx_curves.append(curve)
+
+utils.contours_to_scgink(approx_curves, "seshat/SampleMathExps/pokus_curves.scgink")
 
 while True:
     k = cv2.waitKey(33)
