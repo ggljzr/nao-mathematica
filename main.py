@@ -63,7 +63,10 @@ points_xy = []
 
 points_xy = zip(points_array[1], points_array[0])
 
-clusters = utils.get_clusters(points_xy)
+clusters = utils.get_clusters_2(points_xy)
+
+print len(clusters)
+print clusters[1]
 
 utils.clusters_to_scgink(clusters, "seshat/SampleMathExps/pokus.scgink")
 

@@ -191,6 +191,36 @@ def get_clusters(points):
 
     return clusters
 
+#tohle este nak predelat aby to backtracovalo
+#tzn aby to bylo jako dfs
+def get_clusters_2(points):
+    A = points[0]
+    clusters = []
+    new_cluster = []
+    
+
+    while len(points) > 0:
+        new_cluster.append(A)
+        
+        no_new_neighbour = False
+
+        for B in points:
+            if is_neighbour(A,B) == True:
+                points.pop(points.index(A))
+                A = B
+                no_new_neighbour = False
+                break
+            no_new_neighbour = True
+
+        if no_new_neighbour == True:
+            points.pop(points.index(A))
+            if len(points) > 0:
+                A = points[0]
+                clusters.append(new_cluster)
+                new_cluster = []
+
+    return clusters
+
 def get_neigbours(point, points):
     neighbours = []
     for a in points:

@@ -64,3 +64,15 @@ este se taky podivat jesli by se nedalo nak pouzit to hierarchalClustering z ope
 najit nakej tutorial
 
 
+nebo>
+0. zalozim novej cluster do kteryho budu davat ty serazeny body
+1. vemu cluster
+2. vemu prvni bod v nem a pro kazdej bod pocinaje tim prvim delam:
+3. vemu bod A
+4. najdu jemu nejblizsi bod B ve vsech vostatnich bodech
+5. Bod A pridam do novyho cluster
+6. B = A
+7. goto 3
+
+jakoby aby se seradili ty body do ty posloupnosti podle toho tahu
+
