@@ -191,6 +191,9 @@ def manhattan_dist(a, b):
 
 
 def is_neighbour(a, b):
+    if a == None or b == None:
+        return False
+
     dist = manhattan_dist(a, b)
     if dist == 1:
         return True
@@ -221,8 +224,10 @@ def euclidean_dist(a, b):
 
 def do_dfs(node, nodes, cluster):
     node[1] = 'open'
-   
+ 
     cluster.append(node[0])
+
+    
     print "opening node: {}".format(node)
 
     for next_node in nodes:
@@ -233,6 +238,10 @@ def do_dfs(node, nodes, cluster):
 
     node[1] = 'closed'
 
+#jako von je problem ze proste na konci to da
+#ty naposled uzavreny uzly ktery muzou bejt
+#dost vod sebe kdyz se to nekde zatoula
+#takze to tam ten seshat pak proste pospojuje
 def get_clusters_dfs(points):
     nodes = []
 
@@ -246,11 +255,57 @@ def get_clusters_dfs(points):
     for node in nodes:
         if node[1] == 'fresh':
             do_dfs(node, nodes, cluster)
-            cluster.pop()
+            
+            if len(cluster) > 3:
+                cluster.pop()
+                clusters.append(cluster)
+            
+            cluster = []
+   
+
+    return clusters
+
+def get_clusters_bfs(points):
+    nodes = []
+    clusters = []
+    
+    for point in points:
+        node = [(point[0], point[1]), 'fresh']
+        nodes.append(node)
+
+    start = nodes[0]
+    start[1] = 'fresh'
+
+    queue = []
+    queue.append(start)
+
+    cluster = []
+
+    while len(queue) > 0:
+        node = queue[0]
+
+        for next_node in nodes:
+            if is_neighbour(node[0], next_node[0]):
+                if next_node[1] == 'fresh':
+                    next_node[1] = 'open'
+                    cluster.append(next_node[0])
+                    queue.append(next_node)
+        queue.pop(0)
+        node[1] = 'closed'
+   
+        if len(queue) == 0:
             clusters.append(cluster)
             cluster = []
-    
+            
+            for node in nodes:
+                if node[1] == 'fresh':
+                    node[1] = 'open'
+                    queue.append(node)
+                    break
+
+
     return clusters
+
 
 def get_neigbours(point, points):
     neighbours = []
