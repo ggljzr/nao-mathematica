@@ -97,30 +97,35 @@ def guo_hall_thinning(img):
     kpw[6] = np.array(np.mat('0. 1. 0.; 0. 1. 1.; 0. 0. 0.'));
     kpw[7] = np.array(np.mat('0. 0. 0.; 0. 1. 1.; 0. 0. 1.'));
 
-    src_w = np.zeros((rows,cols), dtype=np.float)
-    src_b = np.zeros((rows, cols), dtype=np.float)
-    src_f = img.astype(dtype=np.float) 
-
+    src_f = img.astype(dtype=np.float32)
     src_f = src_f * (1./255.)
 
-    src_f = cv2.threshold(src_f, 0.5, 1.0, cv2.cv.CV_THRESH_BINARY)
-    src_w = cv2.threshold(src_f, 0.5, 1.0, cv2.cv.CV_THRESH_BINARY)
-    src_b = cv2.threshold(src_f, 0.5, 1.0, cv2.cv.CV_THRESH_BINARY_INV)
+    ret, src_f = cv2.threshold(src_f, 0.5, 1.0, cv2.cv.CV_THRESH_BINARY)
+    ret, src_w = cv2.threshold(src_f, 0.5, 1.0, cv2.cv.CV_THRESH_BINARY)
+    ret, src_b = cv2.threshold(src_f, 0.5, 1.0, cv2.cv.CV_THRESH_BINARY_INV)
 
     sum_ = 1.0
 
     while sum_ > 0.0:
         sum_ = 0.0
         for i in range(0,8):
+            
             src_w = cv2.filter2D(src_w, cv2.CV_32FC1, kpw[i])
             src_b = cv2.filter2D(src_b, cv2.CV_32FC1, kpb[i])
-            src_w = cv2.threshold(src_w, 2.99, 1.0, cv2.cv.CV_THRESH_BINARY)
-            src_b = cv2.threshold(src_b, 2.99, 1.0, cv2.cv.CV_THRESH_BINARY)
+            
+            ret, src_w = cv2.threshold(src_w, 2.99, 1.0, cv2.cv.CV_THRESH_BINARY)
+            ret, src_b = cv2.threshold(src_b, 2.99, 1.0, cv2.cv.CV_THRESH_BINARY)
+            
             src_w = cv2.bitwise_and(src_w, src_b)
-            sum_ += cv2.sumElems()
+            
+            sum_ += cv2.sumElems(src_w)[0]
+            
             src_f = cv2.bitwise_xor(src_f, src_w)
-            src_w = src_f
-            src_b = cv2.threshold(src_f, 0.5, 1.0, cv2.cv.CV_THRESH_BINARY)
+           
+            src_w = np.empty_like(src_f)
+            src_w[:] = src_f
+            ret, src_b = cv2.threshold(src_f, 0.5, 1.0, cv2.cv.CV_THRESH_BINARY_INV)
+
 
     return src_f
 

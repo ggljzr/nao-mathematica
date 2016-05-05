@@ -48,8 +48,6 @@ if argc > 1:
 
 img = cv2.imread(image_path)
 
-print img.shape
-
 text_regions = utils.get_text_regions(img)
 
 cv2.imshow('orig', img)
@@ -57,18 +55,24 @@ cv2.imshow('orig', img)
 reg_n = 0
 for region in text_regions:
     cv2.imshow('region {}'.format(reg_n), region)
-    cv2.imwrite('region {}.png'.format(reg_n), region)
     reg_n += 1
+
+pic = text_regions[0]
+pic[pic > 0] = 255
+
+cv2.imwrite('reg.png', pic)
 
 points_array = np.nonzero(text_regions[0])
 points_xy = []
 
 points_xy = zip(points_array[1], points_array[0])
 
+print points_xy[0:20]
+
 clusters = utils.get_clusters_2(points_xy)
 
 print len(clusters)
-print clusters[0:10]
+print clusters[0]
 
 utils.clusters_to_scgink(clusters, "seshat/SampleMathExps/pokus.scgink")
 
