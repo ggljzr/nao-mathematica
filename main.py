@@ -48,6 +48,8 @@ if argc > 1:
 
 img = cv2.imread(image_path)
 
+print img.shape
+
 text_regions = utils.get_text_regions(img)
 
 cv2.imshow('orig', img)
@@ -66,14 +68,14 @@ points_xy = zip(points_array[1], points_array[0])
 clusters = utils.get_clusters_2(points_xy)
 
 print len(clusters)
-print clusters[1]
+print clusters[0:10]
 
 utils.clusters_to_scgink(clusters, "seshat/SampleMathExps/pokus.scgink")
 
 approx_curves = []
 
 for cluster in clusters:
-    curve = cv2.approxPolyDP(np.array(cluster), 0.9, False);
+    curve = cv2.approxPolyDP(np.array(cluster), 0.003, False);
     approx_curves.append(curve)
 
 utils.contours_to_scgink(approx_curves, "seshat/SampleMathExps/pokus_curves.scgink")

@@ -76,3 +76,9 @@ nebo>
 
 jakoby aby se seradili ty body do ty posloupnosti podle toho tahu
 
+
+mozna by taky bylo dobry pouzit nakej thinning algoritmus na ty vobrazky, aby vsechny cary mely
+sirku 1 (guo-hall algoritmus, zhang-suen algoritmus)
+https://web.archive.org/web/20160314104646/http://opencv-code.com/quick-tips/implementation-of-guo-hall-thinning-algorithm/
+https://web.archive.org/web/20160322113207/http://opencv-code.com/quick-tips/implementation-of-thinning-algorithm-in-opencv/
+

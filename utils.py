@@ -17,7 +17,7 @@ def whiteboard_detect(img):
     # ten gaussian blur mozna nemusi bejt, nebo treba jinak nastavenej
     gray_blurred = cv2.GaussianBlur(gray, (5, 5), 0)
     # to nastaveni prahovani je pomerne dulezity, nejlip vychazi:
-    #ADAPTIVE_THRESH_MEAN_C, THRESH_BINARY, 11, 2
+    # ADAPTIVE_THRESH_MEAN_C, THRESH_BINARY, 11, 2
     # akora nahovno ze u toho vobrazku pod uhlem to veme misto jednoho rohu
     # ten stin takze je to trochu rozmazany
     thresh = cv2.adaptiveThreshold(
@@ -69,16 +69,70 @@ def whiteboard_detect(img):
 
     return dst
 
+def guo_hall_thinning(img):
+    #Created by Eiichiro Momma on 2014/08/11.
+    #Copyright (c) 2014 Eiichiro Momma. All rights reserved.
+    #http://www.eml.ele.cst.nihon-u.ac.jp/~momma/wiki/wiki.cgi/OpenCV/%E7%B4%B0%E7%B7%9A%E5%8C%96.html
+
+    kpw = [None] * 8
+    kpb = [None] * 8
+
+    rows, cols = img.shape
+
+    kpb[0] = np.array(np.mat('1. 1. 0.; 1. 0. 0.; 0. 0. 0.'));
+    kpb[1] = np.array(np.mat('1. 1. 1.; 0. 0. 0.; 0. 0. 0.'));
+    kpb[2] = np.array(np.mat('0. 1. 1.; 0. 0. 1.; 0. 0. 0.'));
+    kpb[3] = np.array(np.mat('0. 0. 1.; 0. 0. 1.; 0. 0. 1.'));
+    kpb[4] = np.array(np.mat('0. 0. 0.; 0. 0. 1.; 0. 1. 1.'));
+    kpb[5] = np.array(np.mat('0. 0. 0.; 0. 0. 0.; 1. 1. 1.'));
+    kpb[6] = np.array(np.mat('0. 0. 0.; 1. 0. 0.; 1. 1. 0.'));
+    kpb[7] = np.array(np.mat('1. 0. 0.; 1. 0. 0.; 1. 0. 0.'));
+
+    kpw[0] = np.array(np.mat('0. 0. 0.; 0. 1. 1.; 0. 1. 0.'));
+    kpw[1] = np.array(np.mat('0. 0. 0.; 0. 1. 0.; 1. 1. 0.'));
+    kpw[2] = np.array(np.mat('0. 0. 0.; 1. 1. 0.; 0. 1. 0.'));
+    kpw[3] = np.array(np.mat('1. 0. 0.; 1. 1. 0.; 0. 0. 0.'));
+    kpw[4] = np.array(np.mat('0. 1. 0.; 1. 1. 0.; 0. 0. 0.'));
+    kpw[5] = np.array(np.mat('0. 1. 1.; 0. 1. 0.; 0. 0. 0.'));
+    kpw[6] = np.array(np.mat('0. 1. 0.; 0. 1. 1.; 0. 0. 0.'));
+    kpw[7] = np.array(np.mat('0. 0. 0.; 0. 1. 1.; 0. 0. 1.'));
+
+    src_w = np.zeros((rows,cols), dtype=np.float)
+    src_b = np.zeros((rows, cols), dtype=np.float)
+    src_f = img.astype(dtype=np.float) 
+
+    src_f = src_f * (1./255.)
+
+    src_f = cv2.threshold(src_f, 0.5, 1.0, cv2.cv.CV_THRESH_BINARY)
+    src_w = cv2.threshold(src_f, 0.5, 1.0, cv2.cv.CV_THRESH_BINARY)
+    src_b = cv2.threshold(src_f, 0.5, 1.0, cv2.cv.CV_THRESH_BINARY_INV)
+
+    sum_ = 1.0
+
+    while sum_ > 0.0:
+        sum_ = 0.0
+        for i in range(0,8):
+            src_w = cv2.filter2D(src_w, cv2.CV_32FC1, kpw[i])
+            src_b = cv2.filter2D(src_b, cv2.CV_32FC1, kpb[i])
+            src_w = cv2.threshold(src_w, 2.99, 1.0, cv2.cv.CV_THRESH_BINARY)
+            src_b = cv2.threshold(src_b, 2.99, 1.0, cv2.cv.CV_THRESH_BINARY)
+            src_w = cv2.bitwise_and(src_w, src_b)
+            sum_ += cv2.sumElems()
+            src_f = cv2.bitwise_xor(src_f, src_w)
+            src_w = src_f
+            src_b = cv2.threshold(src_f, 0.5, 1.0, cv2.cv.CV_THRESH_BINARY)
+
+    return src_f
 
 def get_text_regions(img):
     leveled = whiteboard_detect(img)
-    
-    #rgb_rect = cv2.cvtColor(leveled, cv2.COLOR_GRAY2RGB)
+
+    # rgb_rect = cv2.cvtColor(leveled, cv2.COLOR_GRAY2RGB)
 
     thresh = cv2.GaussianBlur(leveled, (11, 11), 0)
-    
-    #tady asi nejlepsi nastavit malou block size, asi tak 3
-    #jinak to priklady blizko u sebe veme jako jeden
+
+    # tady asi nejlepsi nastavit malou block size, asi tak 3
+    # jinak to priklady blizko u sebe veme jako jeden
     thresh = cv2.adaptiveThreshold(
         thresh, 255, cv2.ADAPTIVE_THRESH_MEAN_C, cv2.THRESH_BINARY_INV, 3, 2)
     kernel = cv2.getStructuringElement(cv2.MORPH_CROSS, (3, 3))
@@ -89,13 +143,13 @@ def get_text_regions(img):
     rows, cols = thresh.shape
 
     text_regions = []
-    
+
     # for each contour found, draw a rectangle around it on original image
     for contour in contours:
         # get rectangle bounding contour
         [x, y, w, h] = cv2.boundingRect(contour)
 
-        #discard areas that are too big
+        # discard areas that are too big
         if h > rows - 10 or w > cols - 10:
             continue
 
@@ -103,30 +157,39 @@ def get_text_regions(img):
         if h < 60 or w < 60:
             continue
 
-        #draw rectangle around contour on original image
-        #cv2.rectangle(rgb_rect, (x, y), (x + w, y + h), (0, 255, 0), 1)
+        # draw rectangle around contour on original image
+        # cv2.rectangle(rgb_rect, (x, y), (x + w, y + h), (0, 255, 0), 1)
+
+        # crop original leveled image and threshold it
+        rect_mat = leveled[y: y + h, x: x + w]
+        rect_mat = cv2.adaptiveThreshold(
+            rect_mat, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C, cv2.THRESH_BINARY_INV, 11, 2)
+
+        # tady tu iteraci maximalne jednu
+        # jinak uz to ten vobrazek docela rozmatla
+        kernel = cv2.getStructuringElement(cv2.MORPH_CROSS, (3, 3))
+        rect_mat = cv2.morphologyEx(
+            rect_mat, cv2.MORPH_CLOSE, kernel, iterations=1)
         
-        #crop original leveled image and threshold it
-        rect_mat = leveled[ y : y + h, x : x + w]
-        rect_mat = cv2.adaptiveThreshold(rect_mat, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C, cv2.THRESH_BINARY_INV, 11, 2)
-      
-        #tady tu iteraci maximalne jednu
-        #jinak uz to ten vobrazek docela rozmatla
-        kernel = cv2.getStructuringElement(cv2.MORPH_CROSS, (3,3))
-        rect_mat = cv2.morphologyEx(rect_mat, cv2.MORPH_CLOSE, kernel, iterations=1)
+        #tady asi misto ty eroze implementovat guo-hall algorithm
+        #https://web.archive.org/web/20160314104646/http://opencv-code.com/quick-tips/implementation-of-guo-hall-thinning-algorithm/
+        kernel = np.ones((2,2), np.uint8)
+        rect_mat = guo_hall_thinning(rect_mat)
 
         text_regions.append(rect_mat)
 
     return text_regions
 
-def manhattan_dist(a,b):
+
+def manhattan_dist(a, b):
     return abs(a[0] - b[0]) + abs(a[1] - b[1])
 
-def is_neighbour(a,b):
-    dist = manhattan_dist(a,b)
+
+def is_neighbour(a, b):
+    dist = manhattan_dist(a, b)
     if dist == 1:
         return True
-    
+
     if dist == 2:
         if abs(a[0] - b[1]) == 1:
             return True
@@ -135,15 +198,18 @@ def is_neighbour(a,b):
 
     return False
 
+
 def common_neigbours(cluster_a, cluster_b):
     for a in cluster_a:
         for b in cluster_b:
-            if is_neighbour(a,b):
+            if is_neighbour(a, b):
                 return True
     return False
 
-def euclidean_dist(a,b):
-    return math.sqrt((a[0] - b[0])**2 + (a[1] - b[1])**2 ) 
+
+def euclidean_dist(a, b):
+    return math.sqrt((a[0] - b[0]) ** 2 + (a[1] - b[1]) ** 2)
+
 
 def get_clusters(points):
     clusters = []
@@ -152,7 +218,7 @@ def get_clusters(points):
         new_cluster = True
         cluster_index = 0;
 
-        #print a
+        # print a
 
         for cluster in clusters:
             if a in cluster:
@@ -165,47 +231,46 @@ def get_clusters(points):
             current_cluster.append(a)
 
         for b in points:
-            if is_neighbour(a,b) == True:
+            if is_neighbour(a, b) == True:
                 for cluster in clusters:
                     if b in cluster:
                         new_cluster = False
                         current_cluster = cluster
-                        
+
                         if a not in current_cluster:
                             current_cluster.append(a)
                         break
 
                 if b not in current_cluster:
                     current_cluster.append(b)
-                
-       
-        #print str(cluster_index) + str(current_cluster)
-        #print ""
+
+        # print str(cluster_index) + str(current_cluster)
+        # print ""
         if new_cluster == True:
             clusters.append(current_cluster)
 
     for cluster in clusters:
         a = cluster[0]
-        cluster.sort(key = lambda x: euclidean_dist(x,a))
-    
+        cluster.sort(key=lambda x: euclidean_dist(x, a))
 
     return clusters
 
-#tohle este nak predelat aby to backtracovalo
-#tzn aby to bylo jako dfs
+# tohle este nak predelat aby to backtracovalo
+# tzn aby to bylo jako dfs
+
+
 def get_clusters_2(points):
     A = points[0]
     clusters = []
     new_cluster = []
-    
 
     while len(points) > 0:
         new_cluster.append(A)
-        
+
         no_new_neighbour = False
 
         for B in points:
-            if is_neighbour(A,B) == True:
+            if is_neighbour(A, B) == True:
                 points.pop(points.index(A))
                 A = B
                 no_new_neighbour = False
@@ -220,6 +285,17 @@ def get_clusters_2(points):
                 new_cluster = []
 
     return clusters
+
+
+def get_clusters_dfs(points):
+    nodes = []
+
+    for point in points:
+        node = [point[0], point[1], 'fresh']
+        nodes.append(node)
+
+    
+
 
 def get_neigbours(point, points):
     neighbours = []
@@ -254,4 +330,3 @@ def contours_to_scgink(contours, scgink_file, min_length=9):
             for coord in contour:
                 ink_file.write("{} {}\n".format(
                     coord[0][0], coord[0][1]))
-
