@@ -55,34 +55,17 @@ cv2.imshow('orig', img)
 reg_n = 0
 for region in text_regions:
     cv2.imshow('region {}'.format(reg_n), region)
+
+
+    points_array = np.nonzero(region)
+    points_xy = []
+
+    points_xy = zip(points_array[1], points_array[0])
+
+    clusters = utils.get_clusters_dfs(points_xy)
+
+    utils.clusters_to_scgink(clusters, "seshat/SampleMathExps/region_{}.scgink".format(reg_n))
     reg_n += 1
-
-pic = text_regions[0]
-pic[pic > 0] = 255
-
-cv2.imwrite('reg.png', pic)
-
-points_array = np.nonzero(text_regions[0])
-points_xy = []
-
-points_xy = zip(points_array[1], points_array[0])
-
-print points_xy[0:20]
-
-clusters = utils.get_clusters_2(points_xy)
-
-print len(clusters)
-print clusters[0]
-
-utils.clusters_to_scgink(clusters, "seshat/SampleMathExps/pokus.scgink")
-
-approx_curves = []
-
-for cluster in clusters:
-    curve = cv2.approxPolyDP(np.array(cluster), 0.003, False);
-    approx_curves.append(curve)
-
-utils.contours_to_scgink(approx_curves, "seshat/SampleMathExps/pokus_curves.scgink")
 
 while True:
     k = cv2.waitKey(33)

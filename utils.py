@@ -201,6 +201,9 @@ def is_neighbour(a, b):
         if abs(a[1] - b[0]) == 1:
             return True
 
+        if abs(a[0] - b[0]) == 1 and abs(a[1] - b[1]) == 1:
+            return True
+
     return False
 
 
@@ -216,91 +219,38 @@ def euclidean_dist(a, b):
     return math.sqrt((a[0] - b[0]) ** 2 + (a[1] - b[1]) ** 2)
 
 
-def get_clusters(points):
-    clusters = []
-    for a in points:
-        current_cluster = []
-        new_cluster = True
-        cluster_index = 0;
+def do_dfs(node, nodes, cluster):
+    node[1] = 'open'
+   
+    cluster.append(node[0])
+    print "opening node: {}".format(node)
 
-        # print a
+    for next_node in nodes:
+        if is_neighbour(node[0], next_node[0]):
+            print "     neighbours: {}".format(next_node)
+            if next_node[1] == 'fresh':
+                do_dfs(next_node, nodes, cluster)
 
-        for cluster in clusters:
-            if a in cluster:
-                current_cluster = cluster
-                new_cluster = False
-                break
-            cluster_index += 1
-
-        if new_cluster == True:
-            current_cluster.append(a)
-
-        for b in points:
-            if is_neighbour(a, b) == True:
-                for cluster in clusters:
-                    if b in cluster:
-                        new_cluster = False
-                        current_cluster = cluster
-
-                        if a not in current_cluster:
-                            current_cluster.append(a)
-                        break
-
-                if b not in current_cluster:
-                    current_cluster.append(b)
-
-        # print str(cluster_index) + str(current_cluster)
-        # print ""
-        if new_cluster == True:
-            clusters.append(current_cluster)
-
-    for cluster in clusters:
-        a = cluster[0]
-        cluster.sort(key=lambda x: euclidean_dist(x, a))
-
-    return clusters
-
-# tohle este nak predelat aby to backtracovalo
-# tzn aby to bylo jako dfs
-
-
-def get_clusters_2(points):
-    A = points[0]
-    clusters = []
-    new_cluster = []
-
-    while len(points) > 0:
-        new_cluster.append(A)
-
-        no_new_neighbour = False
-
-        for B in points:
-            if is_neighbour(A, B) == True:
-                points.pop(points.index(A))
-                A = B
-                no_new_neighbour = False
-                break
-            no_new_neighbour = True
-
-        if no_new_neighbour == True:
-            points.pop(points.index(A))
-            if len(points) > 0:
-                A = points[0]
-                clusters.append(new_cluster)
-                new_cluster = []
-
-    return clusters
-
+    node[1] = 'closed'
 
 def get_clusters_dfs(points):
     nodes = []
 
+    clusters = []
+
     for point in points:
-        node = [point[0], point[1], 'fresh']
+        node = [(point[0], point[1]), 'fresh']
         nodes.append(node)
-
     
-
+    cluster = []
+    for node in nodes:
+        if node[1] == 'fresh':
+            do_dfs(node, nodes, cluster)
+            cluster.pop()
+            clusters.append(cluster)
+            cluster = []
+    
+    return clusters
 
 def get_neigbours(point, points):
     neighbours = []
