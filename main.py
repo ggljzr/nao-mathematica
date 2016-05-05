@@ -65,6 +65,15 @@ for region in text_regions:
     clusters = utils.get_clusters_dfs(points_xy)
 
     utils.clusters_to_scgink(clusters, "seshat/SampleMathExps/region_{}.scgink".format(reg_n))
+
+    curves = []
+
+    for cluster in clusters:
+        curve = cv2.approxPolyDP(np.array(cluster), 0.3, closed=False)
+        curves.append(curve)
+
+    utils.contours_to_scgink(curves, "seshat/SampleMathExps/region_{}_curves.scgink".format(reg_n))
+
     reg_n += 1
 
 while True:

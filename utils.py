@@ -210,14 +210,6 @@ def is_neighbour(a, b):
     return False
 
 
-def common_neigbours(cluster_a, cluster_b):
-    for a in cluster_a:
-        for b in cluster_b:
-            if is_neighbour(a, b):
-                return True
-    return False
-
-
 def euclidean_dist(a, b):
     return math.sqrt((a[0] - b[0]) ** 2 + (a[1] - b[1]) ** 2)
 
@@ -306,13 +298,6 @@ def get_clusters_bfs(points):
 
     return clusters
 
-
-def get_neigbours(point, points):
-    neighbours = []
-    for a in points:
-        if is_neighbour(a, point):
-            neighbours.append(a)
-    return neighbours
 
 def clusters_to_scgink(clusters, scgink_file, min_length = 9):
     clusters_filtered = [cluster for cluster in clusters if len(cluster) >= min_length]
