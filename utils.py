@@ -218,15 +218,26 @@ def do_dfs(node, nodes, cluster):
     node[1] = 'open'
  
     cluster.append(node[0])
-
     
     print "opening node: {}".format(node)
 
-    for next_node in nodes:
-        if is_neighbour(node[0], next_node[0]):
-            print "     neighbours: {}".format(next_node)
-            if next_node[1] == 'fresh':
-                do_dfs(next_node, nodes, cluster)
+    #tohle neni uplne dfs protoze to vybere uzly ktery sou fresh ted, ale neveme to v potaz tu zmenu stavu
+    #pri tim rekurzivnim prochazeni, zajimay, ze to vobcas dava lepsi vysledky nez normalni dfs
+    #(ve vobrazku je vic vracejicich se tahu)
+    #fresh_neighbours = [ next_node for next_node in nodes if (is_neighbour(node[0], next_node[0]) and next_node[1] == 'fresh')]
+
+    # for neighbour in fresh_neighbours:
+        # #print "     neighbour: {}".format(neighbour)
+        # do_dfs(neighbour, nodes, cluster)
+
+    #tohle uz by melo bejt normalni dfs
+    neighbours = [neighbour for neighbour in nodes if (is_neighbour(node[0], neighbour[0]))]
+
+    for neighbour in neighbours:
+        print "     neighbour: {}".format(neighbour)
+        if neighbour[1] == 'fresh':
+            do_dfs(neighbour, nodes, cluster)
+
 
     node[1] = 'closed'
 
@@ -235,15 +246,11 @@ def do_dfs(node, nodes, cluster):
 #dost vod sebe kdyz se to nekde zatoula
 #takze to tam ten seshat pak proste pospojuje
 def get_clusters_dfs(points):
-    nodes = []
-
     clusters = []
-
-    for point in points:
-        node = [(point[0], point[1]), 'fresh']
-        nodes.append(node)
-    
     cluster = []
+
+    nodes = np.array([ [point, 'fresh'] for point in points ])
+
     for node in nodes:
         if node[1] == 'fresh':
             do_dfs(node, nodes, cluster)
