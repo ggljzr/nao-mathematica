@@ -250,6 +250,10 @@ def get_clusters_dfs(points):
     cluster = []
 
     nodes = np.array([ [point, 'fresh'] for point in points ])
+    
+    #seradi to vod nejlevejsiho
+    #mozna by bylo lepsi predavat sem ty body uz serazeny
+    nodes = np.sort(nodes, axis = 0)
 
     for node in nodes:
         if node[1] == 'fresh':
