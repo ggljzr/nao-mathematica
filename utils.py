@@ -214,6 +214,72 @@ def euclidean_dist(a, b):
     return math.sqrt((a[0] - b[0]) ** 2 + (a[1] - b[1]) ** 2)
 
 
+def get_endpoints(text_region):
+    operators = [None] * 8
+
+    operators[0] = np.array(np.mat('-1. -1. -1.; 1. 1. -1.; -1. -1. -1.'));
+    operators[1] = np.array(np.mat('-1. 1. -1.; -1. 1. -1.; -1. -1. -1.'));
+    operators[2] = np.array(np.mat('-1. -1. -1.; -1. 1. 1.; -1. -1. -1.'));
+    operators[3] = np.array(np.mat('-1. -1. -1.; -1. 1. -1.; -1. 1. -1.'));
+    operators[4] = np.array(np.mat('1. -1. -1.; -1. 1. -1.; -1. -1. -1.'));
+    operators[5] = np.array(np.mat('-1. -1. 1.; -1. 1. -1.; -1. -1. -1.'));
+    operators[6] = np.array(np.mat('-1. -1. -1.; -1. 1. -1.; 1. -1. -1.'));
+    operators[7] = np.array(np.mat('-1. -1. -1.; -1. 1. -1.; -1. -1. 1.'));
+
+    images = []
+
+    print type(text_region)
+    for operator in operators:
+        new_image = cv2.filter2D(text_region, cv2.CV_32FC1, operator)
+        images.append(new_image)
+        
+
+    print text_region.shape
+    print images[0].shape
+    print images[0][14][24]
+    print images[0][14][25]
+    print images[0][14][26]
+    print images[0][15][24]
+    print images[0][15][25]
+    print images[0][15][26]
+    print images[0][16][24]
+    print images[0][16][25]
+    print images[0][16][26]
+    
+    print images[0][17][24]
+    print images[0][17][25]
+    print images[0][17][26]
+
+    import sys
+
+    rows, cols = images[0].shape
+
+    for i in range(0, rows):
+        for j in range(0, cols):
+            val = images[0][i][j]
+            if val < 0:
+                sys.stdout.write(".")
+            elif val >= 0:
+                sys.stdout.write(str(int(val)))
+        print ""
+
+    endpoints = []
+    for image in images:
+        new_endpoints = np.where(image == 2)
+        if len(new_endpoints) > 0:
+            new_endpoints = zip(new_endpoints[1], new_endpoints[0])
+            for endpoint in new_endpoints:
+                endpoints.append(endpoint)
+
+    return endpoints
+
+def follow_lines(img, endpoints):
+    temp_img = img
+
+    for endpoint in endpoints:
+        current_point = endpoint
+                  
+
 def do_dfs(node, nodes, cluster):
     node[1] = 'open'
  

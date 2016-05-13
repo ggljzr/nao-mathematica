@@ -53,6 +53,19 @@ text_regions = utils.get_text_regions(img)
 cv2.imshow('orig', img)
 
 reg_n = 0
+
+
+
+endpoints = utils.get_endpoints(text_regions[0])
+
+print endpoints
+
+for endpoint in endpoints:
+    cv2.circle(text_regions[0], endpoint, 2, 255, -1)
+
+cv2.imwrite('text_region.png', text_regions[0] * 255)
+
+'''
 for region in text_regions:
     cv2.imshow('region {}'.format(reg_n), region)
 
@@ -75,7 +88,7 @@ for region in text_regions:
     utils.contours_to_scgink(curves, "seshat/SampleMathExps/region_{}_curves.scgink".format(reg_n))
 
     reg_n += 1
-
+'''
 while True:
     k = cv2.waitKey(33)
     if k == utils.KEY_Q:
