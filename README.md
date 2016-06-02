@@ -39,16 +39,6 @@ takova potrhana coz by asi chtelo zacelit, i kdyz ten seshat by to mozna vydrzel
 vono je teda blby ze tohle zase zaceli ty diry co tam maj bejt, treba v sestce
 nebo vosmicce
 
-jinak co se tyce tech vobrazku tak to numpy.nonzero vypada dobre, akorat by to chtelo
-rozrezat ten text region este na jednotlivy znaky zase pomoci kontur a bounding boxes
-aby byly ty jednotlivy strokes jakoby voddeleny 
-
-^^to asi nebude potreba
-
-a pak delat ten kazdej znak zvlast s tim, ze by se udaly ty cerny body pomoci
-toho nonzero a pak by se udal nakej clustering (naky knn nebo takovy nesmysly)
-co by dal ty sousedni body dohromady
-
 hledani souvisle oblasti:
 nejdriv teda asi musime najit souvislou voblast ktera bude tvorit jeden tah
 takze vzit prvni bilej bod a pak projit vsechny vostatni body a hledat sousedy
