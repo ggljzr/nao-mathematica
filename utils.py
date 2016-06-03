@@ -33,7 +33,6 @@ def whiteboard_detect(img):
 
     thresh_final = None
 
-    # na tohle se este podivat
     for i in contours:
         area = cv2.contourArea(i)
         if area > 100:
@@ -59,10 +58,6 @@ def whiteboard_detect(img):
 
         M = cv2.getPerspectiveTransform(pts1, pts2)
         dst = cv2.warpPerspective(gray, M, (rows, cols))
-
-        # mozna taky zkusit
-        # https://stackoverflow.com/questions/23506105/extracting-text-opencv
-        # pro detekci regionu s textem
 
         # thresh_final = cv2.adaptiveThreshold(
         # dst, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C, cv2.THRESH_BINARY, 11, 2)
@@ -165,19 +160,14 @@ def get_text_regions(img):
         # draw rectangle around contour on original image
         # cv2.rectangle(rgb_rect, (x, y), (x + w, y + h), (0, 255, 0), 1)
 
-        # crop original leveled image and threshold it
         rect_mat = leveled[y: y + h, x: x + w]
         rect_mat = cv2.adaptiveThreshold(
             rect_mat, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C, cv2.THRESH_BINARY_INV, 11, 2)
 
-        # tady tu iteraci maximalne jednu
-        # jinak uz to ten vobrazek docela rozmatla
         kernel = cv2.getStructuringElement(cv2.MORPH_CROSS, (3, 3))
         rect_mat = cv2.morphologyEx(
             rect_mat, cv2.MORPH_CLOSE, kernel, iterations=1)
         
-        #tady asi misto ty eroze implementovat guo-hall algorithm
-        #https://web.archive.org/web/20160314104646/http://opencv-code.com/quick-tips/implementation-of-guo-hall-thinning-algorithm/
         kernel = np.ones((2,2), np.uint8)
         rect_mat = guo_hall_thinning(rect_mat)
 
@@ -234,26 +224,8 @@ def get_endpoints(text_region):
         images.append(new_image)
         
 
-    print text_region.shape
-    print images[0].shape
-    print images[0][14][24]
-    print images[0][14][25]
-    print images[0][14][26]
-    print images[0][15][24]
-    print images[0][15][25]
-    print images[0][15][26]
-    print images[0][16][24]
-    print images[0][16][25]
-    print images[0][16][26]
-    
-    print images[0][17][24]
-    print images[0][17][25]
-    print images[0][17][26]
-
-    import sys
-
+    '''
     rows, cols = images[0].shape
-
     for i in range(0, rows):
         for j in range(0, cols):
             val = images[0][i][j]
@@ -262,7 +234,8 @@ def get_endpoints(text_region):
             elif val >= 0:
                 sys.stdout.write(str(int(val)))
         print ""
-
+    '''
+    
     endpoints = []
     for image in images:
         new_endpoints = np.where(image == 2)
@@ -287,16 +260,6 @@ def do_dfs(node, nodes, cluster):
     
     print "opening node: {}".format(node)
 
-    #tohle neni uplne dfs protoze to vybere uzly ktery sou fresh ted, ale neveme to v potaz tu zmenu stavu
-    #pri tim rekurzivnim prochazeni, zajimay, ze to vobcas dava lepsi vysledky nez normalni dfs
-    #(ve vobrazku je vic vracejicich se tahu)
-    #fresh_neighbours = [ next_node for next_node in nodes if (is_neighbour(node[0], next_node[0]) and next_node[1] == 'fresh')]
-
-    # for neighbour in fresh_neighbours:
-        # #print "     neighbour: {}".format(neighbour)
-        # do_dfs(neighbour, nodes, cluster)
-
-    #tohle uz by melo bejt normalni dfs
     neighbours = [neighbour for neighbour in nodes if (is_neighbour(node[0], neighbour[0]))]
 
     for neighbour in neighbours:
@@ -307,10 +270,6 @@ def do_dfs(node, nodes, cluster):
 
     node[1] = 'closed'
 
-#jako von je problem ze proste na konci to da
-#ty naposled uzavreny uzly ktery muzou bejt
-#dost vod sebe kdyz se to nekde zatoula
-#takze to tam ten seshat pak proste pospojuje
 def get_clusters_dfs(points):
     clusters = []
     cluster = []
@@ -334,48 +293,6 @@ def get_clusters_dfs(points):
 
     return clusters
 
-def get_clusters_bfs(points):
-    nodes = []
-    clusters = []
-    
-    for point in points:
-        node = [(point[0], point[1]), 'fresh']
-        nodes.append(node)
-
-    start = nodes[0]
-    start[1] = 'fresh'
-
-    queue = []
-    queue.append(start)
-
-    cluster = []
-
-    while len(queue) > 0:
-        node = queue[0]
-
-        for next_node in nodes:
-            if is_neighbour(node[0], next_node[0]):
-                if next_node[1] == 'fresh':
-                    next_node[1] = 'open'
-                    cluster.append(next_node[0])
-                    queue.append(next_node)
-        queue.pop(0)
-        node[1] = 'closed'
-   
-        if len(queue) == 0:
-            clusters.append(cluster)
-            cluster = []
-            
-            for node in nodes:
-                if node[1] == 'fresh':
-                    node[1] = 'open'
-                    queue.append(node)
-                    break
-
-
-    return clusters
-
-
 def clusters_to_scgink(clusters, scgink_file, min_length = 9):
     clusters_filtered = [cluster for cluster in clusters if len(cluster) >= min_length]
 
@@ -387,8 +304,6 @@ def clusters_to_scgink(clusters, scgink_file, min_length = 9):
             for coord in cluster:
                 ink_file.write("{} {}\n".format(
                     coord[0], coord[1]))
-
-
 
 def contours_to_scgink(contours, scgink_file, min_length=9):
     contours_filtered = [
