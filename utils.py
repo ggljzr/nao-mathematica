@@ -1,6 +1,7 @@
-# sudoku example http://opencvpython.blogspot.com/2012/06/sudoku-solver-part-2.html
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+
 # detekce regionu s textem
-# https://stackoverflow.com/questions/23506105/extracting-text-opencv
 
 import numpy as np
 import cv2
@@ -8,7 +9,18 @@ import math
 
 KEY_Q = 1048689
 
+'''
+funkce se pokusí najít rohy tabule v obrázku
+a podle těchto rohů provede transformaci perspektivy
+(obrázek bude kolmo ke kameře)
 
+sudoku example http://opencvpython.blogspot.com/2012/06/sudoku-solver-part-2.html
+
+parametry:
+    img -- vstupní obrázek (bitmapa)
+návratová hodnota:
+    transformovaný obrázek (bitmapa, grayscale)
+'''
 def whiteboard_detect(img):
     rows, cols, ch = img.shape
 
@@ -64,11 +76,21 @@ def whiteboard_detect(img):
 
     return dst
 
-def guo_hall_thinning(img):
-    #Created by Eiichiro Momma on 2014/08/11.
-    #Copyright (c) 2014 Eiichiro Momma. All rights reserved.
-    #http://www.eml.ele.cst.nihon-u.ac.jp/~momma/wiki/wiki.cgi/OpenCV/%E7%B4%B0%E7%B7%9A%E5%8C%96.html
+'''
+Created by Eiichiro Momma on 2014/08/11.
+Copyright (c) 2014 Eiichiro Momma. All rights reserved.
+http://www.eml.ele.cst.nihon-u.ac.jp/~momma/wiki/wiki.cgi/OpenCV/%E7%B4%B0%E7%B7%9A%E5%8C%96.html
 
+funcke aplikuje na obrázek Guo-Hallův algoritmus,
+který ztenčí všehny bílé čáry v obrázku na šířku 1px
+
+parametry:
+    img -- vstupní obrázek (bitmapa, grayscale, oprahovaný na pouze černou a bílou)
+
+návratová hodnota:
+    obrázek se ztenčenými čárami
+'''
+def guo_hall_thinning(img):
     kpw = [None] * 8
     kpb = [None] * 8
 
@@ -124,6 +146,22 @@ def guo_hall_thinning(img):
 
     return src_f
 
+'''
+funkce najde oblasti s textem v obrázku, na kazde oblasti provede morphological closing
+(dilatace a eroze, jedna iterace) a poté Guo-Hallův algoritmus
+
+V podstatě jediná funkce, kterou je potřeba zavolat na zpracování obrázku. 
+Vezme obrázek z kamery a vrátí oblasti (každá oblast by měla představovat jeden příklad na tabuli), 
+ze kterých je pak rekonstruován vstup pro seshat.
+
+https://stackoverflow.com/questions/23506105/extracting-text-opencv - 3. odpověď 
+
+parametry:
+    img -- vstupní obrázek(bitmapa, funkce již volá whiteboard_detect, vstup je tedy původní obrázek z kamery)
+
+návratová hodnota:
+    list bitmap s jednotlivými oblastmi, na každou oblast bylo aplikováno prahování a Guo-Hall
+'''
 def get_text_regions(img):
     leveled = whiteboard_detect(img)
 
@@ -144,16 +182,12 @@ def get_text_regions(img):
 
     text_regions = []
 
-    # for each contour found, draw a rectangle around it on original image
     for contour in contours:
-        # get rectangle bounding contour
         [x, y, w, h] = cv2.boundingRect(contour)
 
-        # discard areas that are too big
         if h > rows - 10 or w > cols - 10:
             continue
 
-        # discard areas that are too small
         if h < 60 or w < 60:
             continue
 
@@ -179,7 +213,12 @@ def get_text_regions(img):
 def manhattan_dist(a, b):
     return abs(a[0] - b[0]) + abs(a[1] - b[1])
 
-
+'''
+parametry:
+    a, b -- body (x,y)
+návratová hodnota:
+    True když se bod b nacházi v 8 okolí bodu a
+'''
 def is_neighbour(a, b):
     if a == None or b == None:
         return False
@@ -203,7 +242,15 @@ def is_neighbour(a, b):
 def euclidean_dist(a, b):
     return math.sqrt((a[0] - b[0]) ** 2 + (a[1] - b[1]) ** 2)
 
+'''
+funkce najde koncové body čar v textové oblasti
 
+parametry:
+    text_region -- oblast s textem, viz výstup funkce get_text_regions (oprahované, Guo-Hall )
+
+návratová hodnota:
+    seznam koncových bodů (x,y)
+'''
 def get_endpoints(text_region):
     operators = [None] * 8
 
@@ -218,7 +265,6 @@ def get_endpoints(text_region):
 
     images = []
 
-    print type(text_region)
     for operator in operators:
         new_image = cv2.filter2D(text_region, cv2.CV_32FC1, operator)
         images.append(new_image)
@@ -252,7 +298,9 @@ def follow_lines(img, endpoints):
     for endpoint in endpoints:
         current_point = endpoint
                   
-
+'''
+pomocná funkce pro get_clusters_dfs
+'''
 def do_dfs(node, nodes, cluster):
     node[1] = 'open'
  
@@ -270,6 +318,16 @@ def do_dfs(node, nodes, cluster):
 
     node[1] = 'closed'
 
+'''
+funkce nalezne souvíslé komponenty v seznamu bodů, jako sousední
+body jsou považovány body v 8 okolí
+
+parametry:
+    points -- seznam bodů (x,y) (zde bílé body v obrázku, získané pomocí np.nonzero())
+
+návratová hodnota:
+    seznam souvislých komponent, každá komponenta je tvořena seznamem bodů
+'''
 def get_clusters_dfs(points):
     clusters = []
     cluster = []
@@ -293,6 +351,15 @@ def get_clusters_dfs(points):
 
     return clusters
 
+'''
+převede seznam souvislých kompnent z výstupu funkce get_clusters_dfs() do
+scgink formátu pro seshat
+
+parametry:
+    clusters -- viz get_clusters_dfs()
+    scgink_file -- výstupní soubor
+    min_length -- minimální délka clusteru v souboru
+'''
 def clusters_to_scgink(clusters, scgink_file, min_length = 9):
     clusters_filtered = [cluster for cluster in clusters if len(cluster) >= min_length]
 

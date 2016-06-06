@@ -54,22 +54,18 @@ cv2.imshow('orig', img)
 
 reg_n = 0
 
-
-
 endpoints = utils.get_endpoints(text_regions[0])
-
-print endpoints
 
 for endpoint in endpoints:
     cv2.circle(text_regions[0], endpoint, 2, 255, -1)
 
 cv2.imwrite('text_region.png', text_regions[0] * 255)
 
-'''
 for region in text_regions:
     cv2.imshow('region {}'.format(reg_n), region)
+    reg_n += 1
 
-
+'''
     points_array = np.nonzero(region)
     points_xy = []
 
