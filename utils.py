@@ -249,7 +249,7 @@ parametry:
     text_region -- oblast s textem, viz výstup funkce get_text_regions (oprahované, Guo-Hall )
 
 návratová hodnota:
-    seznam koncových bodů (x,y)
+    seznam koncových bodů [(x,y)]
 '''
 def get_endpoints(text_region):
     operators = [None] * 8
@@ -292,12 +292,67 @@ def get_endpoints(text_region):
 
     return endpoints
 
+'''
+pomocná funkce, vrátí souřadnice sousedůi (x,y) v 8 okolí bodu
+'''
+def get_neighbours(point):
+    x = point[0]
+    y = point[1]
+    return [(x-1,y+1),(x,y+1),(x+1,y+1),
+            (x-1,y),(x+1,y),(x-1,y-1),
+            (x,y-1),(x+1,y-1)]
+
 def follow_lines(img, endpoints):
     temp_img = img
 
-    for endpoint in endpoints:
-        current_point = endpoint
-                  
+    strokes = []
+
+    #do toho endpoints budu chtit zapisovat (mazat endpointy)
+    #takze to asi nepude pres iterator
+    for endoint_index in range(0, len(endpoints)):
+
+        current_point = endpoints[endpoint_index]
+
+        if current_point == None:
+            continue
+
+        stroke = []
+
+        while current_point != None:
+            neighbours = get_neighbours(current_point)
+
+            best_next_point = None
+
+            for neighbour in neighbours:
+                rows = neighbour[1] #y coord
+                cols = neighbour[0] #x coord
+
+                #kdyz narazim na jinej endpoint, koncim tah
+                if neighbour in endpoints:
+                    best_next_point = None
+                    endpoints[endoint_index] = None
+                    break
+
+                #hledám bod v nejlepsim smeru
+
+                #vostatni body mazu v temp_img
+
+            #nastrel asi neco takovyhleho
+            
+            if current_point != None:
+                stroke = stroke.append(current_point)
+            
+            current_point = best_next_point
+
+        #tady nekde pak asi znova temp_img = img
+        #nebo mozna ani nemusi bejt
+        
+        strokes.append(stroke)
+
+    return strokes
+        
+    
+
 '''
 pomocná funkce pro get_clusters_dfs
 '''
