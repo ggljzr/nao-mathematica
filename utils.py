@@ -312,7 +312,7 @@ def get_angle(v1, v2):
 
     return np.clip(np.dot(v1, v2), -1.0, 1.0)
 
-def follow_lines(img, endpoints):
+def follow_lines(img, endpoints, queue_length = 3):
     temp_img = img
 
     strokes = []
@@ -330,6 +330,7 @@ def follow_lines(img, endpoints):
 
         stroke = []
 
+        queue = []
         last_point = None
 
         print "Stroke start == " + str(current_point)
@@ -342,9 +343,10 @@ def follow_lines(img, endpoints):
             for neighbour in neighbours:
                 rows = neighbour[1] #y coord
                 cols = neighbour[0] #x coord
-            
+
                 #kdyz narazim na jinej endpoint koncim tah
                 if neighbour in endpoints:
+                    temp_img[rows, cols] = 0
                     best_next_point = None
                     neigbour_index = endpoints.index(neighbour)
                     endpoints[neigbour_index] = None
@@ -352,6 +354,7 @@ def follow_lines(img, endpoints):
 
                 #hledám bod v nejlepsim smeru
                 if temp_img[rows, cols] > 0:
+                    temp_img[rows, cols] = 0
                     if last_point == None:
                         best_next_point = neighbour
                         break
@@ -363,16 +366,22 @@ def follow_lines(img, endpoints):
                     if np.abs(cos) < best_angle:
                         best_angle = np.abs(cos)
                         best_next_point = neighbour
-                    
-                #vostatni body mazu v temp_img
-                temp_img[rows,cols] = 0
+            
+            rows = current_point[1]
+            cols = current_point[0]
+            temp_img[rows,cols] = 0
 
             #nastrel asi neco takovyhleho
 
             if current_point != None:
                 stroke.append(current_point)
+                queue.append(current_point)
+
+                last_point = queue[0]
+                if len(queue) > queue_length:
+                    queue.pop(0)
             
-            last_point = current_point
+            #last_point = current_point
             current_point = best_next_point
 
             print str(last_point) + " -> " + str(current_point)

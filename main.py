@@ -73,7 +73,7 @@ for region in text_regions:
 num = 0
 for region in text_regions:
     endpoints = utils.get_endpoints(region)
-    strokes = utils.follow_lines(region, endpoints)
+    strokes = utils.follow_lines(region, endpoints, queue_length = 3)
 
     utils.clusters_to_scgink(strokes, "seshat/SampleMathExps/priklad_{}.scgink".format(num), min_length = 1)
     break
