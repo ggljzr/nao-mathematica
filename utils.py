@@ -303,14 +303,23 @@ def get_neighbours(point):
             (x,y-1),(x+1,y-1)]
 
 
-def unit_vector(vect):
-    return vect / np.linalg.norm(vect)
+
+'''
+funkce pro výpočet úhlu mezi dvěma vektory
+
+návratová hodnota:
+    cos(ro) = v1 . v2 / (|v1| * |v2|)
+'''
 
 def get_angle(v1, v2):
-    v1_u = unit_vector(v1)
-    v2_u = unit_vector(v2)
+    prod = np.dot(v1, v2)
 
-    return np.clip(np.dot(v1, v2), -1.0, 1.0)
+    norm_a = np.dot(v1,v1)
+    norm_b = np.dot(v2,v2)
+
+    cos = prod / (norm_a * norm_b)
+
+    return cos
 
 def follow_lines(img, endpoints, queue_length = 3):
     temp_img = img
@@ -359,12 +368,16 @@ def follow_lines(img, endpoints, queue_length = 3):
                         best_next_point = neighbour
                         break
                     
-                    vect_a = np.array(current_point) - np.array(last_point)
-                    vect_b = np.array(neighbour) - np.array(current_point)
+                    vect_a = np.array(current_point,dtype=float) - np.array(last_point,dtype=float)
+                    vect_b = np.array(neighbour, dtype=float) - np.array(current_point, dtype=float)
                     cos = get_angle(vect_a, vect_b)
                     
                     if np.abs(cos) < best_angle:
                         best_angle = np.abs(cos)
+                        print "curr point = {}".format(current_point)
+                        print "last point = {}".format(last_point)
+                        print "neighbour = {}".format(neighbour)
+                        print "cos {}".format(best_angle)
                         best_next_point = neighbour
             
             rows = current_point[1]
@@ -384,7 +397,7 @@ def follow_lines(img, endpoints, queue_length = 3):
             #last_point = current_point
             current_point = best_next_point
 
-            print str(last_point) + " -> " + str(current_point)
+            print str(queue[-1]) + " -> " + str(current_point)
     
         print "---- Stroke End -----"
         print ""
