@@ -321,6 +321,17 @@ def get_angle(v1, v2):
 
     return cos
 
+'''
+funkce vytvoří sérii tahů z obrázku
+
+parametry:
+    img -- vstupní obrázek (textová oblast, viz výstup funkce get_text_regions())
+    endpoits -- koncové body nalezené v obrázku (viz funkce get_endpoints())
+    queue_length (= 3) -- délka fronty, ze které se počítá první směrový vektor vektor
+           
+návratová hodnota
+    pole tahů tvořících příklad, každý tah je posloupnost bodů (x,y)
+'''
 def follow_lines(img, endpoints, queue_length = 3):
     temp_img = img
 
