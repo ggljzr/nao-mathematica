@@ -56,6 +56,9 @@ reg_n = 0
 
 endpoints = utils.get_endpoints(text_regions[0])
 
+cv2.imshow('reg 0', text_regions[0])
+
+'''
 for endpoint in endpoints:
     cv2.circle(text_regions[0], endpoint, 2, 255, -1)
 
@@ -66,28 +69,13 @@ for region in text_regions:
     reg_n += 1
 
 '''
-    points_array = np.nonzero(region)
-    points_xy = []
 
-    points_xy = zip(points_array[1], points_array[0])
+num = 0
+for region in text_regions:
+    endpoints = utils.get_endpoints(region)
+    strokes = utils.follow_lines(region, endpoints)
 
-    clusters = utils.get_clusters_dfs(points_xy)
+    utils.clusters_to_scgink(strokes, "seshat/SampleMathExps/priklad_{}.scgink".format(num), min_length = 1)
+    break
 
-    utils.clusters_to_scgink(clusters, "seshat/SampleMathExps/region_{}.scgink".format(reg_n))
-
-    curves = []
-
-    for cluster in clusters:
-        curve = cv2.approxPolyDP(np.array(cluster), 0.3, closed=False)
-        curves.append(curve)
-
-    utils.contours_to_scgink(curves, "seshat/SampleMathExps/region_{}_curves.scgink".format(reg_n))
-
-    reg_n += 1
-'''
-while True:
-    k = cv2.waitKey(33)
-    if k == utils.KEY_Q:
-        break
-    elif k == -1:
-        continue
+cv2.waitKey()

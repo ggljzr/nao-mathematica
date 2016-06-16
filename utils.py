@@ -302,6 +302,16 @@ def get_neighbours(point):
             (x-1,y),(x+1,y),(x-1,y-1),
             (x,y-1),(x+1,y-1)]
 
+
+def unit_vector(vect):
+    return vect / np.linalg.norm(vect)
+
+def get_angle(v1, v2):
+    v1_u = unit_vector(v1)
+    v2_u = unit_vector(v2)
+
+    return np.clip(np.dot(v1, v2), -1.0, 1.0)
+
 def follow_lines(img, endpoints):
     temp_img = img
 
@@ -309,41 +319,66 @@ def follow_lines(img, endpoints):
 
     #do toho endpoints budu chtit zapisovat (mazat endpointy)
     #takze to asi nepude pres iterator
-    for endoint_index in range(0, len(endpoints)):
+    for endpoint_index in range(0, len(endpoints)):
 
+        temp_img = img
         current_point = endpoints[endpoint_index]
+        endpoints[endpoint_index] = None
 
         if current_point == None:
             continue
 
         stroke = []
 
+        last_point = None
+
+        print "Stroke start == " + str(current_point)
         while current_point != None:
             neighbours = get_neighbours(current_point)
 
             best_next_point = None
+            best_angle = 10
 
             for neighbour in neighbours:
                 rows = neighbour[1] #y coord
                 cols = neighbour[0] #x coord
-
-                #kdyz narazim na jinej endpoint, koncim tah
+            
+                #kdyz narazim na jinej endpoint koncim tah
                 if neighbour in endpoints:
                     best_next_point = None
-                    endpoints[endoint_index] = None
+                    neigbour_index = endpoints.index(neighbour)
+                    endpoints[neigbour_index] = None
                     break
 
                 #hledám bod v nejlepsim smeru
-
+                if temp_img[rows, cols] > 0:
+                    if last_point == None:
+                        best_next_point = neighbour
+                        break
+                    
+                    vect_a = np.array(current_point) - np.array(last_point)
+                    vect_b = np.array(neighbour) - np.array(current_point)
+                    cos = get_angle(vect_a, vect_b)
+                    
+                    if np.abs(cos) < best_angle:
+                        best_angle = np.abs(cos)
+                        best_next_point = neighbour
+                    
                 #vostatni body mazu v temp_img
+                temp_img[rows,cols] = 0
 
             #nastrel asi neco takovyhleho
-            
+
             if current_point != None:
-                stroke = stroke.append(current_point)
+                stroke.append(current_point)
             
+            last_point = current_point
             current_point = best_next_point
 
+            print str(last_point) + " -> " + str(current_point)
+    
+        print "---- Stroke End -----"
+        print ""
         #tady nekde pak asi znova temp_img = img
         #nebo mozna ani nemusi bejt
         
