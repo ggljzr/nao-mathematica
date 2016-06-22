@@ -45,11 +45,11 @@ def whiteboard_detect(img):
 
     thresh_final = None
 
-    for i in contours:
-        area = cv2.contourArea(i)
+    for contour in contours:
+        area = cv2.contourArea(contour)
         if area > 100:
-            peri = cv2.arcLength(i, True)
-            approx = cv2.approxPolyDP(i, 0.02 * peri, True)
+            peri = cv2.arcLength(contour, True)
+            approx = cv2.approxPolyDP(contour, 0.02 * peri, True)
             if area > max_area and len(approx) == 4:
                 biggest = approx
                 max_area = area
@@ -336,6 +336,10 @@ def follow_lines(img, endpoints, queue_length = 3):
     temp_img = img
 
     strokes = []
+
+    #serazeni vod nejlevejsiho
+    #nevim jestli to je lepsi no
+    endpoints.sort(key = lambda x: x[0])
 
     #do toho endpoints budu chtit zapisovat (mazat endpointy)
     #takze to asi nepude pres iterator
