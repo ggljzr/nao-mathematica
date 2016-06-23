@@ -45,6 +45,8 @@ def whiteboard_detect(img):
 
     thresh_final = None
 
+    dst = None
+
     for contour in contours:
         area = cv2.contourArea(contour)
         if area > 100:
@@ -165,7 +167,7 @@ návratová hodnota:
 def get_text_regions(img):
     leveled = whiteboard_detect(img)
 
-    # rgb_rect = cv2.cvtColor(leveled, cv2.COLOR_GRAY2RGB)
+    #rgb_rect = cv2.cvtColor(leveled, cv2.COLOR_GRAY2RGB)
 
     thresh = cv2.GaussianBlur(leveled, (11, 11), 0)
 
@@ -177,6 +179,9 @@ def get_text_regions(img):
     dilated = cv2.dilate(thresh, kernel, iterations=15)
     contours, hierarchy = cv2.findContours(
         dilated, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_NONE)
+
+    cv2.imwrite("text_thresh.png", thresh*255.)
+    cv2.imwrite("text_dilate.png", dilated*255.)
 
     rows, cols = thresh.shape
 
@@ -191,8 +196,7 @@ def get_text_regions(img):
         if h < 60 or w < 60:
             continue
 
-        # draw rectangle around contour on original image
-        # cv2.rectangle(rgb_rect, (x, y), (x + w, y + h), (0, 255, 0), 1)
+        #cv2.rectangle(rgb_rect, (x, y), (x + w, y + h), (0, 255, 0), 1)
 
         rect_mat = leveled[y: y + h, x: x + w]
         rect_mat = cv2.adaptiveThreshold(
@@ -206,6 +210,8 @@ def get_text_regions(img):
         rect_mat = guo_hall_thinning(rect_mat)
 
         text_regions.append(rect_mat)
+
+    #cv2.imwrite("text_rect.png", rgb_rect)
 
     return text_regions
 
