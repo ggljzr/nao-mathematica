@@ -351,7 +351,7 @@ def follow_lines(img, endpoints, queue_length = 3):
     #takze to asi nepude pres iterator
     for endpoint_index in range(0, len(endpoints)):
 
-        #temp_img = np.copy(img)
+        temp_img = np.copy(img)
         current_point = endpoints[endpoint_index]
         endpoints[endpoint_index] = None
 
