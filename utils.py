@@ -180,8 +180,8 @@ def get_text_regions(img):
     contours, hierarchy = cv2.findContours(
         dilated, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_NONE)
 
-    cv2.imwrite("text_thresh.png", thresh*255.)
-    cv2.imwrite("text_dilate.png", dilated*255.)
+    #cv2.imwrite("text_thresh.png", thresh*255.)
+    #cv2.imwrite("text_dilate.png", dilated*255.)
 
     rows, cols = thresh.shape
 
@@ -339,7 +339,7 @@ návratová hodnota
     pole tahů tvořících příklad, každý tah je posloupnost bodů (x,y)
 '''
 def follow_lines(img, endpoints, queue_length = 3):
-    temp_img = img
+    temp_img = np.copy(img)
 
     strokes = []
 
@@ -351,7 +351,7 @@ def follow_lines(img, endpoints, queue_length = 3):
     #takze to asi nepude pres iterator
     for endpoint_index in range(0, len(endpoints)):
 
-        temp_img = img
+        #temp_img = np.copy(img)
         current_point = endpoints[endpoint_index]
         endpoints[endpoint_index] = None
 
@@ -368,7 +368,7 @@ def follow_lines(img, endpoints, queue_length = 3):
             neighbours = get_neighbours(current_point)
 
             best_next_point = None
-            best_angle = 10
+            best_angle = -1
 
             for neighbour in neighbours:
                 rows = neighbour[1] #y coord
@@ -393,7 +393,7 @@ def follow_lines(img, endpoints, queue_length = 3):
                     vect_b = np.array(neighbour, dtype=float) - np.array(current_point, dtype=float)
                     cos = get_angle(vect_a, vect_b)
                     
-                    if np.abs(cos) < best_angle:
+                    if np.abs(cos) > best_angle:
                         best_angle = np.abs(cos)
                         print "curr point = {}".format(current_point)
                         print "last point = {}".format(last_point)
