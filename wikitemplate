@@ -1,0 +1,213 @@
+====== Rozpoznávání příkladů z tabule ======
+
+
+===== Úvod, cíl práce =====
+
+Cílem práce bylo vytvořit program, pomocí kterého bude robot číst příklady napsané na tabuli a hlásit výsledky. Robot by tedy měl pořídit fotografii tabule, na ní rozpoznat jednotlivé příklady a ty postupně spočítat.
+
+Práci je tedy možno rozdělit do třech částí:
+  - Zpracování fotografie -- rozpoznání tabule a příkladů na ní
+  - Zpracování příkladů -- převod příkladů (obrázků) do vhodného textového formátu
+  - Výpočet příkladů -- v tomto případě s využitím API pro jazyk Mathematica 
+
+===== Zpracování fotografie tabule =====
+
+V této části bude využita především knihovna pro zpracování obrazu OpenCV (verze 2.4.13). Knihovna kromě C++ podporuje i rozhraní pro Javu, Python a další jazyky. Já jsem se kvůli snadnému prototypování rozhodl pro implementaci programu použít Python (verze 2.7). Funkce z této knihovny v textu začínají **//cv2.//**.
+
+==== Rozpoznání tabule a transformace perspektivy ===
+
+Nejdřív je potřeba vymezit plochu, na které se budou hledat příklady. Musí se tedy nalézt krajní body tabule a podle těchto bodů transformovat perspektivu tak, aby každý roh tabule odpovídal krajnímu bodu obrázku. Při použití obrázků s rozlišením 640x480 budou tedy krajní body tabule na souřadnicích (0,0), (640,0), (480,0), (640,480).
+
+=== Hledání krajních bodů ===
+
+Hledání krajních bodů tabule vychází z předpokladu, že tabule tvoří největší čtyřúhelník v obrázku.
+
+Obrázek, ve kterém jsou hledány krajní body je nejprve převeden do odstínů šedé a oprahován funkcí **//cv2.adaptiveThreshold()//**. Zde se mi osvědčilo ještě před oprahováním na obrázek aplikovat Gaussian blur, který částečně omezí šum. 
+
+Z takto upraveného obrázku jsou pak pomocí funkce **//cv2.findContours()//** získány kontury. Z těch je pak vybrána největší kontura, která odpovídá čtyřúhelníku. Jestli kontura tvoří čtyřúhelník zjistíme pomocí funkce **//cv2.approxPolyDP()//** aplikované na konturu. Pokud je křivka nalezná touto funkcí tvořena čtyřmi body, pak kontura tvoří čtyřúhelník.
+
+<code python>
+for contour in contours:
+    area = cv2.contourArea(contour)
+    if area > 100:
+        peri = cv2.arcLength(contour, True)
+        approx = cv2.approxPolyDP(contour, 0.02 * peri, True)
+        if area > max_area and len(approx) == 4:
+            biggest = approx
+            max_area = area
+</code>
+
+=== Transformace perspektivy ===
+
+Krajní body jsou využity k transformaci perspektivy pomocí funkcí **//cv2.getPerspectiveTransform()//** a **//cv2.warpPerspective()//**. Funkce **//cv2.getPerspectiveTransform()//** vytvoří matici transformace podle požadovaných bodů a funkce **//cv2.warpPerspective()//** pak podle této matice provede transformaci obrázku.
+
+<code Python>
+#krajní body tabule
+pts1 = np.float32([top_left, bottom_left, top_right, bottom_right])
+#krajní body obrázku
+pts2 = np.float32([[0, 0], [0, rows], [cols, 0], [cols, rows]])
+
+M = cv2.getPerspectiveTransform(pts1, pts2)
+dst = cv2.warpPerspective(gray, M, (rows, cols))
+</code>
+
+{{:student:cerveon3:krajnibody.png?400|Puvodní obrázek s vyznačenými krajními body}}
+{{:student:cerveon3:leveled.png?250|Obrázek po transformaci perspektivy}}
+
+==== Určení oblasti s textem ====
+
+Po transformaci je třeba vymezit části obrázku, kde jsou jednotlivé příklady. Zde je využita funkce **//cv2.boundingRect()//**, která najde obdélník ohraničující konturu zadanou parametrem. V oprahovaném obrázku se tedy nejprve provede výrazná (15 iterací) dilatace s křížovým kernelem, což zvýrazní příklady. V takto upraveném obrázku se pak najdou kontury (opět funkce **//cv2.findContours()//**). Pro každou z těchto kontur se vytvoří ohraničující obdélník, a poté se vyřadí příliš velké a příliš malé obdélníky.
+
+Z původního obrázku se pak podle těchto obdélníků vyřežou jednotlivé příklady. Postup nacházení oblastí s textem je naznačen na následujících obrázcích.
+
+{{:student:cerveon3:text_thresh.png?250|Oprahovaný obrázek}}
+{{:student:cerveon3:text_dilate.png?250|Obrázek po dialataci}}
+{{:student:cerveon3:text_rect.png?250|Nalezené oblasti}}
+
+==== Zpracování oblastí s textem ====
+
+Pro rozpoznání příkladu je potřeba u každé textové oblasti provést předzpracování. Jedná se o aplikaci Guo-Hallovat algoritmu a nalezení koncových bodů čar v oblasti.
+
+=== Guo-Hallův algoritmus ===
+
+Guo-Hallův algoritmus ztenčí všechny čáry v obrázku na šířku jednoho pixelu. To umožní snadnější vytvoření vstupu pro program rozpoznávající matematické výrazy. OpenCV bohužel tento algoritmus neobsahuje, využil jsem proto implementaci vytvořenou Eiichirem Mommou, která je volně dostupná [[http://www.eml.ele.cst.nihon-u.ac.jp/~momma/wiki/wiki.cgi/OpenCV/%E7%B4%B0%E7%B7%9A%E5%8C%96.html|zde]]. Aplikace Guo-Hallova algoritmu na textovou oblast je vidět na následujících obrázcích.
+
+{{:student:cerveon3:reg0-nothin.png|}}
+{{:student:cerveon3:reg0.png|}}
+
+=== Hledání koncových bodů ===
+
+Dále je vhodné určit koncové body čar v obrázku. Zde je využito 8 operátorů, které jsou pomocí funkce **//cv2.filter2D()//** postupně aplikovány na textovou oblast. Koncové body se pak nacházejí v místech, kde jsou jednotlivé vyfiltrované matice oblasti rovny 2. Každý operátor je matice 3x3, jejichž tvar je naznačen na následujícím obrázku. Černá odpovídá 1, šedá -1. Operátory tedy popisují každý z možných tvarů konce čáry.
+
+{{:student:cerveon3:operatory.png|Ilustrace operátorů pro filtrování}}
+
+<code Python>
+images = []
+for operator in operators:
+    new_image = cv2.filter2D(text_region, cv2.CV_32FC1, operator)
+    images.append(new_image)
+</code>
+
+===== Rozpoznávání matematických výrazů =====
+
+Pro rozpoznávání příkladů je použit program Seshat (zdrojové kódy [[https://github.com/falvaro/seshat|zde]], možnost vyzkoušet [[http://cat.prhlt.upv.es/mer/|zde]]). Ten matematické výrazy rozpoznává ze série tahů, kterými byl příklad vytvořen. Program se poměrně osvědčil i při zpracování poměrně nepovedeného vstupu.
+
+Formát vstupu je následující:
+
+<code>
+6 //počet tahů
+15 //počet bodů prvniho tahu
+27 40 //body prvního tahu (x,y)
+27 41
+...
+10 //počet bodů druhého tahu atd.
+</code>
+
+<note important>Zdrojový kód programu, který je v současné době (23. 6. 2016) na Githubu, nelze zkompilovat. Je nutné aplikovat opravu popsanou [[https://github.com/falvaro/seshat/issues/5|zde]].</note>
+
+Musíme tedy z jednotlivých textových oblastí vytvořit posloupnost tahů, které danou oblast tvoří. Tahy nemusí být přesně tak, jak by vznikaly při psaní příkladu (nezáleží na příklad na směru tahu nebo pořadí tahů), pospojování bodů tahu by však mělo vytvořit dostatečně přesnou reprezentaci příkladu.
+
+Implementoval jsem dva možné postupy jak z obrázku získat tuto posloupnost tahů. První způsob využívá prohledávání do hloubky (DFS) k sestavování souvislých komponent v obrázku, druhý způsob začne jedním krajním bodem čáry a posloupnost bodů tahu sestavuje při sledování této čáry.
+
+<note tip>
+Program Seshat kromě popisu příkladu v jazyce určeném pro zpracování LaTexem (který by bylo možné upravit pro zpracování přes Mathematica API) umožňuje i výstup v podobě obrázku vytvořeného ze vstupní posloupnosti tahů (přepínač -r "nazev_obrazku.pgm"). Tato možnost se osvědčila při ladění funkcí pro tvorbu tahů z obrázku.
+</note>
+
+<note important>
+Seshat má problém s rozpoznáním neúplných rovnic (například 5 + 3 = ), neboť = považuje za binární operátor. Dále má problém se značením násobení jako "x", "." a "*". Při násobení dvou čísel je tedy nutné použít závorky, například tedy 3(5) = 15.
+</note>
+
+==== Prohledávání do hloubky ====
+
+DFS zpracovává seznam bílých bodů v obrázku (zadaných souřadnicemi). Pro každý bod (uzel) vyhodnotí sousední body a ty rekurzivně prohledává, přičemž nové body přidává do seznamu, který tvoří souvislou komponentu. Když prohledá celou komponentu, začne dalším nenavštíveným bodem. Prohledané komponenty jsou pak přidávány do seznamu komponent, ze kterého se připraví posloupnost tahů pro Seshat.
+
+<code Python>
+#Rekurzivně volaná funkce prohledávání
+def do_dfs(node, nodes, cluster):
+    node[1] = 'open'
+ 
+    cluster.append(node[0])
+
+    neighbours = [neighbour for neighbour in nodes if (is_neighbour(node[0], neighbour[0]))]
+
+    for neighbour in neighbours:
+        if neighbour[1] == 'fresh':
+            do_dfs(neighbour, nodes, cluster)
+
+    node[1] = 'closed'
+</code>
+
+Tato metoda přináší několik problémů. První problém je způsob backtrackingu, kdy algoritmus dokončí prohledávání jedné větve a vrátí se do prvního nenavštíveného uzlu v komponentě, což vytvoří v posloupnosti bodů tahu skok. Ten pak představuje problém pro Seshat. Na následujícím obrázku můžeme takový skok vidět například u čísla 6. DFS začalo prohledávat v prostředku oblouku 6 a pokračovalo dolů. Když dorazilo na konec, vrátilo se aby dokončilo horní část oblouku.
+
+Tento problém se dá částečně eliminiovat seřazením bílých bodů podle nejlevějšího, což přiblíží pořadí prohledávání bodů psaní rukou. Ne u všech čísel to však funguje.
+
+Další problém je, že každý znak v obrázku je tvořen jedním souvislým tahem. To je na obrázku vidět například u znaku "+", který by měly správně tvořit dva tahy. V některých připadech si s tím Seshat dokáže poradit (například + je schopen poznat z kontextu -- dvě okolní číslice), někdy to však představuje problém.
+
+{{:student:cerveon3:seshat-priklad.png?300|Vstupní obrázek}}
+{{:student:cerveon3:seshat-dfs.png?300|Obrázek vytvoření Seshatem z posloupnosti tahů}}
+
+==== Sledování směrových vektorů ====
+
+Další možnost je začít v jednom z koncových bodů čar v obrázku a sledovat čáru dokud nenarazím na jiný koncový bod nebo dokud již nemám kudy pokračovat. V případě, že se čára rozděluje, pak pokračuji ve směru, který nejvíce odpovídá dosavadnímu směru čáry.
+
+Funkce tedy začne v prvním nalezeném koncovém bodě a pokračuje vhodným sousedem z 8 okolí bodu. Při sledování čáry funkce navštívené body maže (hodnotu v matici obrázku nastaví na 0). V případě, že je možné pokračovat více směry (v 8 okolí je více sousedů), je nejlepší směr zvolen na základě úhlu mezi stávajícím směrem a směrem, ve kterém se nachází soused. Pro každého souseda z 8 okolí je tedy určen úhel, a z těchto úhlů je pak vybrán ten nejlepší.
+
+Úhel je tedy vypočítán ze dvou směrových vektorů:
+
+  - Dosavadní směr procházení čáry **//va//**
+  - Směr, ve kterém se nachází soused **//vb//**
+
+Při procházení bodů jsou navštívené body postupně vkládány do fronty (její maximální délku je možné nastavit parametrem). Vektor **//va//** (tedy dosavadí směr) je určen prvním bodem této fronty a právě zpracovávaným bodem. Po zpracování je aktuální bod vložen do fronty, a v případě, že je přesažena maximální délka fronty, je poslední bod vyřazen.
+
+Vektor **//vb//** je pak tvořen právě zpracovávaným bodem a daným vektorem. Z těchto vektorů je pak spočítána hodnota cosinu úhlu podle vzorce **//cos(φ) = va*vb /|va|*|vb| //**
+
+<code Python>
+for neighbour in neighbours:
+    vect_a = np.array(current_point,dtype=float) - np.array(last_point,dtype=float)
+    vect_b = np.array(neighbour, dtype=float) - np.array(current_point, dtype=float)
+    cos = get_angle(vect_a, vect_b)
+</code> 
+
+V případě, že funkce narazí na jiný koncový bod nebo dojde do bodu, kde již nejsou žádní noví sousedé, je dosud sestavená posloupnost bodů zapsána jako jeden tah, a pokračuje se dalším koncovým bodem (jsou také obnoveny smazané bíle body v obrázku). Funkce skončí, až projde všechny koncové body.
+
+Jak je vidět na následujících obrázcích, funkce funguje vesměs uspokojivě. Tahy prvního příkladu se podařilo zrekonstruovat téměř přesně vzhledem ke vstupnímu obrázku. Ani to však nestačilo, aby Seshat celý příklad rozeznal správně (zde konkrétně představuje probém ocásek na vrcholu sedmičky).
+
+U ostatních příkladů byla rekonstrukce tahů méně zdařilá (například na třetím obrázku vypadla spondní část písmena "a"). Zde se Seshatu podařilo rozeznat číslice "7" a "3" a znaménko "+". V posledním obrázku byl správně rozpoznán výraz "x²" a "+", naopak problém byl s jedničkou.
+
+{{:student:cerveon3:region00.png?250|Vstupní obrázek}}
+{{:student:cerveon3:priklad00.png?250|Výstup Seshatu}}
+
+{{:student:cerveon3:region11.png?250|Vstupní obrázek}}
+{{:student:cerveon3:priklad11.png?250|Výstup Seshatu}}
+
+{{:student:cerveon3:reg0.png?250|Vstupní obrázek}}
+{{:student:cerveon3:priklad01.png?250|Výstup Seshatu}}
+
+===== Závěr =====
+
+V této práci jsem se zabýval rozpoznáváním matematických výrazů z fotografií. Vytvořil jsem program schopný určit jednotlivé příklady na tabuli, ty dále zpracovat a vytvořit vstupní soubor pro program Seshat, který výrazy rozpoznává z posloupnosti tahů.
+
+Bohužel funkce pro rekonstrukci tahů ještě nefunguje stoprocentně, navíc ani když tahy vytvoří věrně, není jisté, že Seshat příklad správně rozezná.
+
+Dále se v práci vůbec nedostalo na vlastní počítání příkladů pomocí Mathematica API. Tato část by však v případě, že se podaří výraz spolehlivě rozpoznat, neměla představovat větší problém.
+
+V projektu bych tedy rád pokračoval, chtěl bych nejprve zkusit co všechno se (z hlediska typu příkladů nebo třeba velikosti písma) daří rozpoznat (dosavadní testy byly prováděny na poměrně malé sadě fotografií). 
+
+=====Soubory a zdrojové kódy=====
+
+[[https://github.com/ggljzr/nao-mathematica | Zdrojové kódy (Github)]]
+
+{{:student:cerveon3:nao-mathematica-master.zip|Zdrojové kódy (zip, 28.6.2016)}}
+
+{{:student:cerveon3:prez.pdf|Prezentace}}
+
+
+
+===== Reference =====
+
+  * [[http://docs.opencv.org/2.4.13/ | Dokumentace OpenCV]]
+  * [[http://opencvpython.blogspot.cz/2012/06/sudoku-solver-part-2.html|Rozpoznávání obrazu -- sudoku]]
+  * [[https://stackoverflow.com/questions/23506105/extracting-text-opencv|Rozpoznávání oblastí s textem]]
+  * [[http://stackoverflow.com/questions/8080383/a-fast-thinning-algorithm|Thinning algoritmy, Guo-Hall]]
+  * [[http://www.eml.ele.cst.nihon-u.ac.jp/~momma/wiki/wiki.cgi/OpenCV/%E7%B4%B0%E7%B7%9A%E5%8C%96.html|Implementace Guo-Hallova algoritmu]]
+  * [[https://github.com/falvaro/seshat|Seshat (zdrojové kódy)]]
