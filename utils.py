@@ -339,8 +339,6 @@ návratová hodnota
     pole tahů tvořících příklad, každý tah je posloupnost bodů (x,y)
 '''
 def follow_lines(img, endpoints, queue_length = 3):
-    temp_img = np.copy(img)
-
     strokes = []
 
     #serazeni vod nejlevejsiho
