@@ -150,8 +150,6 @@ V případě, že funkce narazí na jiný koncový bod nebo dojde do bodu, kde j
 
 Jak je vidět na následujících obrázcích, funkce funguje vesměs uspokojivě. Tahy prvního příkladu se podařilo zrekonstruovat téměř přesně vzhledem ke vstupnímu obrázku. Ani to však nestačilo, aby Seshat celý příklad rozeznal správně (zde konkrétně představuje probém ocásek na vrcholu sedmičky).
 
-U ostatních příkladů byla rekonstrukce tahů méně zdařilá, například na druhém obrázku vypadla spondní část písmena "a". Zde se Seshatu podařilo rozeznat číslice "7" a "3" a znaménko "+". V posledním obrázku byl správně rozpoznán výraz "x²" a "+", naopak problém byl s jedničkou.
-
 ## Závěr
 
 V této práci jsem se zabýval rozpoznáváním matematických výrazů z fotografií. Vytvořil jsem program schopný určit jednotlivé příklady na tabuli, ty dále zpracovat a vytvořit vstupní soubor pro program Seshat, který výrazy rozpoznává z posloupnosti tahů.
