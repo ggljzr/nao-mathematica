@@ -10,6 +10,14 @@ Práci je tedy možno rozdělit do třech částí:
   - Zpracování příkladů -- převod příkladů (obrázků) do vhodného textového formátu
   - Výpočet příkladů -- v tomto případě s využitím API pro jazyk Mathematica 
 
+===== Analýza možností získávání textu z obrázků =====
+
+Při hledání vhodného programu pro rozpoznávání příkladů jsem nejprve testoval program Tesseract (vyvíjen společností Google, zdrojové kódy k dispozici [[https://github.com/tesseract-ocr/tesseract|zde]]). Tento program zpracovává obrázky pomocí OCR. Ukázalo se, že Tesseract poměrně spolehlivě rozpoznává tištěný text, ručně psané příklady však nikoliv. Další problém je omezená sada rozpoznatelných znaku (která neobsahuje standardní matematické symboly jako suma nebo integrál). Každopádně program by se dal uplatnit v jiných projektech, například pokud by robot měl předčítat zprávy vytištěné na papíru. 
+
+Další testovaný program byl Seshat (zdrojové kódy [[https://github.com/falvaro/seshat|zde]], možnost vyzkoušet [[http://cat.prhlt.upv.es/mer/|zde]]). Ten je přímo určen pro rozpoznávání matematických výrazů, podporuje tedy většinu důležitých symbolů. Nevýhoda je, že tento program nezpracovává přímo obrázek, ale posloupnost tahů, které obrázek tvoří.
+
+Řešení, které jsem zvolil je tedy následující: provést předzpracování obrázku pomocí knihovny OpenCV a vytvořit z něj odpovídající posloupnost tahů, která pak bude předána Seshatu k vyhodnocení.
+
 ===== Zpracování fotografie tabule =====
 
 V této části bude využita především knihovna pro zpracování obrazu OpenCV (verze 2.4.13). Knihovna kromě C++ podporuje i rozhraní pro Javu, Python a další jazyky. Já jsem se kvůli snadnému prototypování rozhodl pro implementaci programu použít Python (verze 2.7). Funkce z této knihovny v textu začínají **//cv2.//**.
@@ -90,17 +98,18 @@ for operator in operators:
 
 ===== Rozpoznávání matematických výrazů =====
 
-Pro rozpoznávání příkladů je použit program Seshat (zdrojové kódy [[https://github.com/falvaro/seshat|zde]], možnost vyzkoušet [[http://cat.prhlt.upv.es/mer/|zde]]). Ten matematické výrazy rozpoznává ze série tahů, kterými byl příklad vytvořen. Program se poměrně osvědčil i při zpracování poměrně nepovedeného vstupu.
+Pro rozpoznávání příkladů je použit program Seshat. Ten matematické výrazy rozpoznává ze série tahů, kterými byl příklad vytvořen. Program se poměrně osvědčil i při zpracování poměrně nepovedeného vstupu.
 
 Formát vstupu je následující:
 
 <code>
 6 //počet tahů
 15 //počet bodů prvniho tahu
-27 40 //body prvního tahu (x,y)
+27 40 //body prvního tahu (x y)
 27 41
 ...
 10 //počet bodů druhého tahu atd.
+...
 </code>
 
 <note important>Zdrojový kód programu, který je v současné době (23. 6. 2016) na Githubu, nelze zkompilovat. Je nutné aplikovat opravu popsanou [[https://github.com/falvaro/seshat/issues/5|zde]].</note>
@@ -159,7 +168,7 @@ Funkce tedy začne v prvním nalezeném koncovém bodě a pokračuje vhodným so
 
 Při procházení bodů jsou navštívené body postupně vkládány do fronty (její maximální délku je možné nastavit parametrem). Vektor **//va//** (tedy dosavadí směr) je určen prvním bodem této fronty a právě zpracovávaným bodem. Po zpracování je aktuální bod vložen do fronty, a v případě, že je přesažena maximální délka fronty, je poslední bod vyřazen.
 
-Vektor **//vb//** je pak tvořen právě zpracovávaným bodem a daným vektorem. Z těchto vektorů je pak spočítána hodnota cosinu úhlu podle vzorce **//cos(φ) = va*vb /|va|*|vb| //**
+Vektor **//vb//** je pak tvořen právě zpracovávaným bodem a daným vektorem. Z těchto vektorů je pak spočítána hodnota cosinu úhlu podle vzorce **//cos(φ) = va*vb /|va|*|vb| //**.
 
 <code Python>
 for neighbour in neighbours:
@@ -172,16 +181,16 @@ V případě, že funkce narazí na jiný koncový bod nebo dojde do bodu, kde j
 
 Jak je vidět na následujících obrázcích, funkce funguje vesměs uspokojivě. Tahy prvního příkladu se podařilo zrekonstruovat téměř přesně vzhledem ke vstupnímu obrázku. Ani to však nestačilo, aby Seshat celý příklad rozeznal správně (zde konkrétně představuje probém ocásek na vrcholu sedmičky).
 
-U ostatních příkladů byla rekonstrukce tahů méně zdařilá (například na třetím obrázku vypadla spondní část písmena "a"). Zde se Seshatu podařilo rozeznat číslice "7" a "3" a znaménko "+". V posledním obrázku byl správně rozpoznán výraz "x²" a "+", naopak problém byl s jedničkou.
+U ostatních příkladů byla rekonstrukce tahů méně zdařilá, například na druhém obrázku vypadla spondní část písmena "a". Zde se Seshatu podařilo rozeznat číslice "7" a "3" a znaménko "+". V posledním obrázku byl správně rozpoznán výraz "x²" a "+", naopak problém byl s jedničkou.
 
 {{:student:cerveon3:region00.png?250|Vstupní obrázek}}
 {{:student:cerveon3:priklad00.png?250|Výstup Seshatu}}
 
-{{:student:cerveon3:region11.png?250|Vstupní obrázek}}
-{{:student:cerveon3:priklad11.png?250|Výstup Seshatu}}
-
 {{:student:cerveon3:reg0.png?250|Vstupní obrázek}}
 {{:student:cerveon3:priklad01.png?250|Výstup Seshatu}}
+
+{{:student:cerveon3:region11.png?250|Vstupní obrázek}}
+{{:student:cerveon3:priklad11.png?250|Výstup Seshatu}}
 
 ===== Závěr =====
 
@@ -201,7 +210,7 @@ V projektu bych tedy rád pokračoval, chtěl bych nejprve zkusit co všechno se
 
 {{:student:cerveon3:prez.pdf|Prezentace}}
 
-
+{{:student:cerveon3:semestralka.tar.gz|Semestrálka (zdrojové kódy, prezentace, kód této wiki stránky)}}
 
 ===== Reference =====
 
