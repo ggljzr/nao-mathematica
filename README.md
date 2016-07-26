@@ -12,7 +12,7 @@ Práci je tedy možno rozdělit do třech částí:
 
 ##Zpracování fotografie tabule
 
-V této části bude využita především knihovna pro zpracování obrazu OpenCV (verze 2.4.13). Knihovna kromě C++ podporuje i rozhraní pro Javu, Python a další jazyky. Já jsem se kvůli snadnému prototypování rozhodl pro implementaci programu použít Python (verze 2.7). Funkce z této knihovny v textu začínají **//cv2.//**.
+V této části bude využita především knihovna pro zpracování obrazu OpenCV (verze 2.4.13). Knihovna kromě C++ podporuje i rozhraní pro Javu, Python a další jazyky. Já jsem se kvůli snadnému prototypování rozhodl pro implementaci programu použít Python (verze 2.7). Funkce z této knihovny v textu začínají **cv2.**.
 
 ### Rozpoznání tabule a transformace perspektivy
 
@@ -22,9 +22,9 @@ Nejdřív je potřeba vymezit plochu, na které se budou hledat příklady. Mus�
 
 Hledání krajních bodů tabule vychází z předpokladu, že tabule tvoří největší čtyřúhelník v obrázku.
 
-Obrázek, ve kterém jsou hledány krajní body je nejprve převeden do odstínů šedé a oprahován funkcí **//cv2.adaptiveThreshold()//**. Zde se mi osvědčilo ještě před oprahováním na obrázek aplikovat Gaussian blur, který částečně omezí šum. 
+Obrázek, ve kterém jsou hledány krajní body je nejprve převeden do odstínů šedé a oprahován funkcí **cv2.adaptiveThreshold()**. Zde se mi osvědčilo ještě před oprahováním na obrázek aplikovat Gaussian blur, který částečně omezí šum. 
 
-Z takto upraveného obrázku jsou pak pomocí funkce **//cv2.findContours()//** získány kontury. Z těch je pak vybrána největší kontura, která odpovídá čtyřúhelníku. Jestli kontura tvoří čtyřúhelník zjistíme pomocí funkce **//cv2.approxPolyDP()//** aplikované na konturu. Pokud je křivka nalezná touto funkcí tvořena čtyřmi body, pak kontura tvoří čtyřúhelník.
+Z takto upraveného obrázku jsou pak pomocí funkce **cv2.findContours()** získány kontury. Z těch je pak vybrána největší kontura, která odpovídá čtyřúhelníku. Jestli kontura tvoří čtyřúhelník zjistíme pomocí funkce **cv2.approxPolyDP()** aplikované na konturu. Pokud je křivka nalezná touto funkcí tvořena čtyřmi body, pak kontura tvoří čtyřúhelník.
 
 ```python
 for contour in contours:
@@ -35,7 +35,20 @@ for contour in contours:
         if area > max_area and len(approx) == 4:
             biggest = approx
             max_area = area
-<
 ```
 
 #### Transformace perspektivy
+Krajní body jsou využity k transformaci perspektivy pomocí funkcí **cv2.getPerspectiveTransform()** a **cv2.warpPerspective()**. Funkce **cv2.getPerspectiveTransform()** vytvoří matici transformace podle požadovaných bodů a funkce **cv2.warpPerspective()** pak podle této matice provede transformaci obrázku.
+
+```python
+#krajní body tabule
+pts1 = np.float32([top_left, bottom_left, top_right, bottom_right])
+#krajní body obrázku
+pts2 = np.float32([[0, 0], [0, rows], [cols, 0], [cols, rows]])
+
+M = cv2.getPerspectiveTransform(pts1, pts2)
+dst = cv2.warpPerspective(gray, M, (rows, cols))
+```
+
+![alt text](images/ilustrations/krajnibody.png "Původní obrázek s vyznačenými krajními body")
+![alt text](images/ilustrations/leveled.png "Obrázek po transformaci perspektivy")
