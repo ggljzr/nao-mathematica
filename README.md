@@ -51,4 +51,4 @@ dst = cv2.warpPerspective(gray, M, (rows, cols))
 ```
 
 ![alt text](ilustrations/krajnibody.png "Původní obrázek s vyznačenými krajními body")
-![alt text](ilustrations/leveled.png "Obrázek po transformaci perspektivy" {width=40px height=400px})
+![alt text](ilustrations/leveled.png "Obrázek po transformaci perspektivy")
