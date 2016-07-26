@@ -20,4 +20,22 @@ Nejdřív je potřeba vymezit plochu, na které se budou hledat příklady. Mus�
 
 #### Hledání krajních bodů
 
+Hledání krajních bodů tabule vychází z předpokladu, že tabule tvoří největší čtyřúhelník v obrázku.
+
+Obrázek, ve kterém jsou hledány krajní body je nejprve převeden do odstínů šedé a oprahován funkcí **//cv2.adaptiveThreshold()//**. Zde se mi osvědčilo ještě před oprahováním na obrázek aplikovat Gaussian blur, který částečně omezí šum. 
+
+Z takto upraveného obrázku jsou pak pomocí funkce **//cv2.findContours()//** získány kontury. Z těch je pak vybrána největší kontura, která odpovídá čtyřúhelníku. Jestli kontura tvoří čtyřúhelník zjistíme pomocí funkce **//cv2.approxPolyDP()//** aplikované na konturu. Pokud je křivka nalezná touto funkcí tvořena čtyřmi body, pak kontura tvoří čtyřúhelník.
+
+```python
+for contour in contours:
+    area = cv2.contourArea(contour)
+    if area > 100:
+        peri = cv2.arcLength(contour, True)
+        approx = cv2.approxPolyDP(contour, 0.02 * peri, True)
+        if area > max_area and len(approx) == 4:
+            biggest = approx
+            max_area = area
+<
+```
+
 #### Transformace perspektivy
