@@ -50,5 +50,5 @@ M = cv2.getPerspectiveTransform(pts1, pts2)
 dst = cv2.warpPerspective(gray, M, (rows, cols))
 ```
 
-![alt text](ilustrations/krajnibody.png "Původní obrázek s vyznačenými krajními body")
-![alt text](ilustrations/leveled.png "Obrázek po transformaci perspektivy")
+<img src="ilustrations/krajnibody.png" alt="Drawing" style="width: 200px;"/>
+
