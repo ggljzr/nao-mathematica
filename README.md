@@ -57,14 +57,18 @@ M = cv2.getPerspectiveTransform(pts1, pts2)
 dst = cv2.warpPerspective(gray, M, (rows, cols))
 ```
 
-<img src="ilustrations/krajnibody.png" alt="Drawing" width= 450px/>
-<img src="ilustrations/leveled.png" alt="Drawing" width= 300px/>
+<img src="ilustrations/krajnibody.png" alt="Původní obrázek s vyznačenými krajními body" width= 450px/>
+<img src="ilustrations/leveled.png" alt="Obrázek po transforamci perspektivy" width= 300px/>
 
 ### Určení oblasti s textem 
 
 Po transformaci je třeba vymezit části obrázku, kde jsou jednotlivé příklady. Zde je využita funkce **cv2.boundingRect()**, která najde obdélník ohraničující konturu zadanou parametrem. V oprahovaném obrázku se tedy nejprve provede výrazná (15 iterací) dilatace s křížovým kernelem, což zvýrazní příklady. V takto upraveném obrázku se pak najdou kontury (opět funkce **cv2.findContours()**). Pro každou z těchto kontur se vytvoří ohraničující obdélník, a poté se vyřadí příliš velké a příliš malé obdélníky.
 
 Z původního obrázku se pak podle těchto obdélníků vyřežou jednotlivé příklady. Postup nacházení oblastí s textem je naznačen na následujících obrázcích.
+
+<img src="ilustrations/text_dilate.png" alt="Oprahovaný obrázek" width= 200px/>
+<img src="ilustrations/text_dilate.png" alt="Obrázek po dilataci" width= 200px/>
+<img src="ilustrations/text_dilate.png" alt="Vznačené oblasti s textem" width= 200px/>
 
 #### Zpracování oblastí s textem
 
