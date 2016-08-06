@@ -66,9 +66,9 @@ Po transformaci je třeba vymezit části obrázku, kde jsou jednotlivé příkl
 
 Z původního obrázku se pak podle těchto obdélníků vyřežou jednotlivé příklady. Postup nacházení oblastí s textem je naznačen na následujících obrázcích.
 
-<img src="ilustrations/text_dilate.png" alt="Oprahovaný obrázek" width= 200px/>
+<img src="ilustrations/text_thresh.png" alt="Oprahovaný obrázek" width= 200px/>
 <img src="ilustrations/text_dilate.png" alt="Obrázek po dilataci" width= 200px/>
-<img src="ilustrations/text_dilate.png" alt="Vznačené oblasti s textem" width= 200px/>
+<img src="ilustrations/text_rect.png" alt="Vznačené oblasti s textem" width= 200px/>
 
 #### Zpracování oblastí s textem
 
@@ -77,6 +77,9 @@ Pro rozpoznání příkladu je potřeba u každé textové oblasti provést pře
 #### Guo-Hallův algoritmus
 
 Guo-Hallův algoritmus ztenčí všechny čáry v obrázku na šířku jednoho pixelu. To umožní snadnější vytvoření vstupu pro program rozpoznávající matematické výrazy. OpenCV bohužel tento algoritmus neobsahuje, využil jsem proto implementaci vytvořenou Eiichirem Mommou, která je volně dostupná [zde](http://www.eml.ele.cst.nihon-u.ac.jp/~momma/wiki/wiki.cgi/OpenCV/%E7%B4%B0%E7%B7%9A%E5%8C%96.html). Aplikace Guo-Hallova algoritmu na textovou oblast je vidět na následujících obrázcích.
+
+<img src="ilustrations/reg0-nothin.png" alt="Oprahovaná oblast s textem"/>
+<img src="ilustrations/reg0.png" alt="Oblast po aplikaci algoritmu"/>
 
 #### Hledání koncových bodů
 
