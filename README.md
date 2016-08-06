@@ -85,6 +85,15 @@ Guo-Hallův algoritmus ztenčí všechny čáry v obrázku na šířku jednoho p
 
 Dále je vhodné určit koncové body čar v obrázku. Zde je využito 8 operátorů, které jsou pomocí funkce **cv2.filter2D()** postupně aplikovány na textovou oblast. Koncové body se pak nacházejí v místech, kde jsou jednotlivé vyfiltrované matice oblasti rovny 2. Každý operátor je matice 3x3, jejichž tvar je naznačen na následujícím obrázku. Černá odpovídá 1, šedá -1. Operátory tedy popisují každý z možných tvarů konce čáry.
 
+<img src="ilustrations/operatory.png" alt="Operátory pro funkci cv2.filter2D()"/>
+
+```python
+images = []
+for operator in operators:
+    new_image = cv2.filter2D(text_region, cv2.CV_32FC1, operator)
+    images.append(new_image)
+```
+
 ## Rozpoznávání matematických výrazů
 
 Pro rozpoznávání příkladů je použit program Seshat. Ten matematické výrazy rozpoznává ze série tahů, kterými byl příklad vytvořen. Program se poměrně osvědčil i při zpracování poměrně nepovedeného vstupu.
@@ -131,6 +140,9 @@ Tento problém se dá částečně eliminiovat seřazením bílých bodů podle 
 
 Další problém je, že každý znak v obrázku je tvořen jedním souvislým tahem. To je na obrázku vidět například u znaku "+", který by měly správně tvořit dva tahy. V některých připadech si s tím Seshat dokáže poradit (například + je schopen poznat z kontextu -- dvě okolní číslice), někdy to však představuje problém.
 
+<img src="ilustrations/seshat-priklad.png" alt="Vstupní obrázek" width=300px/>
+<img src="ilustrations/seshat-dfs.png" alt="Obrázek vytvořený seshatem z posloupnosti tahů" width=300px/>
+
 ### Sledování směrových vektorů
 
 Další možnost je začít v jednom z koncových bodů čar v obrázku a sledovat čáru dokud nenarazím na jiný koncový bod nebo dokud již nemám kudy pokračovat. V případě, že se čára rozděluje, pak pokračuji ve směru, který nejvíce odpovídá dosavadnímu směru čáry.
@@ -155,7 +167,10 @@ for neighbour in neighbours:
 
 V případě, že funkce narazí na jiný koncový bod nebo dojde do bodu, kde již nejsou žádní noví sousedé, je dosud sestavená posloupnost bodů zapsána jako jeden tah, a pokračuje se dalším koncovým bodem (jsou také obnoveny smazané bíle body v obrázku). Funkce skončí, až projde všechny koncové body.
 
-Jak je vidět na následujících obrázcích, funkce funguje vesměs uspokojivě. Tahy prvního příkladu se podařilo zrekonstruovat téměř přesně vzhledem ke vstupnímu obrázku. Ani to však nestačilo, aby Seshat celý příklad rozeznal správně (zde konkrétně představuje probém ocásek na vrcholu sedmičky).
+Jak je vidět na následujícím obrázku, funkce funguje vesměs uspokojivě. Tahy prvního příkladu se podařilo zrekonstruovat téměř přesně vzhledem ke vstupnímu obrázku. Ani to však nestačilo, aby Seshat celý příklad rozeznal správně (zde konkrétně představuje probém ocásek na vrcholu sedmičky).
+
+<img src="ilustrations/seshat-priklad.png" alt="Vstupní obrázek" width=300px/>
+<img src="ilustrations/priklad00.png" alt="Obrázek vytvořený seshatem z posloupnosti tahů" width=300px/>
 
 ## Závěr
 
