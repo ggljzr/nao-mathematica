@@ -57,14 +57,18 @@ M = cv2.getPerspectiveTransform(pts1, pts2)
 dst = cv2.warpPerspective(gray, M, (rows, cols))
 ```
 
-<img src="ilustrations/krajnibody.png" alt="Drawing" width= 450px/>
-<img src="ilustrations/leveled.png" alt="Drawing" width= 300px/>
+<img src="ilustrations/krajnibody.png" alt="Původní obrázek s vyznačenými krajními body" width= 450px/>
+<img src="ilustrations/leveled.png" alt="Obrázek po transforamci perspektivy" width= 300px/>
 
 ### Určení oblasti s textem 
 
 Po transformaci je třeba vymezit části obrázku, kde jsou jednotlivé příklady. Zde je využita funkce **cv2.boundingRect()**, která najde obdélník ohraničující konturu zadanou parametrem. V oprahovaném obrázku se tedy nejprve provede výrazná (15 iterací) dilatace s křížovým kernelem, což zvýrazní příklady. V takto upraveném obrázku se pak najdou kontury (opět funkce **cv2.findContours()**). Pro každou z těchto kontur se vytvoří ohraničující obdélník, a poté se vyřadí příliš velké a příliš malé obdélníky.
 
 Z původního obrázku se pak podle těchto obdélníků vyřežou jednotlivé příklady. Postup nacházení oblastí s textem je naznačen na následujících obrázcích.
+
+<img src="ilustrations/text_thresh.png" alt="Oprahovaný obrázek" width= 200px/>
+<img src="ilustrations/text_dilate.png" alt="Obrázek po dilataci" width= 200px/>
+<img src="ilustrations/text_rect.png" alt="Vznačené oblasti s textem" width= 200px/>
 
 #### Zpracování oblastí s textem
 
@@ -74,9 +78,21 @@ Pro rozpoznání příkladu je potřeba u každé textové oblasti provést pře
 
 Guo-Hallův algoritmus ztenčí všechny čáry v obrázku na šířku jednoho pixelu. To umožní snadnější vytvoření vstupu pro program rozpoznávající matematické výrazy. OpenCV bohužel tento algoritmus neobsahuje, využil jsem proto implementaci vytvořenou Eiichirem Mommou, která je volně dostupná [zde](http://www.eml.ele.cst.nihon-u.ac.jp/~momma/wiki/wiki.cgi/OpenCV/%E7%B4%B0%E7%B7%9A%E5%8C%96.html). Aplikace Guo-Hallova algoritmu na textovou oblast je vidět na následujících obrázcích.
 
+<img src="ilustrations/reg0-nothin.png" alt="Oprahovaná oblast s textem"/>
+<img src="ilustrations/reg0.png" alt="Oblast po aplikaci algoritmu"/>
+
 #### Hledání koncových bodů
 
 Dále je vhodné určit koncové body čar v obrázku. Zde je využito 8 operátorů, které jsou pomocí funkce **cv2.filter2D()** postupně aplikovány na textovou oblast. Koncové body se pak nacházejí v místech, kde jsou jednotlivé vyfiltrované matice oblasti rovny 2. Každý operátor je matice 3x3, jejichž tvar je naznačen na následujícím obrázku. Černá odpovídá 1, šedá -1. Operátory tedy popisují každý z možných tvarů konce čáry.
+
+<img src="ilustrations/operatory.png" alt="Operátory pro funkci cv2.filter2D()"/>
+
+```python
+images = []
+for operator in operators:
+    new_image = cv2.filter2D(text_region, cv2.CV_32FC1, operator)
+    images.append(new_image)
+```
 
 ## Rozpoznávání matematických výrazů
 
@@ -124,6 +140,9 @@ Tento problém se dá částečně eliminiovat seřazením bílých bodů podle 
 
 Další problém je, že každý znak v obrázku je tvořen jedním souvislým tahem. To je na obrázku vidět například u znaku "+", který by měly správně tvořit dva tahy. V některých připadech si s tím Seshat dokáže poradit (například + je schopen poznat z kontextu -- dvě okolní číslice), někdy to však představuje problém.
 
+<img src="ilustrations/seshat-priklad.png" alt="Vstupní obrázek" width=300px/>
+<img src="ilustrations/seshat-dfs.png" alt="Obrázek vytvořený seshatem z posloupnosti tahů" width=300px/>
+
 ### Sledování směrových vektorů
 
 Další možnost je začít v jednom z koncových bodů čar v obrázku a sledovat čáru dokud nenarazím na jiný koncový bod nebo dokud již nemám kudy pokračovat. V případě, že se čára rozděluje, pak pokračuji ve směru, který nejvíce odpovídá dosavadnímu směru čáry.
@@ -148,9 +167,10 @@ for neighbour in neighbours:
 
 V případě, že funkce narazí na jiný koncový bod nebo dojde do bodu, kde již nejsou žádní noví sousedé, je dosud sestavená posloupnost bodů zapsána jako jeden tah, a pokračuje se dalším koncovým bodem (jsou také obnoveny smazané bíle body v obrázku). Funkce skončí, až projde všechny koncové body.
 
-Jak je vidět na následujících obrázcích, funkce funguje vesměs uspokojivě. Tahy prvního příkladu se podařilo zrekonstruovat téměř přesně vzhledem ke vstupnímu obrázku. Ani to však nestačilo, aby Seshat celý příklad rozeznal správně (zde konkrétně představuje probém ocásek na vrcholu sedmičky).
+Jak je vidět na následujícím obrázku, funkce funguje vesměs uspokojivě. Tahy prvního příkladu se podařilo zrekonstruovat téměř přesně vzhledem ke vstupnímu obrázku. Ani to však nestačilo, aby Seshat celý příklad rozeznal správně (zde konkrétně představuje probém ocásek na vrcholu sedmičky).
 
-U ostatních příkladů byla rekonstrukce tahů méně zdařilá, například na druhém obrázku vypadla spondní část písmena "a". Zde se Seshatu podařilo rozeznat číslice "7" a "3" a znaménko "+". V posledním obrázku byl správně rozpoznán výraz "x²" a "+", naopak problém byl s jedničkou.
+<img src="ilustrations/seshat-priklad.png" alt="Vstupní obrázek" width=300px/>
+<img src="ilustrations/priklad00.png" alt="Obrázek vytvořený seshatem z posloupnosti tahů" width=300px/>
 
 ## Závěr
 
