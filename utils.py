@@ -520,20 +520,27 @@ def contours_to_scgink(contours, scgink_file, min_length=9):
                 ink_file.write("{} {}\n".format(
                     coord[0][0], coord[0][1]))
 
-def img_to_latex(img):
+def img_to_latex(img, render = False):
     text_regions = get_text_regions(img)
     print("Detected {} text regions".format(len(text_regions)))
     reg_n = 0
     results = []
-    
+   
+    subprocess.call('cd ' + PATH_TO_SESHAT, shell=True)
     for region in text_regions:
     
         endpoints = get_endpoints(region)
         strokes = follow_lines(region, endpoints, queue_length = 5)
         clusters_to_scgink(strokes, PATH_TO_SCGINK, min_length = 1)
-        output = subprocess.check_output([PATH_TO_SESHAT + '/seshat -c ' + PATH_TO_SESHAT + '/config/CONFIG' + '-i ' + PATH_TO_SCGINK], shell=True)
+
+        seshat_cmd = './seshat -c Config/CONFIG -i ' + PATH_TO_SCGINK
+        if render == True:
+            seshat_cmd = seshat_cmd + ' -r render/region_{}.pgm'.format(reg_n)
+
+        output = subprocess.check_output(seshat_cmd, shell=True)
         subprocess.call(['rm', '-f', PATH_TO_SCGINK])
         results.append(output)
+        reg_n += 1
 
     return results
 

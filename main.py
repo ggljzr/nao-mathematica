@@ -48,36 +48,6 @@ if argc > 1:
 
 img = cv2.imread(image_path)
 
-text_regions = utils.get_text_regions(img)
+res = utils.img_to_latex(img, render=True)
 
-cv2.imshow('orig', img)
-
-reg_n = 0
-
-endpoints = utils.get_endpoints(text_regions[0])
-
-cv2.imshow('reg 0', text_regions[0])
-
-'''
-for endpoint in endpoints:
-    cv2.circle(text_regions[0], endpoint, 2, 255, -1)
-
-cv2.imwrite('text_region.png', text_regions[0] * 255)
-
-for region in text_regions:
-    cv2.imshow('region {}'.format(reg_n), region)
-    reg_n += 1
-
-'''
-
-num = 0
-for region in text_regions:
-    
-    endpoints = utils.get_endpoints(region)
-    strokes = utils.follow_lines(region, endpoints, queue_length = 5)
-    utils.clusters_to_scgink(strokes, "seshat/SampleMathExps/priklad_{}.scgink".format(num), min_length = 1)
-    
-    cv2.imwrite("region{}.png".format(num), region * 255.)
-    num += 1
-
-cv2.waitKey()
+print(res[0])
