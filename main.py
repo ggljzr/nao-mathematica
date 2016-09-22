@@ -1,3 +1,5 @@
+#!/usr/bin/python
+
 # https://stackoverflow.com/questions/23506105/extracting-text-opencv
 # pro ziskani strokes je asi potreba neco jako
 # https://en.wikipedia.org/wiki/Topological_skeleton, coz neni v opencv
@@ -34,6 +36,7 @@
 #jako na to hledani tech tahu asi nakonec udelat tu dist transform a pak to hledat podle tech hrebenu
 
 import utils
+
 import cv2
 import sys
 import numpy as np
