@@ -1,6 +1,9 @@
+# -*- coding: utf-8 -*-
+
 import subprocess
 import os
-import processing
+import processing 
+import cv2
 
 KEY_Q = 1048689
 PATH_TO_SESHAT = '/home/ggljzr/Documents/git/nao-mathematica/seshat/' 
@@ -41,7 +44,7 @@ def contours_to_scgink(contours, scgink_file, min_length=9):
                     coord[0][0], coord[0][1]))
 
 def img_to_latex(img, render = False, show_reg = False):
-    text_regions = get_text_regions(img)
+    text_regions = processing.get_text_regions(img)
     print("Detected {} text regions".format(len(text_regions)))
     reg_n = 0
     results = []
@@ -56,8 +59,8 @@ def img_to_latex(img, render = False, show_reg = False):
 
         print('Processing region {} (image processing)'.format(reg_n))
 
-        endpoints = get_endpoints(region)
-        strokes = follow_lines(region, endpoints, queue_length = 5)
+        endpoints = processing.get_endpoints(region)
+        strokes = processing.follow_lines(region, endpoints, queue_length = 5)
         clusters_to_scgink(strokes, PATH_TO_SCGINK, min_length = 1)
 
         
