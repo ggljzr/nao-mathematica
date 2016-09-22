@@ -7,9 +7,11 @@ import numpy as np
 import cv2
 import math
 import subprocess
+import os
+
 
 KEY_Q = 1048689
-PATH_TO_SESHAT = '/home/ggljzr/Documents/git/nao-mathematica/seshat' 
+PATH_TO_SESHAT = '/home/ggljzr/Documents/git/nao-mathematica/seshat/' 
 PATH_TO_SCGINK = PATH_TO_SESHAT + '/SampleMathExps/temp.scgink'
 
 
@@ -365,7 +367,7 @@ def follow_lines(img, endpoints, queue_length = 3):
         queue = []
         last_point = None
 
-        print "Stroke start == " + str(current_point)
+        #print "Stroke start == " + str(current_point)
         while current_point != None:
             neighbours = get_neighbours(current_point)
 
@@ -397,10 +399,12 @@ def follow_lines(img, endpoints, queue_length = 3):
                     
                     if np.abs(cos) > best_angle:
                         best_angle = np.abs(cos)
+                        '''
                         print "curr point = {}".format(current_point)
                         print "last point = {}".format(last_point)
                         print "neighbour = {}".format(neighbour)
                         print "cos {}".format(best_angle)
+                        '''
                         best_next_point = neighbour
             
             rows = current_point[1]
@@ -420,10 +424,10 @@ def follow_lines(img, endpoints, queue_length = 3):
             #last_point = current_point
             current_point = best_next_point
 
-            print str(queue[-1]) + " -> " + str(current_point)
+            #print str(queue[-1]) + " -> " + str(current_point)
     
-        print "---- Stroke End -----"
-        print ""
+        #print "---- Stroke End -----"
+        #print ""
         #tady nekde pak asi znova temp_img = img
         #nebo mozna ani nemusi bejt
         
@@ -520,24 +524,35 @@ def contours_to_scgink(contours, scgink_file, min_length=9):
                 ink_file.write("{} {}\n".format(
                     coord[0][0], coord[0][1]))
 
-def img_to_latex(img, render = False):
+def img_to_latex(img, render = False, show_reg = False):
     text_regions = get_text_regions(img)
     print("Detected {} text regions".format(len(text_regions)))
     reg_n = 0
     results = []
-   
-    subprocess.call('cd ' + PATH_TO_SESHAT, shell=True)
+
+    os.chdir(PATH_TO_SESHAT)
     for region in text_regions:
-    
+
+        if show_reg == True:
+            print('Showing region {}'.format(reg_n))
+            cv2.imshow('region', region)
+            cv2.waitKey()
+
+        print('Processing region {} (image processing)'.format(reg_n))
+
         endpoints = get_endpoints(region)
         strokes = follow_lines(region, endpoints, queue_length = 5)
         clusters_to_scgink(strokes, PATH_TO_SCGINK, min_length = 1)
 
+        
         seshat_cmd = './seshat -c Config/CONFIG -i ' + PATH_TO_SCGINK
+       
         if render == True:
             seshat_cmd = seshat_cmd + ' -r render/region_{}.pgm'.format(reg_n)
-
+        
+        print('Processing region {} (Seshat)'.format(reg_n))
         output = subprocess.check_output(seshat_cmd, shell=True)
+
         subprocess.call(['rm', '-f', PATH_TO_SCGINK])
         results.append(output)
         reg_n += 1

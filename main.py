@@ -48,6 +48,6 @@ if argc > 1:
 
 img = cv2.imread(image_path)
 
-res = utils.img_to_latex(img, render=True)
+res = utils.img_to_latex(img, render=True, show_reg = False)
 
-print(res[0])
+print(len(res))
