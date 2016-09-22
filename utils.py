@@ -70,7 +70,7 @@ def img_to_latex(img, render = False, show_reg = False):
             seshat_cmd = seshat_cmd + ' -r render/region_{}.pgm'.format(reg_n)
         
         print('Processing region {} (Seshat)'.format(reg_n))
-        output = subprocess.check_output(seshat_cmd, shell=True)
+        output = subprocess.check_output(seshat_cmd + ' | tail -n 1', shell=True)
 
         subprocess.call(['rm', '-f', PATH_TO_SCGINK])
         results.append(output)

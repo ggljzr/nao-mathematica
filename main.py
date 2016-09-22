@@ -53,4 +53,4 @@ img = cv2.imread(image_path)
 
 res = utils.img_to_latex(img, render=True, show_reg = False)
 
-print(len(res))
+print(res)
