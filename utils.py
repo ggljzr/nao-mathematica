@@ -42,7 +42,19 @@ def contours_to_scgink(contours, scgink_file, min_length=9):
             for coord in contour:
                 ink_file.write("{} {}\n".format(
                     coord[0][0], coord[0][1]))
+               
+'''
+funkce se pokusí nalézt a rozpoznat příklady v obrázku pomocí funkcí
+z processing.py (předzpracování s OpenCV) a programu Seshat
 
+parametry:
+    img -- vstupní obrázek (bitmapa)
+    render ( = False) -- má Seshat vytvořit obrázky ze vstupních dat (viz parametr -r u Seshatu)
+    show_reg ( = False) -- při True před zpracováním zobrazí každou nalezenou textovou oblast pomocí cv.imshow()
+
+návratová hodnota:
+    pole Latex řetězců, které reprezentují nalezení příklady (jeden řetězec za každý příklad)
+'''
 def img_to_latex(img, render = False, show_reg = False):
     text_regions = processing.get_text_regions(img)
     print("Detected {} text regions".format(len(text_regions)))
