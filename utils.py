@@ -49,7 +49,7 @@ z processing.py (předzpracování s OpenCV) a programu Seshat
 
 parametry:
     img -- vstupní obrázek (bitmapa)
-    render ( = False) -- má Seshat vytvořit obrázky ze vstupních dat (viz parametr -r u Seshatu)
+    render ( = False) -- má Seshat vytvořit obrázky ze vstupních dat? (viz parametr -r u Seshatu)
     show_reg ( = False) -- při True před zpracováním zobrazí každou nalezenou textovou oblast pomocí cv.imshow()
 
 návratová hodnota:
@@ -66,7 +66,7 @@ def img_to_latex(img, render = False, show_reg = False):
 
         if show_reg == True:
             print('Showing region {}'.format(reg_n))
-            cv2.imshow('region', region)
+            cv2.imshow('region {}'.format(reg_n), region)
             cv2.waitKey()
 
         print('Processing region {} (image processing)'.format(reg_n))
