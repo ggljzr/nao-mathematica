@@ -4,6 +4,9 @@ import subprocess
 import os
 import processing 
 import cv2
+import requests
+import json
+
 
 KEY_Q = 1048689
 PATH_TO_SESHAT = '/home/ggljzr/Documents/git/nao-mathematica/seshat/' 
@@ -108,8 +111,31 @@ def strokes_to_json(strokes):
 
         strokes_json['components'].append(component)
 
+    return json.dumps(strokes_json)
 
-    return strokes_json
+def img_to_json(img):
+    text_regions = processing.get_text_regions(img)
+    
+    expressions = []
+
+    for region in text_regions:
+        endpoints = processing.get_endpoints(region)
+        strokes = processing.follow_lines(region, endpoints)
+
+        strokes_json = strokes_to_json(strokes)
+        expressions.append(strokes_json)
+
+    return expressions
+
+def call_myscript(math_input, api_key):
+    url = 'http://cloud.myscript.com/api/v3.0/recognition/rest/math/doSimpleRecognition.json'
+    p = {'applicationKey': api_key, 'mathInput': math_input}
+     
+    r = requests.post(url, params = p)
+    r.raise_for_status()
+
+    return r.json()
+
 
 
 
