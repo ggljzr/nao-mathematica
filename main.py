@@ -42,8 +42,7 @@ import cv2
 import sys
 import numpy as np
 
-import requests
-import json
+import ConfigParser
 
 image_path = "images/tabule1.png"
 
@@ -54,32 +53,16 @@ if argc > 1:
 
 img = cv2.imread(image_path)
 
-text_regions = proc.get_text_regions(img)
+cfg = ConfigParser.ConfigParser()
+cfg.read('auth.ini')
 
-#cv2.imshow('aaa', text_regions[1] * 255)
+api_key = cfg.get('myscript', 'api_key')
 
-cv2.waitKey()
+expressions = utils.img_to_json(img)
 
-endpoints = proc.get_endpoints(text_regions[1])
-strokes = proc.follow_lines(text_regions[1], endpoints)
+for exp in expressions:
+    r = utils.call_myscript(exp, api_key)
+    print r['result']['results']
 
-x_coords = [ coord[0] for coord in strokes[0]]
-y_coords = [ coord[1] for coord in strokes[0]]
-
-strokes_json = utils.strokes_to_json(strokes)
-strokes_json = json.dumps(strokes_json)
-
-#res = utils.img_to_latex(img, render=True, show_reg = False)
-app_key = '17ead59f-33f8-4d2d-90b5-abf4b9eefa4e'
-
-url = 'http://cloud.myscript.com/api/v3.0/recognition/rest/math/doSimpleRecognition.json'
-
-p = {'applicationKey': app_key, 'mathInput': strokes_json}
-
-r = requests.post(url, params = p)
-
-print r.status_code
-
-print r.json()['result']['results'][0]
-
-utils.img_to_latex(img, render = True)
+res = utils.img_to_latex(img, render = True)
+print res
