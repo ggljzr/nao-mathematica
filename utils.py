@@ -91,6 +91,26 @@ def img_to_latex(img, render = False, show_reg = False):
     return results
 
 
+def strokes_to_json(strokes):
+    strokes_json = {
+        'resultTypes': ['LATEX'],
+        'columnOperation': False,
+        'userResources': []
+    }
+
+    strokes_json['components'] = []
+
+    for stroke in strokes:
+        x_coords = [coord[0] for coord in stroke]
+        y_coords = [coord[1] for coord in stroke]
+
+        component = {'type' : 'stroke', 'x' : x_coords, 'y' : y_coords}
+
+        strokes_json['components'].append(component)
+
+
+    return strokes_json
+
 
 
 

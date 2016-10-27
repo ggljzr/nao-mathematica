@@ -36,21 +36,50 @@
 #jako na to hledani tech tahu asi nakonec udelat tu dist transform a pak to hledat podle tech hrebenu
 
 import utils
+import processing as proc
 
 import cv2
 import sys
 import numpy as np
 
-image_path = "images/orig.png"
+import requests
+import json
+
+image_path = "images/tabule1.png"
 
 argc = len(sys.argv)
 
 if argc > 1:
     image_path = str(sys.argv[1])
 
-
 img = cv2.imread(image_path)
 
-res = utils.img_to_latex(img, render=True, show_reg = False)
+text_regions = proc.get_text_regions(img)
 
-print(res)
+#cv2.imshow('aaa', text_regions[1] * 255)
+
+cv2.waitKey()
+
+endpoints = proc.get_endpoints(text_regions[1])
+strokes = proc.follow_lines(text_regions[1], endpoints)
+
+x_coords = [ coord[0] for coord in strokes[0]]
+y_coords = [ coord[1] for coord in strokes[0]]
+
+strokes_json = utils.strokes_to_json(strokes)
+strokes_json = json.dumps(strokes_json)
+
+#res = utils.img_to_latex(img, render=True, show_reg = False)
+app_key = '17ead59f-33f8-4d2d-90b5-abf4b9eefa4e'
+
+url = 'http://cloud.myscript.com/api/v3.0/recognition/rest/math/doSimpleRecognition.json'
+
+p = {'applicationKey': app_key, 'mathInput': strokes_json}
+
+r = requests.post(url, params = p)
+
+print r.status_code
+
+print r.json()['result']['results'][0]
+
+utils.img_to_latex(img, render = True)
