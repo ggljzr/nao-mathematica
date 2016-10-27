@@ -55,10 +55,6 @@ def whiteboard_detect(img):
                 max_area = area
 
     if biggest is not None:
-        for point in biggest:
-            x, y = point[0].ravel()
-            cv2.circle(img, (x, y), 4, 255, -1)
-
         # najdu ctyri rohy podle kterejch vobrazek vyrovnam
         top_left = min(biggest, key=lambda p: p[0][0] + p[0][1])
         bottom_right = max(biggest, key=lambda p: p[0][0] + p[0][1])
