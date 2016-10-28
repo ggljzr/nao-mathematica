@@ -380,6 +380,7 @@ def follow_lines(img, endpoints, queue_length = 3):
                     #temp_img[rows, cols] = 0 #hmm tohle je asi bugfix ale este to neni vono
                     if last_point == None:
                         best_next_point = neighbour
+                        temp_img[rows, cols] = 0
                         break
                     
                     vect_a = np.array(current_point,dtype=float) - np.array(last_point,dtype=float)
