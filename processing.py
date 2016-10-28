@@ -343,13 +343,14 @@ def follow_lines(img, endpoints, queue_length = 3):
     #takze to asi nepude pres iterator
     for endpoint_index in range(0, len(endpoints)):
 
-        temp_img = np.copy(img)
         current_point = endpoints[endpoint_index]
         endpoints[endpoint_index] = None
 
+        temp_img = np.copy(img)
+
         if current_point == None:
             continue
-
+        
         stroke = []
 
         queue = []
@@ -376,7 +377,7 @@ def follow_lines(img, endpoints, queue_length = 3):
 
                 #hledám bod v nejlepsim smeru
                 if temp_img[rows, cols] > 0:
-                    temp_img[rows, cols] = 0
+                    #temp_img[rows, cols] = 0 #hmm tohle je asi bugfix ale este to neni vono
                     if last_point == None:
                         best_next_point = neighbour
                         break
