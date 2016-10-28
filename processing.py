@@ -378,6 +378,8 @@ def follow_lines(img, endpoints, queue_length = 3):
                 #hledám bod v nejlepsim smeru
                 if temp_img[rows, cols] > 0:
                     #temp_img[rows, cols] = 0 #hmm tohle je asi bugfix ale este to neni vono
+                    #vono by mozna chtelo hlavne znova vygenerovat endpointy po kazdym tahu
+                    #pak by se teoreticky ani nemuselo delat to vobnoveni vobrazku pres temp_img = np.copy(img)
                     if last_point == None:
                         best_next_point = neighbour
                         temp_img[rows, cols] = 0
