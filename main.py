@@ -64,5 +64,5 @@ for exp in expressions:
     r = utils.call_myscript(exp, api_key)
     print r['result']['results']
 
-res = utils.img_to_latex(img, render = True)
+res = utils.img_to_latex(img, render = True, write_reg=True, remove_scgink = False)
 print res
