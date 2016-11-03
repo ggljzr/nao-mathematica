@@ -31,7 +31,7 @@ def whiteboard_detect(img):
     # akora nahovno ze u toho vobrazku pod uhlem to veme misto jednoho rohu
     # ten stin takze je to trochu rozmazany
     thresh = cv2.adaptiveThreshold(
-        gray_blurred, 255, cv2.ADAPTIVE_THRESH_MEAN_C, cv2.THRESH_BINARY, 11, 2)
+        gray_blurred, 255, cv2.ADAPTIVE_THRESH_MEAN_C, cv2.THRESH_BINARY, 17, 2)
     contours, hierarchy = cv2.findContours(
         thresh, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
     contours_img = np.zeros((rows, cols), dtype=np.uint8)
@@ -327,11 +327,12 @@ funkce vytvoří sérii tahů z obrázku
 parametry:
     img -- vstupní obrázek (textová oblast, viz výstup funkce get_text_regions())
     queue_length (= 3) -- délka fronty, ze které se počítá první směrový vektor vektor
-           
+    min_stroke_len (= 2) -- minimální délka tahu
+
 návratová hodnota
     pole tahů tvořících příklad, každý tah je posloupnost bodů (x,y)
 '''
-def follow_lines(img, queue_length = 3):
+def follow_lines(img, queue_length = 3, min_stroke_len = 2):
     strokes = []
 
     #serazeni vod nejlevejsiho
@@ -423,7 +424,8 @@ def follow_lines(img, queue_length = 3):
         #tady nekde pak asi znova temp_img = img
         #nebo mozna ani nemusi bejt
         
-        strokes.append(stroke)
+        if len(stroke) >= min_stroke_len:
+            strokes.append(stroke)
 
     return strokes
         
