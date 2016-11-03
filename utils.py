@@ -80,8 +80,7 @@ def img_to_latex(img, render = False, show_reg = False, write_reg = False, remov
 
         print('Processing region {} (image processing)'.format(reg_n))
 
-        endpoints = processing.get_endpoints(region)
-        strokes = processing.follow_lines(region, endpoints, queue_length = 5)
+        strokes = processing.follow_lines(region, queue_length = 5)
         path_to_inkfile = '{}/region{}.scgink'.format(PATH_TO_SCGINK, reg_n)
         clusters_to_scgink(strokes, path_to_inkfile, min_length = 1)
 
@@ -128,8 +127,7 @@ def img_to_json(img):
     expressions = []
 
     for region in text_regions:
-        endpoints = processing.get_endpoints(region)
-        strokes = processing.follow_lines(region, endpoints)
+        strokes = processing.follow_lines(region)
 
         strokes_json = strokes_to_json(strokes)
         expressions.append(strokes_json)

@@ -326,17 +326,17 @@ funkce vytvoří sérii tahů z obrázku
 
 parametry:
     img -- vstupní obrázek (textová oblast, viz výstup funkce get_text_regions())
-    endpoits -- koncové body nalezené v obrázku (viz funkce get_endpoints())
     queue_length (= 3) -- délka fronty, ze které se počítá první směrový vektor vektor
            
 návratová hodnota
     pole tahů tvořících příklad, každý tah je posloupnost bodů (x,y)
 '''
-def follow_lines(img, endpoints, queue_length = 3):
+def follow_lines(img, queue_length = 3):
     strokes = []
 
     #serazeni vod nejlevejsiho
     #nevim jestli to je lepsi no
+    endpoints = get_endpoints(img)
     endpoints.sort(key = lambda x: x[0])
 
     #do toho endpoints budu chtit zapisovat (mazat endpointy)
