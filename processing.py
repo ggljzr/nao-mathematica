@@ -327,12 +327,12 @@ funkce vytvoří sérii tahů z obrázku
 parametry:
     img -- vstupní obrázek (textová oblast, viz výstup funkce get_text_regions())
     queue_length (= 3) -- délka fronty, ze které se počítá první směrový vektor vektor
-    min_stroke_len (= 2) -- minimální délka tahu
+    min_stroke_len (= 1) -- minimální délka tahu
 
 návratová hodnota
     pole tahů tvořících příklad, každý tah je posloupnost bodů (x,y)
 '''
-def follow_lines(img, queue_length = 3, min_stroke_len = 2):
+def follow_lines(img, queue_length = 3, min_stroke_len = 1):
     strokes = []
 
     #serazeni vod nejlevejsiho
