@@ -47,7 +47,7 @@ def whiteboard_detect(img):
 
     for contour in contours:
         area = cv2.contourArea(contour)
-        if area > 100:
+        if area > 100 and area < rows * cols * 0.9:
             peri = cv2.arcLength(contour, True)
             approx = cv2.approxPolyDP(contour, 0.02 * peri, True)
             if area > max_area and len(approx) == 4:
