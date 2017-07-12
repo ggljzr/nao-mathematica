@@ -1,6 +1,6 @@
-#Rozpoznávání příkladů z tabule
+# Rozpoznávání příkladů z tabule
 
-##Úvod, cíl práce
+## Úvod, cíl práce
 
 Cílem práce bylo vytvořit program, pomocí kterého bude robot číst příklady napsané na tabuli a hlásit výsledky. Robot by tedy měl pořídit fotografii tabule, na ní rozpoznat jednotlivé příklady a ty postupně spočítat.
 
@@ -9,7 +9,7 @@ Práci je tedy možno rozdělit do třech částí:
 * Zpracování příkladů -- převod příkladů (obrázků) do vhodného textového formátu
 * Výpočet příkladů -- v tomto případě s využitím API pro jazyk Mathematica 
 
-##Analýza možností získávání textu z obrázků
+## Analýza možností získávání textu z obrázků
 
 Při hledání vhodného programu pro rozpoznávání příkladů jsem nejprve testoval program Tesseract (vyvíjen společností Google, zdrojové kódy k dispozici [zde](https://github.com/tesseract-ocr/tesseract)). Tento program zpracovává obrázky pomocí OCR. Ukázalo se, že Tesseract poměrně spolehlivě rozpoznává tištěný text, ručně psané příklady však nikoliv. Další problém je omezená sada rozpoznatelných znaku (která neobsahuje standardní matematické symboly jako suma nebo integrál). Každopádně program by se dal uplatnit v jiných projektech, například pokud by robot měl předčítat zprávy vytištěné na papíru. 
 
@@ -17,7 +17,7 @@ Další testovaný program byl Seshat (zdrojové kódy [zde](https://github.com/
 
 Řešení, které jsem zvolil je tedy následující: provést předzpracování obrázku pomocí knihovny OpenCV a vytvořit z něj odpovídající posloupnost tahů, která pak bude předána Seshatu k vyhodnocení.
 
-##Zpracování fotografie tabule
+## Zpracování fotografie tabule
 
 V této části bude využita především knihovna pro zpracování obrazu OpenCV (verze 2.4.13). Knihovna kromě C++ podporuje i rozhraní pro Javu, Python a další jazyky. Já jsem se kvůli snadnému prototypování rozhodl pro implementaci programu použít Python (verze 2.7). Funkce z této knihovny v textu začínají **cv2.**.
 
