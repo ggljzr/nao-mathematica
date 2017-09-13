@@ -31,7 +31,7 @@ def whiteboard_detect(img):
     # akora nahovno ze u toho vobrazku pod uhlem to veme misto jednoho rohu
     # ten stin takze je to trochu rozmazany
     thresh = cv2.adaptiveThreshold(
-        gray_blurred, 255, cv2.ADAPTIVE_THRESH_MEAN_C, cv2.THRESH_BINARY, 11, 2)
+        gray_blurred, 255, cv2.ADAPTIVE_THRESH_MEAN_C, cv2.THRESH_BINARY, 17, 2)
     contours, hierarchy = cv2.findContours(
         thresh, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
     contours_img = np.zeros((rows, cols), dtype=np.uint8)
@@ -47,7 +47,7 @@ def whiteboard_detect(img):
 
     for contour in contours:
         area = cv2.contourArea(contour)
-        if area > 100:
+        if area > 100 and area < rows * cols * 0.9:
             peri = cv2.arcLength(contour, True)
             approx = cv2.approxPolyDP(contour, 0.02 * peri, True)
             if area > max_area and len(approx) == 4:
@@ -55,10 +55,6 @@ def whiteboard_detect(img):
                 max_area = area
 
     if biggest is not None:
-        for point in biggest:
-            x, y = point[0].ravel()
-            cv2.circle(img, (x, y), 4, 255, -1)
-
         # najdu ctyri rohy podle kterejch vobrazek vyrovnam
         top_left = min(biggest, key=lambda p: p[0][0] + p[0][1])
         bottom_right = max(biggest, key=lambda p: p[0][0] + p[0][1])
@@ -330,30 +326,32 @@ funkce vytvoří sérii tahů z obrázku
 
 parametry:
     img -- vstupní obrázek (textová oblast, viz výstup funkce get_text_regions())
-    endpoits -- koncové body nalezené v obrázku (viz funkce get_endpoints())
     queue_length (= 3) -- délka fronty, ze které se počítá první směrový vektor vektor
-           
+    min_stroke_len (= 1) -- minimální délka tahu
+
 návratová hodnota
     pole tahů tvořících příklad, každý tah je posloupnost bodů (x,y)
 '''
-def follow_lines(img, endpoints, queue_length = 3):
+def follow_lines(img, queue_length = 3, min_stroke_len = 1):
     strokes = []
 
     #serazeni vod nejlevejsiho
     #nevim jestli to je lepsi no
+    endpoints = get_endpoints(img)
     endpoints.sort(key = lambda x: x[0])
 
     #do toho endpoints budu chtit zapisovat (mazat endpointy)
     #takze to asi nepude pres iterator
     for endpoint_index in range(0, len(endpoints)):
 
-        temp_img = np.copy(img)
         current_point = endpoints[endpoint_index]
         endpoints[endpoint_index] = None
 
+        temp_img = np.copy(img)
+
         if current_point == None:
             continue
-
+        
         stroke = []
 
         queue = []
@@ -380,9 +378,12 @@ def follow_lines(img, endpoints, queue_length = 3):
 
                 #hledám bod v nejlepsim smeru
                 if temp_img[rows, cols] > 0:
-                    temp_img[rows, cols] = 0
+                    #temp_img[rows, cols] = 0 #hmm tohle je asi bugfix ale este to neni vono
+                    #vono by mozna chtelo hlavne znova vygenerovat endpointy po kazdym tahu
+                    #pak by se teoreticky ani nemuselo delat to vobnoveni vobrazku pres temp_img = np.copy(img)
                     if last_point == None:
                         best_next_point = neighbour
+                        temp_img[rows, cols] = 0
                         break
                     
                     vect_a = np.array(current_point,dtype=float) - np.array(last_point,dtype=float)
@@ -423,7 +424,8 @@ def follow_lines(img, endpoints, queue_length = 3):
         #tady nekde pak asi znova temp_img = img
         #nebo mozna ani nemusi bejt
         
-        strokes.append(stroke)
+        if len(stroke) >= min_stroke_len:
+            strokes.append(stroke)
 
     return strokes
         

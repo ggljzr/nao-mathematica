@@ -36,21 +36,33 @@
 #jako na to hledani tech tahu asi nakonec udelat tu dist transform a pak to hledat podle tech hrebenu
 
 import utils
+import processing as proc
 
 import cv2
 import sys
 import numpy as np
 
-image_path = "images/orig.png"
+import ConfigParser
+
+image_path = "images/tabule1.png"
 
 argc = len(sys.argv)
 
 if argc > 1:
     image_path = str(sys.argv[1])
 
-
 img = cv2.imread(image_path)
 
-res = utils.img_to_latex(img, render=True, show_reg = False)
+cfg = ConfigParser.ConfigParser()
+cfg.read('auth.ini')
 
-print(res)
+api_key = cfg.get('myscript', 'api_key')
+
+expressions = utils.img_to_json(img)
+
+for exp in expressions:
+    r = utils.call_myscript(exp, api_key)
+    print r['result']['results']
+
+res = utils.img_to_latex(img, render = True, write_reg=True, remove_scgink = False)
+print res
